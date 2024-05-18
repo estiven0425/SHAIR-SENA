@@ -20,7 +20,6 @@ const animacionDerecha = {
         rotateY: 90
     }
 };
-
 const animacionIzquierda = {
     initial: {
         opacity: 0,
@@ -35,18 +34,17 @@ const animacionIzquierda = {
         rotateY: -90
     }
 };
-
 const transicionPagina = {
     type: "tween",
     duration: 0.25
 };
 
 function FormularioRenderizado() {
-    const { formulario } = useContext(FormularioContexto);
+    const formulario = useContext(FormularioContexto);
 
     let formularioRenderizado;
 
-    switch (formulario) {
+    switch (formulario.formulario) {
         case 0:
             formularioRenderizado = <FormularioInicio />;
             break;
@@ -60,12 +58,12 @@ function FormularioRenderizado() {
             formularioRenderizado = <FormularioInicio />;
     }
 
-    const varianteAnimacion = formulario == 0 ? animacionIzquierda : animacionDerecha;
+    const varianteAnimacion = formulario.formulario == 0 ? animacionIzquierda : animacionDerecha;
 
     return (
         <AnimatePresence mode="wait">
             <motion.div
-                key={formulario}
+                key={formulario.formulario}
                 initial="initial"
                 animate="in"
                 exit="out"

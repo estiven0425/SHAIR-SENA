@@ -9,6 +9,7 @@ function Formulario() {
         formulario,
         setFormulario
     }
+    
     return (
         <section id="formularioPrincipal">
             <FormularioContexto.Provider value={formularioEstado}>
