@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Work+Sans:ital@0;1&display=swap');
+
+* {
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+html {
+    font-family: Work Sans;
+    font-size: 100%;
+    font-weight: 400;
+    word-break: break-all;
+}
+
+body {
+    margin: 0px;
+}
