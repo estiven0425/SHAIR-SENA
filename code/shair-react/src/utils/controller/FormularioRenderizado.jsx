@@ -62,7 +62,7 @@ function FormularioRenderizado() {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div
+            <motion.section
                 key={formulario.formulario}
                 initial="initial"
                 animate="in"
@@ -72,7 +72,7 @@ function FormularioRenderizado() {
                 id="formularioTransicion"
             >
                 {formularioRenderizado}
-            </motion.div>
+            </motion.section>
         </AnimatePresence>
     );
 }

@@ -8,7 +8,7 @@ function FormularioInicio() {
     const setFormulario = formulario.setFormulario;
 
     return (
-        <div className="tarjetaFormulario">
+        <article className="tarjetaFormulario">
             <header className="tarjetaFormularioCabecera">
                 <h1>SHAIR<br />te da la bienvenida</h1>
             </header>
@@ -21,7 +21,7 @@ function FormularioInicio() {
                 <button className="tarjetaFormularioPieBoton tarjetaFormularioPieBotonAlternativo" type="button" onClick={() => setFormulario(1)}>Superadministrador</button>
                 <button className="tarjetaFormularioPieBoton tarjetaFormularioPieBotonAlternativo" type="button" onClick={() => setFormulario(2)}>Administador</button>
             </footer>
-        </div>
+        </article>
     );
 }
 

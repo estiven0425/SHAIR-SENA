@@ -5,17 +5,20 @@ import FormularioRenderizado from "../../utils/controller/FormularioRenderizado"
 
 function Formulario() {
     const [formulario, setFormulario] = useState(0);
+    const [valorEmail, setValorEmail] = useState("");
     const formularioEstado = {
         formulario,
-        setFormulario
+        setFormulario,
+        valorEmail,
+        setValorEmail
     }
-    
+
     return (
-        <section id="formularioPrincipal">
+        <main id="formularioPrincipal">
             <FormularioContexto.Provider value={formularioEstado}>
                 <FormularioRenderizado />
             </FormularioContexto.Provider>
-        </section>
+        </main>
     );
 }
 
