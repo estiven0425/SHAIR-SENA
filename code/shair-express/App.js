@@ -1,6 +1,7 @@
 const express = require('express');
 const { coneccionBD } = require('./config/database');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 const administradorRuta = require('./routes/AdministradorRoute');
 const anuncioRuta = require('./routes/AnuncioRoute');
@@ -22,6 +23,7 @@ app.use('/recomendacion', recomendacionRuta);
 app.use('/superadministrador', superadministradorRuta);
 app.use('/administradorlogin', administradorLogin);
 app.use('/superadministradorlogin', superadministradorLogin);
+app.use(express.static(path.join(__dirname, 'public')));
 
 const PORT = process.env.PORT || 5000;
 

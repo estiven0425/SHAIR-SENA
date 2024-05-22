@@ -1,6 +1,5 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import './styles/style.css';
 import gobiernoCol from '../../assets/images/gobiernoColombia.svg';
 import normasIso from '../../assets/images/normasIso.svg';
 import gov from '../../assets/images/gov.svg';
@@ -11,93 +10,97 @@ function Footer() {
             <Outlet />
             <footer id="Footer">
                 <section className="seccionFooter" id="seccionFooterSuperior">
-                    <aside>
-                        <img src={gobiernoCol} alt=">Gobierno de Colombia" draggable="false" />
+                    <aside id="seccionFooter0">
+                        <div>
+                            <img src={gobiernoCol} alt=">Gobierno de Colombia" draggable="false" />
+                        </div>
                     </aside>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior0"></div>
-                            <a href="https://petro.presidencia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior0">Presidencia</a>
+                    <article id="seccionFooter1">
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior0"></div>
+                                <a href="https://petro.presidencia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior0">Presidencia</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior1"></div>
+                                <a href="https://www.minjusticia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior1">MinJusticia</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior2"></div>
+                                <a href="https://www.mininterior.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior2">MinInterior</a>
+                            </div>
                         </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior1"></div>
-                            <a href="https://www.minjusticia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior1">MinJusticia</a>
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior3"></div>
+                                <a href="https://www.mintic.gov.co/portal/inicio/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior3">MinTic</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior4"></div>
+                                <a href="https://www.minsalud.gov.co/Portada2021/index.html" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior4">MinSalud</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior5"></div>
+                                <a href="https://www.mincultura.gov.co/Paginas/default.aspx" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior5">MinCultura</a>
+                            </div>
                         </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior2"></div>
-                            <a href="https://www.mininterior.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior2">MinInterior</a>
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior6"></div>
+                                <a href="https://www.minminas.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior6">MinMinas</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior7"></div>
+                                <a href="https://www.mindefensa.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior7">MinDefensa</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior8"></div>
+                                <a href="https://www.mineducacion.gov.co/portal/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior8">MinEducación</a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior3"></div>
-                            <a href="https://www.mintic.gov.co/portal/inicio/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior3">MinTic</a>
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior9"></div>
+                                <a href="https://www.mintrabajo.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior9">MinTrabajo</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior10"></div>
+                                <a href="https://mintransporte.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior10">MinTransporte</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior11"></div>
+                                <a href="https://www.urnadecristal.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior11">Urna de Cristal</a>
+                            </div>
                         </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior4"></div>
-                            <a href="https://www.minsalud.gov.co/Portada2021/index.html" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior4">MinSalud</a>
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior12"></div>
+                                <a href="https://www.minhacienda.gov.co/webcenter/portal/Minhacienda" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior12">MinHacienda</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior13"></div>
+                                <a href="https://www.mincit.gov.co/inicio" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior13">MinComercio</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior14"></div>
+                                <a href="https://www.minvivienda.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior14">MinVivienda</a>
+                            </div>
                         </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior5"></div>
-                            <a href="https://www.mincultura.gov.co/Paginas/default.aspx" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior5">MinCultura</a>
+                        <div className="contenedorSeccionFooter1Superior">
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior15"></div>
+                                <a href="https://www.minagricultura.gov.co/paginas/default.aspx" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior15">MinAgricultura</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior16"></div>
+                                <a href="https://fmm.vicepresidencia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior16">Vicepresidencia</a>
+                            </div>
+                            <div className="subContenedorSeccionFooter1Superior">
+                                <div id="cuadroSubContenedorSeccionFooter1Superior17"></div>
+                                <a href="https://www.minambiente.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooter1Superior" id="enlaceSubContenedorSeccionFooter1Superior17">MinAmbiente</a>
+                            </div>
                         </div>
-                    </div>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior6"></div>
-                            <a href="https://www.minminas.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior6">MinMinas</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior7"></div>
-                            <a href="https://www.mindefensa.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior7">MinDefensa</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior8"></div>
-                            <a href="https://www.mineducacion.gov.co/portal/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior8">MinEducación</a>
-                        </div>
-                    </div>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior9"></div>
-                            <a href="https://www.mintrabajo.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior9">MinTrabajo</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior10"></div>
-                            <a href="https://mintransporte.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior10">MinTransporte</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior11"></div>
-                            <a href="https://www.urnadecristal.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior11">Urna de Cristal</a>
-                        </div>
-                    </div>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior12"></div>
-                            <a href="https://www.minhacienda.gov.co/webcenter/portal/Minhacienda" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior12">MinHacienda</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior13"></div>
-                            <a href="https://www.mincit.gov.co/inicio" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior13">MinComercio</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior14"></div>
-                            <a href="https://www.minvivienda.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior14">MinVivienda</a>
-                        </div>
-                    </div>
-                    <div className="contenedorSeccionFooterSuperior">
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior15"></div>
-                            <a href="https://www.minagricultura.gov.co/paginas/default.aspx" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior15">MinAgricultura</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior16"></div>
-                            <a href="https://fmm.vicepresidencia.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior16">Vicepresidencia</a>
-                        </div>
-                        <div className="subContenedorSeccionFooterSuperior">
-                            <div id="cuadroSubContenedorSeccionFooterSuperior17"></div>
-                            <a href="https://www.minambiente.gov.co/" target="_blank" className="enlaceSubContenedorSeccionFooterSuperior" id="enlaceSubContenedorSeccionFooterSuperior17">MinAmbiente</a>
-                        </div>
-                    </div>
+                    </article>
                 </section>
                 <section className="seccionFooter" id="seccionFooterMedia">
                     <article id="contenidoSeccionFooterMedia">
@@ -117,7 +120,7 @@ function Footer() {
                         <a href="https://www.sena.edu.co/es-co/transparencia/Documents/proteccion_datos_personales_sena_2016.pdf" target="_blank">Política de Tratamiento para Protección de Datos Personales - </a>
                         <a href="https://compromiso.sena.edu.co/index.php?text=inicio&id=27" target="_blank">Política de seguridad y privacidad de la información</a>
                     </article>
-                    <aside>
+                    <aside id="certificadoSeccionFooterMedia">
                         <img src={normasIso} alt="Normas ISO" draggable="false" />
                     </aside>
                 </section>

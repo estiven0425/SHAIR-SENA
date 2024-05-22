@@ -8,6 +8,7 @@
     background-size: contain;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
@@ -20,10 +21,11 @@
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: space-between;
-    height: 70%;
+    min-height: 70%;
     padding: 10px;
-    width: 30%;
+    min-width: 30%;
 }
 
 .tarjetaFormularioCabecera {
@@ -34,9 +36,9 @@
     color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     margin: -10px -10px 0px -10px;
-    min-height: 15%;
     padding: 10px;
 }
 
@@ -50,6 +52,7 @@
     align-content: center;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     height: 100%;
     padding: 10px;
@@ -59,8 +62,10 @@
     align-content: center;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     height: 100%;
     justify-content: center;
+    width: 100%;
 }
 
 .tarjetaFormularioCuerpoFormularioGrupo {
@@ -71,6 +76,7 @@
     justify-content: center;
     margin: 10px 0px;
     padding: 0px;
+    width: 100%;
 }
 
 .tarjetaFormularioCuerpoFormularioGrupoInput {
@@ -101,6 +107,7 @@
     align-content: center;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     padding: 10px;
 }
@@ -117,7 +124,7 @@
     color: rgb(255, 255, 255);
     cursor: pointer;
     padding: 10px;
-    width: 40%;
+    min-width: 40%;
 }
 
 .tarjetaFormularioPieBoton:hover {

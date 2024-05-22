@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './styles/Formulario.css';
+import './styles/formulario.css';
 import FormularioContexto from "../../contexts/FormularioContexto";
-import FormularioRenderizado from "../../utils/controllers/FormularioRenderizado";
+import FormularioRenderizado from "../../utils/admin/controllers/FormularioRenderizado";
 
 function Formulario() {
     const [formulario, setFormulario] = useState(0);

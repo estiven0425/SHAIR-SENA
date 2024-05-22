@@ -1,0 +1,60 @@
+header {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(4, 50, 77);
+    padding: 10px;
+}
+
+.seccionHeader {
+    min-width: 30%;
+}
+
+.seccionHeader p,
+.seccionHeader h1 {
+    margin: 0px;
+}
+
+#fechaSeccionHeader p {
+    text-align: left;
+}
+
+#nombreSeccionHeader h1 {
+    text-align: center;
+}
+
+#horaSeccionHeader p {
+    text-align: right;
+}
+
+
+.seccionHeader h1 {
+    color: rgb(57, 169, 0);
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 635px) {
+
+    header {
+        justify-content: center;
+    }
+
+    #fechaSeccionHeader,
+    #horaSeccionHeader {
+        display: none;
+    }
+}
