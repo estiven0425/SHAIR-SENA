@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext } from "react";
-import FormularioContexto from "../../context/FormularioContexto";
+import FormularioContexto from "../../contexts/FormularioContexto";
 import '../../pages/admin/styles/Formulario.css';
 
 function FormularioAdministrador() {
