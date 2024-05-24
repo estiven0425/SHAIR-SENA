@@ -24,8 +24,8 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     min-height: 70%;
-    padding: 10px;
     min-width: 30%;
+    padding: 10px;
 }
 
 .tarjetaFormularioCabecera {
@@ -139,4 +139,14 @@
 .tarjetaFormularioPieBotonAlternativo {
     margin: 5px 0px;
     width: 60%;
+}
+
+#enlaceTarjetaFormularioPieBoton {
+    color: rgb(4, 50, 77);
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+#enlaceTarjetaFormularioPieBoton:hover {
+    text-decoration: underline;
 }

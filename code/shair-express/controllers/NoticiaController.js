@@ -1,8 +1,14 @@
 const Noticia = require('../models/Noticia');
+const Administrador = require('../models/Administrador');
 
 exports.leerNoticia = async (req, res) => {
     try {
-        const noticia = await Noticia.findAll();
+        const noticia = await Noticia.findAll({
+            include: [{
+                model: Administrador,
+                attributes: ['nombre']
+            }]
+        });
 
         res.json(noticia);
     } catch (error) {

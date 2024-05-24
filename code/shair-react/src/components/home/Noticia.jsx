@@ -5,7 +5,7 @@ function Noticia() {
     const [noticia, setNoticia] = useState([]);
 
     useEffect(() => {
-        const leerNoticias = async () => {
+        const leerNoticia = async () => {
             try {
                 const respuesta = await axios.get('http://localhost:5000/noticia');
 
@@ -15,22 +15,32 @@ function Noticia() {
             }
         };
 
-        leerNoticias();
+        leerNoticia();
     }, []);
 
     return (
         <>
             {noticia.map(noticia => (
-                <article key={noticia.id}>
+                <div key={noticia.id} className="subContenedorNoticia">
                     <h2>{noticia.nombre}</h2>
-                    <p>{noticia.enunciado}</p>
-                    <p><span>Lugar: </span>{noticia.lugar}</p>
-                    <p><span>Desde: </span>{new Date(noticia.fecha_inicio).toLocaleDateString()}</p>
-                    <p><span>Hasta: </span>{new Date(noticia.fecha_fin).toLocaleDateString()}</p>
-                    <p><span>Organiza: </span>{noticia.id_administrador}</p>
-                    <p><span>Más información: </span>{noticia.mas_informacion}</p>
-                    <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
-                </article>
+                    <article className="articuloSubContenedorNoticia">
+                        <div className="informacionArticuloSubContenedorNoticia">
+                            <div className="principalInformacionArticuloSubContenedorNoticia">
+                                <p>{noticia.enunciado}</p>
+                            </div>
+                            <div className="secundariaInformacionArticuloSubContenedorNoticia">
+                                <p><span>Lugar: </span>{noticia.lugar}</p>
+                                <p><span>Desde: </span>{new Date(noticia.fecha_inicio).toLocaleDateString()}</p>
+                                <p><span>Hasta: </span>{new Date(noticia.fecha_fin).toLocaleDateString()}</p>
+                                <p><span>Organiza: </span>{noticia.Administrador.nombre}</p>
+                                <p><span>Más información: </span>{noticia.mas_informacion}</p>
+                            </div>
+                        </div>
+                        <div className="imagenArticuloSubContenedorNoticia">
+                            <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
+                        </div>
+                    </article>
+                </div>
             ))}
         </>
     );

@@ -8,15 +8,15 @@ const Recomendacion = sequelize.define('Recomendacion', {
     },
     nombre: {
         type: DataTypes.STRING(250),
-        allowNull: false,
+        allowNull: false
     },
     enunciado: {
         type: DataTypes.STRING(1000),
-        allowNull: false,
+        allowNull: false
     },
     archivo_adjunto: {
         type: DataTypes.STRING(1000),
-        allowNull: true,
+        allowNull: true
     }
 }, {
     tableName: 'recomendacion',

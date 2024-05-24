@@ -20,15 +20,26 @@ function Anuncio() {
 
     return (
         <>
-            <div>
+            <div id="contenidoSliderAnuncio">
                 {anuncio.map(anuncio => (
-                    <article key={anuncio.id}>
-                        <h2>{anuncio.nombre}</h2>
-                        <p>{anuncio.enunciado}</p>
-                        <p><span>Más información: </span>{anuncio.mas_informacion}</p>
-                        <img src={`http://localhost:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+                    <article key={anuncio.id} className="articuloContenidoSliderAnuncio">
+                        <div className="informacionArticuloContenidoSliderAnuncio">
+                            <div className="principalInformacionArticuloContenidoSliderAnuncio">
+                                <h2>{anuncio.nombre}</h2>
+                                <p>{anuncio.enunciado}</p>
+                            </div>
+                            <div className="secundariaInformacionArticuloContenidoSliderAnuncio">
+                                <p><span>Más información: </span>{anuncio.mas_informacion}</p>
+                            </div>
+                        </div>
+                        <div className="imagenArticuloContenidoSliderAnuncio">
+                            <img src={`http://localhost:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+                        </div>
                     </article>
                 ))}
+            </div>
+            <div>
+                <p>control de slider</p>
             </div>
 
         </>

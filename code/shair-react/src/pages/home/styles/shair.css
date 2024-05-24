@@ -1,4 +1,4 @@
-header {
+#shairHeader {
     align-content: center;
     align-items: center;
     display: flex;
@@ -36,25 +36,303 @@ header {
     font-size: 1.5rem;
 }
 
+#shairPrincipal {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px;
+    min-height: 100vh;
+}
+
+#sliderAnuncio {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+#contenidoSliderAnuncio {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow: hidden;
+    width: 70%;
+}
+
+.articuloContenidoSliderAnuncio {
+    align-content: stretch;
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    min-width: 100%;
+}
+
+.informacionArticuloContenidoSliderAnuncio {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.principalInformacionArticuloContenidoSliderAnuncio {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px 0px;
+}
+
+.principalInformacionArticuloContenidoSliderAnuncio h2 {
+    color: rgb(57, 169, 0);
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.principalInformacionArticuloContenidoSliderAnuncio h2,
+.principalInformacionArticuloContenidoSliderAnuncio p {
+    margin: 10px 0px;
+}
+
+.secundariaInformacionArticuloContenidoSliderAnuncio {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px 0px;
+}
+
+.secundariaInformacionArticuloContenidoSliderAnuncio p {
+    margin: 0px;
+}
+
+.secundariaInformacionArticuloContenidoSliderAnuncio span {
+    color: rgb(57, 169, 0);
+}
+
+.imagenArticuloContenidoSliderAnuncio {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagenArticuloContenidoSliderAnuncio img {
+    border-radius: 10px;
+    max-width: 250px;
+    width: 100%;
+}
+
+#contenedorNoticia {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
 
 
+.subContenedorNoticia {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
 
+.subContenedorNoticia h2 {
+    color: rgb(57, 169, 0);
+    font-size: 1.5rem;
+    text-align: left;
+    width: 70%;
+}
 
+.articuloSubContenedorNoticia {
+    align-content: stretch;
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    width: 70%;
+}
 
+.informacionArticuloSubContenedorNoticia {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 60%;
+}
 
+.principalInformacionArticuloSubContenedorNoticia {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 10px 0px;
+}
 
+.subcontenedorNoticia h2,
+.principalInformacionArticuloSubContenedorNoticia p {
+    margin: 10px 0px;
+}
 
+.secundariaInformacionArticuloSubContenedorNoticia {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 10px 0px;
+}
 
+.secundariaInformacionArticuloSubContenedorNoticia p {
+    margin: 0px;
+}
 
+.secundariaInformacionArticuloSubContenedorNoticia span {
+    color: rgb(57, 169, 0);
+}
+
+.imagenArticuloSubContenedorNoticia {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imagenArticuloSubContenedorNoticia img {
+    border-radius: 10px;
+    max-width: 250px;
+    width: 100%;
+}
+
+#herramienta {
+    align-content: center;
+    background-color: rgb(57, 169, 0);
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    position: fixed;
+    right: 0%;
+}
+
+#herramienta h2 {
+    border-bottom: 2px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    margin: 10px 0px;
+    text-align: center;
+}
+
+#cajaHerramienta {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.subCajaHerramienta {
+    align-content: center;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.subCajaHerramienta:hover {
+    filter: invert();
+    text-decoration: underline;
+}
+
+.subCajaHerramienta img {
+    max-width: 50px;
+    min-width: 25px;
+    width: 100%;
+}
+
+#botonHerramienta {
+    background-color: rgb(57, 169, 0);
+    border-radius: 50%;
+    border: none;
+    bottom: 0%;
+    margin: 10px;
+    max-width: 60px;
+    min-height: 50px;
+    min-width: 50px;
+    padding: 10px;
+    position: fixed;
+    right: 65px;
+    width: 10%;
+}
+
+#botonHerramienta:hover {
+    outline: 2px solid rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#botonHerramienta img {
+    width: 100%;
+}
+
+@media (max-width: 945px) {
+
+    .informacionArticuloContenidoSliderAnuncio,
+    .imagenArticuloContenidoSliderAnuncio,
+    .informacionArticuloSubContenedorNoticia,
+    .imagenArticuloSubContenedorNoticia {
+        width: 100%;
+    }
+}
 
 @media (max-width: 635px) {
 
-    header {
+    #shairHeader {
         justify-content: center;
     }
 
     #fechaSeccionHeader,
     #horaSeccionHeader {
         display: none;
+    }
+}
+
+@media (max-width: 150px) {
+    #botonHerramienta {
+        right: 0px;
     }
 }

@@ -8,27 +8,27 @@ const Superadministrador = sequelize.define('Superadministrador', {
     },
     nombre: {
         type: DataTypes.STRING(250),
-        allowNull: false,
+        allowNull: false
     },
     email: {
         type: DataTypes.STRING(250),
-        allowNull: false,
+        allowNull: false
     },
     celular: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: false
     },
     telefono: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        allowNull: true
     },
     contraseña: {
         type: DataTypes.STRING(250),
-        allowNull: false,
+        allowNull: false
     },
     perfil_ocupacional: {
         type: DataTypes.STRING(250),
-        allowNull: false,
+        allowNull: false
     },
     fecha_creacion: {
         type: DataTypes.DATE,

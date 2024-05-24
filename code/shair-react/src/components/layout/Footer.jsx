@@ -12,7 +12,7 @@ function Footer() {
                 <section className="seccionFooter" id="seccionFooterSuperior">
                     <aside id="seccionFooter0">
                         <div>
-                            <img src={gobiernoCol} alt=">Gobierno de Colombia" draggable="false" />
+                            <img src={gobiernoCol} alt=">Gobierno de Colombia" />
                         </div>
                     </aside>
                     <article id="seccionFooter1">
@@ -121,12 +121,12 @@ function Footer() {
                         <a href="https://compromiso.sena.edu.co/index.php?text=inicio&id=27" target="_blank">Política de seguridad y privacidad de la información</a>
                     </article>
                     <aside id="certificadoSeccionFooterMedia">
-                        <img src={normasIso} alt="Normas ISO" draggable="false" />
+                        <img src={normasIso} alt="Normas ISO" />
                     </aside>
                 </section>
                 <section className="seccionFooter" id="seccionFooterInferior">
                     <a href="https://www.gov.co/" target="_blank">
-                        <img src={gov} alt="Gov.co" draggable="false" />
+                        <img src={gov} alt="Gov.co" />
                     </a>
                 </section>
             </footer>
