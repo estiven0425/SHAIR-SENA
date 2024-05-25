@@ -21,7 +21,7 @@ function Herramienta() {
                 transition={{ duration: 0.25 }}>
                 <h2>Herramientas</h2>
                 <div className="cajaHerramienta">
-                    <Link to="/" className="subCajaHerramienta">
+                    <Link to="/recomendacion" className="subCajaHerramienta">
                         <img src={Mensaje} alt="Mensaje" />
                         Enviar recomendación
                     </Link>

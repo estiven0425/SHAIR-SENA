@@ -274,8 +274,10 @@
     text-decoration: none;
 }
 
-.subCajaHerramienta:hover {
+.subCajaHerramienta:hover,
+.subCajaHerramienta:focus {
     filter: invert();
+    outline: none;
     text-decoration: underline;
 }
 
@@ -305,8 +307,48 @@
     cursor: pointer;
 }
 
+#botonHerramienta:focus {
+    outline: 2px solid rgb(255, 255, 255);
+}
+
 #botonHerramienta img {
     width: 100%;
+}
+
+#botonHerramienta img:hover {
+    filter: invert(1);
+}
+
+
+.controlSlider {
+    align-content: ce;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.actualControlSlider {
+    background-color: rgb(4, 50, 77);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15px;
+    margin: 10px;
+    width: 15px;
+}
+
+.actualControlSlider:focus {
+    outline-color: rgb(57, 169, 0);
+}
+
+.actualControlSlider.Activo {
+    background-color: rgb(57, 169, 0);
+}
+
+.actualControlSlider.Activo:focus {
+    outline-color: rgb(4, 50, 77);
 }
 
 @media (max-width: 945px) {

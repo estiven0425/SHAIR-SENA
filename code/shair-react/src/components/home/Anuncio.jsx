@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 function Anuncio() {
     const [anuncio, setAnuncio] = useState([]);
+    const [slider, setSlider] = useState(0);
+    const itemReferenciado = useRef([]);
 
     useEffect(() => {
         const leerAnuncio = async () => {
             try {
                 const respuesta = await axios.get('http://localhost:5000/anuncio');
-
                 setAnuncio(respuesta.data);
             } catch (error) {
                 console.error('Error al obtener anuncios: ', error);
@@ -18,11 +19,20 @@ function Anuncio() {
         leerAnuncio();
     }, []);
 
+    const activarSlider = (indice) => {
+        setSlider(indice);
+        itemReferenciado.current[indice].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    };
+
     return (
         <>
             <div id="contenidoSliderAnuncio">
-                {anuncio.map(anuncio => (
-                    <article key={anuncio.id} className="articuloContenidoSliderAnuncio">
+                {anuncio.map((anuncio, indice) => (
+                    <article
+                        key={anuncio.id}
+                        className="articuloContenidoSliderAnuncio"
+                        ref={(articulo) => itemReferenciado.current[indice] = articulo}
+                    >
                         <div className="informacionArticuloContenidoSliderAnuncio">
                             <div className="principalInformacionArticuloContenidoSliderAnuncio">
                                 <h2>{anuncio.nombre}</h2>
@@ -38,10 +48,16 @@ function Anuncio() {
                     </article>
                 ))}
             </div>
-            <div>
-                <p>control de slider</p>
+            <div className="controlSlider">
+                {anuncio.map((_, indice) => (
+                    <button
+                        key={indice}
+                        className={`actualControlSlider ${indice == slider ? 'Activo' : ''}`}
+                        onClick={() => activarSlider(indice)}
+                        type="button"
+                    ></button>
+                ))}
             </div>
-
         </>
     );
 }

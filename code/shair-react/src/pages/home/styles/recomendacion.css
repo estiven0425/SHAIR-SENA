@@ -1,0 +1,186 @@
+#recomendacionHeader {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.seccionRecomendacionHeader {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.seccionAlternativaRecomendacionHeader {
+    border-bottom: 2px solid rgb(4, 50, 77);
+}
+
+.navegacionSeccionRecomendacionHeader {
+    align-content: center;
+    background-color: rgb(57, 169, 0);
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    width: 20%;
+}
+
+.navegacionAlternativaSeccionRecomendacionHeader {
+    background-color: rgb(4, 50, 77);
+    border-radius: 0px 0px 10px 10px;
+    padding: 0px;
+    position: absolute;
+}
+
+.navegacionAlternativaSeccionRecomendacionHeader:hover,
+#enlaceNavegacionSeccionRecomendacionHeader:focus {
+    background-color: rgb(57, 169, 0);
+    border-radius: 0px 0px 10px 10px;
+    outline: none;
+}
+
+.navegacionSeccionRecomendacionHeader h1,
+.navegacionSeccionRecomendacionHeader a {
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    margin: 0px;
+    text-decoration: none;
+}
+
+#enlaceNavegacionSeccionRecomendacionHeader {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#recomendacionPrincipal {
+    align-content: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+#formularioRecomendacionPrincipal {
+    align-content: center;
+    align-items: flex-start;
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 55%;
+    padding: 10px;
+}
+
+.seccionFormularioRecomendacionPrincipal {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.subSeccionFormularioRecomendacionPrincipal {
+    align-content: stretch;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px;
+    padding: 10px 0px;
+    width: 100%;
+}
+
+.subSeccionFormularioRecomendacionPrincipal label {
+    color: rgb(57, 169, 0);
+    font-size: 1rem;
+}
+
+.subSeccionFormularioRecomendacionPrincipal input {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.subSeccionFormularioRecomendacionPrincipal input:focus {
+    outline-color: rgb(57, 169, 0);
+}
+
+.subSeccionFormularioRecomendacionPrincipal h2 {
+    color: rgb(57, 169, 0);
+    cursor: default;
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0px;
+    text-align: left;
+}
+
+.subSeccionFormularioRecomendacionPrincipal input[type="file"] {
+    display: none;
+}
+
+.subArchivoSeccionFormularioRecomendacionPrincipal {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0) !important;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.imagenSubArchivoSeccionFormularioRecomendacionPrincipal {
+    border-radius: 10px;
+    max-width: 250px;
+    width: 100%;
+}
+
+.seccionFormularioRecomendacionPrincipal p {
+    font-size: 1rem;
+    margin: 0px;
+}
+
+.seccionFormularioRecomendacionPrincipal span {
+    color: rgb(57, 169, 0);
+}
+
+#botonSeccionFormularioRecomendacionPrincipal {
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(4, 50, 77);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 10px;
+}
+
+#botonSeccionFormularioRecomendacionPrincipal:focus,
+#botonSeccionFormularioRecomendacionPrincipal:hover {
+    background-color: rgb(57, 169, 0);
+    outline: none;
+}
+
+@media (max-width: 630px) {
+    .navegacionSeccionRecomendacionHeader {
+        width: 100%;
+    }
+
+    #recomendacionPrincipal {
+        margin-top: 40px;
+    }
+
+    #formularioRecomendacionPrincipal {
+        width: 100%;
+    }
+}
