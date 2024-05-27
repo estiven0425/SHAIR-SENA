@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { motion } from 'framer-motion';
 import AdministracionContexto from "../../contexts/AdministracionContexto";
+import AdministracionHeader from "../../components/admin/AdministracionHeader";
+import './styles/administracion.css';
 
 function Administracion() {
     const [seccion, setSeccion] = useState(0);
@@ -14,14 +17,22 @@ function Administracion() {
 
     return (
         <>
-            <header>
-                <AdministracionContexto.Provider value={seccionEstado}>
-
-                </AdministracionContexto.Provider>
-            </header>
-            <main>
-                <Outlet />
-            </main>
+            <AdministracionContexto.Provider value={seccionEstado}>
+                <motion.header
+                    id="administracionHeader"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.25 }}>
+                    <AdministracionHeader />
+                </motion.header>
+                <motion.main
+                    id="administracionPrincipal"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.25 }}>
+                    <Outlet />
+                </motion.main>
+            </AdministracionContexto.Provider>
         </>
     );
 }

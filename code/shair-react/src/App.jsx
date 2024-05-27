@@ -5,6 +5,7 @@ import Shair from "./pages/home/Shair";
 import Formulario from "./pages/admin/Formulario";
 import Administracion from "./pages/admin/Administracion";
 import Recomendacion from "./pages/home/Recomendacion";
+import Superadministrador from "./components/admin/Superadministrador";
 import './assets/styles/style.css';
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
           <Route index element={<Shair />} />
           <Route path="recomendacion" element={<Recomendacion />} />
           <Route path="ingreso" element={<Formulario />} />
-          <Route path="administracion" element={<Administracion />} />
+          <Route path="administracion" element={<Administracion />}>
+            <Route path="superadministrador" element={<Superadministrador />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter >

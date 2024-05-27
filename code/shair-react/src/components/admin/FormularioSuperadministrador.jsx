@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import '../../pages/admin/styles/formulario.css';
 
@@ -30,7 +31,7 @@ function FormularioSuperadministrador() {
 
             <footer className="tarjetaFormularioPie">
                 <button className="tarjetaFormularioPieBoton" type="button" onClick={() => setFormulario(0)}>Volver</button>
-                <button className="tarjetaFormularioPieBoton" type="button">Acceder</button>
+                <Link className="tarjetaFormularioPieBoton" to="/administracion/superadministrador">Acceder</Link>
             </footer>
         </article>
     );

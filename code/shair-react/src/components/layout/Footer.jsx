@@ -1,5 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { motion } from 'framer-motion';
 import gobiernoCol from '../../assets/images/gobiernoColombia.svg';
 import normasIso from '../../assets/images/normasIso.svg';
 import gov from '../../assets/images/gov.svg';
@@ -8,7 +9,11 @@ function Footer() {
     return (
         <>
             <Outlet />
-            <footer id="Footer">
+            <motion.footer
+                id="Footer"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}>
                 <section className="seccionFooter" id="seccionFooterSuperior">
                     <aside id="seccionFooter0">
                         <div>
@@ -129,7 +134,7 @@ function Footer() {
                         <img src={gov} alt="Gov.co" />
                     </a>
                 </section>
-            </footer>
+            </motion.footer>
         </>
     );
 }

@@ -1,11 +1,12 @@
 #shairHeader {
     align-content: center;
     align-items: center;
+    border-bottom: 2px solid rgb(4, 50, 77);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    border-bottom: 2px solid rgb(4, 50, 77);
+    min-height: 5vh;
     padding: 10px;
 }
 
@@ -43,7 +44,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding: 10px;
-    min-height: 100vh;
+    min-height: 95vh;
 }
 
 #sliderAnuncio {

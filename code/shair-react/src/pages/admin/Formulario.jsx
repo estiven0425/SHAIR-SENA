@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import './styles/formulario.css';
+import { motion } from 'framer-motion';
 import FormularioContexto from "../../contexts/FormularioContexto";
 import FormularioRenderizado from "../../utils/admin/controllers/FormularioRenderizado";
+import './styles/formulario.css';
 
 function Formulario() {
     const [formulario, setFormulario] = useState(0);
@@ -14,11 +15,15 @@ function Formulario() {
     }
 
     return (
-        <main id="formularioPrincipal">
+        <motion.main
+            id="formularioPrincipal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.25 }}>
             <FormularioContexto.Provider value={formularioEstado}>
                 <FormularioRenderizado />
             </FormularioContexto.Provider>
-        </main>
+        </motion.main>
     );
 }
 

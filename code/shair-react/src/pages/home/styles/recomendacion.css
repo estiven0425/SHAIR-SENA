@@ -4,6 +4,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    min-height: 2.5vh;
 }
 
 .seccionRecomendacionHeader {
@@ -65,11 +66,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 96.5vh;
     width: 100%;
 }
 
-#formularioRecomendacionPrincipal {
+#alertaRecomendacionPrincipal h1 {
+    color: rgb(57, 169, 0);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#alertaRecomendacionPrincipal p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+#formularioRecomendacionPrincipal,
+#alertaRecomendacionPrincipal {
     align-content: center;
     align-items: flex-start;
     background-color: rgb(230, 230, 230);
@@ -79,6 +92,10 @@
     justify-content: space-between;
     width: 55%;
     padding: 10px;
+}
+
+#alertaRecomendacionPrincipal {
+    align-items: center;
 }
 
 .seccionFormularioRecomendacionPrincipal {
@@ -156,7 +173,8 @@
     color: rgb(57, 169, 0);
 }
 
-#botonSeccionFormularioRecomendacionPrincipal {
+#botonSeccionFormularioRecomendacionPrincipal,
+#alertaRecomendacionPrincipal button {
     border: none;
     border-radius: 10px;
     background-color: rgb(4, 50, 77);
@@ -166,7 +184,9 @@
 }
 
 #botonSeccionFormularioRecomendacionPrincipal:focus,
-#botonSeccionFormularioRecomendacionPrincipal:hover {
+#alertaRecomendacionPrincipal button:focus,
+#botonSeccionFormularioRecomendacionPrincipal:hover,
+#alertaRecomendacionPrincipal button:hover {
     background-color: rgb(57, 169, 0);
     outline: none;
 }
@@ -180,7 +200,8 @@
         margin-top: 40px;
     }
 
-    #formularioRecomendacionPrincipal {
+    #formularioRecomendacionPrincipal,
+    #alertaRecomendacionPrincipal  {
         width: 100%;
     }
 }

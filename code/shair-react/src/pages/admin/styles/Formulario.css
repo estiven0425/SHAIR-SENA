@@ -125,6 +125,8 @@
     cursor: pointer;
     padding: 10px;
     min-width: 40%;
+    text-align: center;
+    text-decoration: none;
 }
 
 .tarjetaFormularioPieBoton:hover {

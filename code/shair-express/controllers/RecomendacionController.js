@@ -11,12 +11,12 @@ exports.leerRecomendacion = async (req, res) => {
 };
 
 exports.crearRecomendacion = async (req, res) => {
-    const { nombre, enunciado, archivo_adjunto } = req.body;
+    const { titulo, recomendacion, archivo_adjunto } = req.body;
 
     try {
         const nuevaRecomendacion = await Recomendacion.create({
-            nombre,
-            enunciado,
+            nombre: titulo,
+            enunciado: recomendacion,
             archivo_adjunto
         });
 
@@ -27,18 +27,18 @@ exports.crearRecomendacion = async (req, res) => {
 };
 
 exports.actualizarRecomendacion = async (req, res) => {
-    const { id, nombre, enunciado, archivo_adjunto } = req.body;
+    const { id, titulo, recomendacion, archivo_adjunto } = req.body;
 
     try {
-        const recomendacion = await Recomendacion.findByPk(id);
+        const actualizarRecomendacion = await Recomendacion.findByPk(id);
         if (recomendacion) {
             await recomendacion.update({
-                nombre,
-                enunciado,
+                nombre: titulo,
+                enunciado: recomendacion,
                 archivo_adjunto
             });
 
-            res.json(recomendacion);
+            res.json(actualizarRecomendacion);
         } else {
             res.status(404).json({ error: 'Recomendación no encontrada' });
         }

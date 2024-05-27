@@ -1,0 +1,103 @@
+#administracionHeader {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 2.5vh;
+}
+
+.seccionAdministracionHeader {
+    align-content: center;
+    border-bottom: 2px solid rgb(4, 50, 77);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.seccionAlternativaAdministracionHeader {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.navegacionSeccionAdministracionHeader {
+    align-content: center;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 35%;
+}
+
+.navegacionSeccionAlternativaAdministracionHeader {
+    align-content: center;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 35%;
+}
+
+.navegacionSeccionAdministracionHeader button {
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
+}
+
+.navegacionSeccionAlternativaAdministracionHeader button {
+    background-color: transparent;
+    border-radius: 0px 0px 10px 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 10px;
+    width: 50%;
+}
+
+.navegacionSeccionAdministracionHeader button:hover,
+.navegacionSeccionAdministracionHeader button:focus {
+    background-color: rgb(57, 169, 0);
+    border-radius: 10px 10px 0px 0px;
+    cursor: pointer;
+    outline: none;
+}
+
+.navegacionSeccionAlternativaAdministracionHeader button:hover,
+.navegacionSeccionAlternativaAdministracionHeader button:focus {
+    background-color: rgb(57, 169, 0);
+    border-radius: 0px 0px 10px 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+#administracionPrincipal {
+    min-height: 96.5vh;
+}
+
+
+
+
+
+
+
+@media (max-width: 630px) {
+    .navegacionSeccionAdministracionHeader,
+    .navegacionSeccionAlternativaAdministracionHeader {
+        width: 100%;
+    }
+
+    #administracionPrincipal {
+        margin-top: 40px;
+    }
+}

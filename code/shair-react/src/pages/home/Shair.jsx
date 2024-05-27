@@ -1,17 +1,26 @@
 import React from "react";
+import { motion } from 'framer-motion';
 import Header from "../../components/home/Header";
-import './styles/shair.css';
 import Anuncio from "../../components/home/Anuncio";
 import Noticia from "../../components/home/Noticia";
 import Herramienta from "../../components/home/Herramienta";
+import './styles/shair.css';
 
 function Shair() {
     return (
         <>
-            <header id="shairHeader">
+            <motion.header
+                id="shairHeader"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}>
                 <Header />
-            </header>
-            <main id="shairPrincipal">
+            </motion.header>
+            <motion.main
+                id="shairPrincipal"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.25 }}>
                 <section id="sliderAnuncio">
                     <Anuncio />
                 </section>
@@ -19,7 +28,7 @@ function Shair() {
                     <Noticia />
                 </section>
                 <Herramienta />
-            </main>
+            </motion.main>
         </>
     );
 }
