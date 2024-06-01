@@ -75,23 +75,174 @@
 
 .navegacionSeccionAlternativaAdministracionHeader button:hover,
 .navegacionSeccionAlternativaAdministracionHeader button:focus {
-    background-color: rgb(57, 169, 0);
+    background-color: rgb(57, 169, 0) !important;
     border-radius: 0px 0px 10px 10px;
     cursor: pointer;
     outline: none;
 }
 
 #administracionPrincipal {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     min-height: 96.5vh;
 }
 
+#administracionAlternativaPrincipal {
+    align-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    min-height: 96.5vh;
+    padding: 10px;
+}
 
+.tituloAdministracionPrincipal {
+    color: rgb(57, 169, 0);
+    font-size: 2rem;
+    margin: 0px;
+    text-align: left;
+}
 
+.parrafoAdministracionPrincipal {
+    font-size: 1rem;
+    margin: 0px;
+    text-align: left;
+}
 
+.superadministradorAdministradores {
+    align-content: center;
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
 
+.superadministradorAdministradores:hover {
+    outline: 2px solid rgb(57, 169, 0);
+}
+
+.superadministradorSeleccioadoAdministradores {
+    align-content: center;
+    background-color: rgb(230, 230, 230);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    outline: 2px solid rgb(57, 169, 0);
+}
+
+.articuloSuperadministradorAdministradores {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#nombreArticuloSuperadministradorAdministradores {
+    background-color: transparent;
+    border: none;
+    color: rgb(57, 169, 0);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 0px 0px 10px;
+    padding: 5px 5px 5px 0px;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+}
+
+#nombreArticuloAlternativoSuperadministradorAdministradores {
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.25rem;
+    margin: 0px 0px 10px;
+    padding: 5px 5px 5px 0px;
+    width: 100%;
+}
+
+.articuloSuperadministradorAdministradores fieldset {
+    align-content: flex-start;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.articuloSuperadministradorAdministradores fieldset h2 {
+    color: rgb(57, 169, 0);
+    font-size: 1.25rem;
+    margin: 0px;
+    text-align: left;
+}
+
+.articuloSuperadministradorAdministradores fieldset input {
+    background-color: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1rem;
+    padding: 5px 5px 5px 0px;
+    pointer-events: none;
+    width: 100%;
+}
+
+.articuloAlternativoSuperadministradorAdministradores fieldset input,
+#nombreArticuloAlternativoSuperadministradorAdministradores{
+    background-color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(4, 50, 77);
+    border-radius: 2.5px 2.5px 0px 0px;
+    pointer-events: all;
+}
+
+#fechaCreacionArticuloSuperadministradorAdministradores {
+    background-color: transparent;
+    border: none;
+    pointer-events: none;
+}
+
+.pieSuperadministradorSeleccioadoAdministradores {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.botonPieSuperadministradorSeleccioadoAdministradores {
+    background-color: rgb(4, 50, 77);
+    border: none;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 10px;
+    min-width: 30%;
+}
+
+.botonPieSuperadministradorSeleccioadoAdministradores:focus,
+.botonPieSuperadministradorSeleccioadoAdministradores:hover {
+    background-color: rgb(57, 169, 0);
+    outline: none;
+}
 
 
 @media (max-width: 630px) {
+
     .navegacionSeccionAdministracionHeader,
     .navegacionSeccionAlternativaAdministracionHeader {
         width: 100%;

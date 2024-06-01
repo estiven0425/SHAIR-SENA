@@ -30,10 +30,10 @@ exports.crearAdministrador = async (req, res) => {
 };
 
 exports.actualizarAdministrador = async (req, res) => {
-    const { id_administrador, nombre, email, celular, telefono, contraseña } = req.body;
+    const { id_administrador, nombre, email, celular, telefono/* , contraseña */} = req.body;
 
     try {
-        const contraseñaEncriptada = await bcrypt.hash(contraseña, 10);
+        // const contraseñaEncriptada = await bcrypt.hash(contraseña, 10);
         const administrador = await Administrador.findByPk(id_administrador);
 
         if (administrador) {
@@ -41,8 +41,8 @@ exports.actualizarAdministrador = async (req, res) => {
                 nombre,
                 email,
                 celular,
-                telefono,
-                contraseña: contraseñaEncriptada
+                telefono/* ,
+                contraseña: contraseñaEncriptada */
             });
 
             res.json(administrador);
