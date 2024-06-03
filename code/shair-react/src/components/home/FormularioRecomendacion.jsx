@@ -67,7 +67,7 @@ function FormularioRecomendacion() {
                     transition={{ duration: 0.25 }}>
                     <h1>Recomendación enviada con éxito</h1>
                     <p>Vuelve a la página principal para continuar navegando</p>
-                    <button onClick={reiniciarFormulario}>Crear otra recomendación</button>
+                    <button onClick={reiniciarFormulario} type="button">Crear otra recomendación</button>
                 </motion.div>
             ) : (
                 <motion.form

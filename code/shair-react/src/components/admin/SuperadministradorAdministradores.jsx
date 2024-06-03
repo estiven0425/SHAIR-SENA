@@ -66,24 +66,24 @@ function SuperadministradorAdministradores() {
         const admin = administradores[adminIndex];
 
         setNombresAdministradores(prevState => {
-            const newState = [...prevState];
-            newState[adminIndex] = admin.nombre;
-            return newState;
+            const nuevoEstado = [...prevState];
+            nuevoEstado[adminIndex] = admin.nombre;
+            return nuevoEstado;
         });
         setEmailsAdministradores(prevState => {
-            const newState = [...prevState];
-            newState[adminIndex] = admin.email;
-            return newState;
+            const nuevoEstado = [...prevState];
+            nuevoEstado[adminIndex] = admin.email;
+            return nuevoEstado;
         });
         setCelularesAdministradores(prevState => {
-            const newState = [...prevState];
-            newState[adminIndex] = admin.celular;
-            return newState;
+            const nuevoEstado = [...prevState];
+            nuevoEstado[adminIndex] = admin.celular;
+            return nuevoEstado;
         });
         setTelefonosAdministradores(prevState => {
-            const newState = [...prevState];
-            newState[adminIndex] = admin.telefono || 'No asignado';
-            return newState;
+            const nuevoEstado = [...prevState];
+            nuevoEstado[adminIndex] = admin.telefono || 'No asignado';
+            return nuevoEstado;
         });
         setEditarSeleccionAdministrador(prevState => prevState.filter(id => id != id_administrador));
     };
@@ -92,7 +92,7 @@ function SuperadministradorAdministradores() {
     }
     const actualizarAdministrador = async (id_administrador) => {
         const adminIndex = administradores.findIndex(admin => admin.id_administrador == id_administrador);
-        
+
         try {
             await axios.put(`http://localhost:5000/administrador`, {
                 id_administrador: id_administrador,
@@ -107,7 +107,25 @@ function SuperadministradorAdministradores() {
             console.error('Error al actualizar el administrador:', error);
         }
     };
-    const eliminarAdministrador = () => {
+    const actualizardatos = (id_administrador) => {
+        const adminIndex = administradores.findIndex(admin => admin.id_administrador == id_administrador);
+
+        setNombresAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
+        setEmailsAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
+        setCelularesAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
+        setTelefonosAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
+    };
+    const eliminarAdministrador = async (id_administrador) => {
+        try {
+            await axios.delete(`http://localhost:5000/administrador`, {
+                data: { id_administrador: id_administrador }
+            });
+
+            setAdministradores(prevState => prevState.filter(admin => admin.id_administrador != id_administrador));
+            actualizardatos(id_administrador);
+        } catch (error) {
+            console.error('Error al eliminar el administrador:', error);
+        }
     };
 
     return (
@@ -120,71 +138,71 @@ function SuperadministradorAdministradores() {
                     ref={seleccionAdministrador == administrador.id_administrador ? seleccionadoAdministrador : null}
                 >
                     <form className={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "articuloSuperadministradorAdministradores  articuloAlternativoSuperadministradorAdministradores" : "articuloSuperadministradorAdministradores"}>
-                        <input 
-                            type="text" 
-                            name="nombreArticuloSuperadministradorAdministradores" 
-                            id={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"} 
-                            disabled={seleccionAdministrador != administrador.id_administrador} 
-                            value={nombresAdministradores[index] || ''} 
-                            onChange={e => { 
-                                const newNombres = [...nombresAdministradores];
-                                newNombres[index] = e.target.value;
-                                setNombresAdministradores(newNombres);
-                            }} 
+                        <input
+                            type="text"
+                            name="nombreArticuloSuperadministradorAdministradores"
+                            id={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"}
+                            disabled={seleccionAdministrador != administrador.id_administrador}
+                            value={nombresAdministradores[index] || ''}
+                            onChange={e => {
+                                const nuevosNombres = [...nombresAdministradores];
+                                nuevosNombres[index] = e.target.value;
+                                setNombresAdministradores(nuevosNombres);
+                            }}
                         />
                         <fieldset>
                             <h2>E-mail:</h2>
-                            <input 
-                                type="text" 
-                                name="emailArticuloSuperadministradorAdministradores" 
-                                id="emailArticuloSuperadministradorAdministradores" 
-                                disabled={seleccionAdministrador != administrador.id_administrador} 
-                                value={emailsAdministradores[index] || ''} 
-                                onChange={e => { 
-                                    const newEmails = [...emailsAdministradores];
-                                    newEmails[index] = e.target.value;
-                                    setEmailsAdministradores(newEmails);
-                                }} 
+                            <input
+                                type="text"
+                                name="emailArticuloSuperadministradorAdministradores"
+                                id="emailArticuloSuperadministradorAdministradores"
+                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                value={emailsAdministradores[index] || ''}
+                                onChange={e => {
+                                    const nuevosEmails = [...emailsAdministradores];
+                                    nuevosEmails[index] = e.target.value;
+                                    setEmailsAdministradores(nuevosEmails);
+                                }}
                             />
                         </fieldset>
                         <fieldset>
                             <h2>Celular:</h2>
-                            <input 
-                                type="text" 
-                                name="celularArticuloSuperadministradorAdministradores" 
-                                id="celularArticuloSuperadministradorAdministradores" 
-                                disabled={seleccionAdministrador != administrador.id_administrador} 
-                                value={celularesAdministradores[index] || ''} 
-                                onChange={e => { 
-                                    const newCelulares = [...celularesAdministradores];
-                                    newCelulares[index] = e.target.value;
-                                    setCelularesAdministradores(newCelulares);
-                                }} 
+                            <input
+                                type="text"
+                                name="celularArticuloSuperadministradorAdministradores"
+                                id="celularArticuloSuperadministradorAdministradores"
+                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                value={celularesAdministradores[index] || ''}
+                                onChange={e => {
+                                    const nuevosCelulares = [...celularesAdministradores];
+                                    nuevosCelulares[index] = e.target.value;
+                                    setCelularesAdministradores(nuevosCelulares);
+                                }}
                             />
                         </fieldset>
                         <fieldset>
                             <h2>Teléfono:</h2>
-                            <input 
-                                type="text" 
-                                name="telefonoArticuloSuperadministradorAdministradores" 
-                                id="telefonoArticuloSuperadministradorAdministradores" 
-                                disabled={seleccionAdministrador != administrador.id_administrador} 
-                                value={telefonosAdministradores[index] || ''} 
-                                onChange={e => { 
-                                    const newTelefonos = [...telefonosAdministradores];
-                                    newTelefonos[index] = e.target.value;
-                                    setTelefonosAdministradores(newTelefonos);
-                                }} 
+                            <input
+                                type="text"
+                                name="telefonoArticuloSuperadministradorAdministradores"
+                                id="telefonoArticuloSuperadministradorAdministradores"
+                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                value={telefonosAdministradores[index] || ''}
+                                onChange={e => {
+                                    const nuevosTelefonos = [...telefonosAdministradores];
+                                    nuevosTelefonos[index] = e.target.value;
+                                    setTelefonosAdministradores(nuevosTelefonos);
+                                }}
                             />
                         </fieldset>
                         <fieldset>
                             <h2>Fecha de modificación:</h2>
-                            <input 
-                                type="text" 
-                                name="fechaCreacionArticuloSuperadministradorAdministradores" 
-                                id="fechaCreacionArticuloSuperadministradorAdministradores" 
-                                disabled 
-                                defaultValue={new Date(administrador.fecha_creacion).toLocaleDateString()} 
+                            <input
+                                type="text"
+                                name="fechaCreacionArticuloSuperadministradorAdministradores"
+                                id="fechaCreacionArticuloSuperadministradorAdministradores"
+                                disabled
+                                defaultValue={new Date(administrador.fecha_creacion).toLocaleDateString()}
                             />
                         </fieldset>
                     </form>
@@ -192,7 +210,7 @@ function SuperadministradorAdministradores() {
                         !editarSeleccionAdministrador.includes(administrador.id_administrador) ? (
                             <div className="pieSuperadministradorSeleccioadoAdministradores">
                                 <button type="button" onClick={() => editarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">Editar</button>
-                                <button type="button" onClick={() => eliminarAdministrador()} className="botonPieSuperadministradorSeleccioadoAdministradores">Eliminar</button>
+                                <button type="button" onClick={() => eliminarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">Eliminar</button>
                                 <button type="button" className="botonPieSuperadministradorSeleccioadoAdministradores">Noticias</button>
                             </div>
                         ) : (

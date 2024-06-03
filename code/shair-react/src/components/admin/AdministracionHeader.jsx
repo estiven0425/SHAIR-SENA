@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 
 function AdministracionHeader() {
@@ -23,11 +24,18 @@ function AdministracionHeader() {
     return (
         <>
             {seccion == 0 ? (
-                <section className="seccionAdministracionHeader">
-                    <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
-                        <button type="button" onClick={accesoSeccion}>Administradores</button>
-                    </nav>
-                </section>
+                <>
+                    <section className="seccionAdministracionHeader">
+                        <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
+                            <button type="button" onClick={accesoSeccion}>Administradores</button>
+                        </nav>
+                    </section>
+                    <section className="seccionAlternativaAdministracionHeader">
+                        <nav className="navegacionSeccionAlternativaAdministracionHeader">
+                            <Link to="/">Volver a la página principal</Link>
+                        </nav>
+                    </section>
+                </>
             ) : (
                 <>
                     <section className="seccionAdministracionHeader">

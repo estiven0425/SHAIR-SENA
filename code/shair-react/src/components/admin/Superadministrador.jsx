@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import SuperadministradorAdministradores from "./SuperadministradorAdministradores";
+import SuperadministradorCrearAdministrador from "./SuperadministradorCrearAdministrador";
 
 function Superadministrador() {
     const administracion = useContext(AdministracionContexto);
@@ -14,7 +15,7 @@ function Superadministrador() {
             explicacion = <SuperadministradorAdministradores />;
             break;
         case 2:
-            explicacion = <h1>Chao</h1>;
+            explicacion = <SuperadministradorCrearAdministrador />;
             break;
         default:
             explicacion = <>

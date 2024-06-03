@@ -27,6 +27,7 @@ function Administracion() {
                 </motion.header>
                 <motion.main
                     id={subSeccion == 0 || seccion == 0 ? "administracionPrincipal" : "administracionAlternativaPrincipal"}
+                    className={subSeccion == 2 ? "administracionAlternativaFormularioPrincipal" : ""}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.25 }}>
