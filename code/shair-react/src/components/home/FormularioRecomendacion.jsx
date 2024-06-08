@@ -59,7 +59,7 @@ function FormularioRecomendacion() {
 
     return (
         <>
-            {enviado == true ? (
+            {enviado === true ? (
                 <motion.div
                     id="alertaRecomendacionPrincipal"
                     initial={{ opacity: 0 }}

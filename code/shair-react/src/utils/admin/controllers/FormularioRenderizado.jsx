@@ -58,7 +58,7 @@ function FormularioRenderizado() {
             formularioRenderizado = <FormularioInicio />;
     }
 
-    const varianteAnimacion = formulario.formulario == 0 ? animacionIzquierda : animacionDerecha;
+    const varianteAnimacion = formulario.formulario === 0 ? animacionIzquierda : animacionDerecha;
 
     return (
         <AnimatePresence mode="wait">

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import '../../pages/admin/styles/formulario.css';
 
@@ -6,6 +7,12 @@ function FormularioAdministrador() {
     const formulario = useContext(FormularioContexto);
     const setFormulario = formulario.setFormulario;
     const setValorEmail = formulario.setValorEmail;
+    const setValorContraseña = formulario.setValorContraseña;
+
+    const enviarFormularioAdministrador = e => {
+        e.preventDefault();
+    }
+
 
     return (
         <article className="tarjetaFormulario">
@@ -23,14 +30,14 @@ function FormularioAdministrador() {
                     <fieldset className="tarjetaFormularioCuerpoFormularioGrupo">
                         <label htmlFor="contraseña">Contraseña:</label>
 
-                        <input className="tarjetaFormularioCuerpoFormularioGrupoInput" type="password" name="contraseña" id="contraseña" />
+                        <input className="tarjetaFormularioCuerpoFormularioGrupoInput" type="password" name="contraseña" id="contraseña" value={formulario.contraseña} onChange={(e) => setValorContraseña(e.target.value)} />
                     </fieldset>
                 </form>
             </main>
 
             <footer className="tarjetaFormularioPie">
                 <button className="tarjetaFormularioPieBoton" type="button" onClick={() => setFormulario(0)}>Volver</button>
-                <button className="tarjetaFormularioPieBoton" type="button" >Acceder</button>
+                <Link className="tarjetaFormularioPieBoton" to="/administracion/administrador">Acceder</Link>
             </footer>
         </article>
     );

@@ -17,7 +17,7 @@ function SuperadministradorCrearAdministrador() {
                 nombre: nombre,
                 email: email,
                 celular: celular,
-                telefono: telefono == "" ? null : telefono,
+                telefono: telefono === "" ? null : telefono,
                 contraseña: contraseña,
             });
 
@@ -39,7 +39,7 @@ function SuperadministradorCrearAdministrador() {
 
     return (
         <>
-            {enviado == true ? (
+            {enviado === true ? (
                 <>
                     <div id="alertaSuperadministradorCrearAdministrador">
                         <h1>Administrador creado con éxtio</h1>

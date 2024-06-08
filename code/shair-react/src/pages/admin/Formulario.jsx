@@ -7,11 +7,14 @@ import './styles/formulario.css';
 function Formulario() {
     const [formulario, setFormulario] = useState(0);
     const [valorEmail, setValorEmail] = useState("");
+    const [valorContraseña, setValorContraseña] = useState("");
     const formularioEstado = {
         formulario,
         setFormulario,
         valorEmail,
-        setValorEmail
+        setValorEmail,
+        valorContraseña,
+        setValorContraseña
     }
 
     return (

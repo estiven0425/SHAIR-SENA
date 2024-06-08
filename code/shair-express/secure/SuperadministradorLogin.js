@@ -1,5 +1,4 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const crypto = require('crypto');
 const Superadministrador = require('../models/Superadministrador');
@@ -10,7 +9,7 @@ router.post('/', async (req, res) => {
         const { email, contraseña } = req.body;
         const superadministrador = await Superadministrador.findOne({ where: { email } });
 
-        if (superadministrador && bcrypt.compareSync(contraseña, superadministrador.contraseña)) {
+        if (superadministrador && (contraseña === superadministrador.contraseña)) {
             const keySecreto = crypto.randomBytes(32).toString('hex');
             const token = jwt.sign({ id: superadministrador.id }, keySecreto);
 

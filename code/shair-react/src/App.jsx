@@ -6,6 +6,7 @@ import Formulario from "./pages/admin/Formulario";
 import Administracion from "./pages/admin/Administracion";
 import Recomendacion from "./pages/home/Recomendacion";
 import Superadministrador from "./components/admin/Superadministrador";
+import Administrador from "./components/admin/Administrador";
 import './assets/styles/style.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="ingreso" element={<Formulario />} />
           <Route path="administracion" element={<Administracion />}>
             <Route path="superadministrador" element={<Superadministrador />} />
+            <Route path="administrador" element={<Administrador />} />
           </Route>
         </Route>
       </Routes>

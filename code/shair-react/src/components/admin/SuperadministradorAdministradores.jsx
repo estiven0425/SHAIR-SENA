@@ -55,14 +55,14 @@ function SuperadministradorAdministradores() {
     const editarAdministrador = (id_administrador) => {
         setEditarSeleccionAdministrador(prevState => {
             if (prevState.includes(id_administrador)) {
-                return prevState.filter(id => id != id_administrador);
+                return prevState.filter(id => id !== id_administrador);
             } else {
                 return [...prevState, id_administrador];
             }
         });
     };
     const cancelarEditarAdministrador = (id_administrador) => {
-        const adminIndex = administradores.findIndex(admin => admin.id_administrador == id_administrador);
+        const adminIndex = administradores.findIndex(admin => admin.id_administrador === id_administrador);
         const admin = administradores[adminIndex];
 
         setNombresAdministradores(prevState => {
@@ -85,13 +85,13 @@ function SuperadministradorAdministradores() {
             nuevoEstado[adminIndex] = admin.telefono || 'No asignado';
             return nuevoEstado;
         });
-        setEditarSeleccionAdministrador(prevState => prevState.filter(id => id != id_administrador));
+        setEditarSeleccionAdministrador(prevState => prevState.filter(id => id !== id_administrador));
     };
     const validacionTelefono = (telefonoAdministrador) => {
         return isNaN(parseInt(telefonoAdministrador));
     }
     const actualizarAdministrador = async (id_administrador) => {
-        const adminIndex = administradores.findIndex(admin => admin.id_administrador == id_administrador);
+        const adminIndex = administradores.findIndex(admin => admin.id_administrador === id_administrador);
 
         try {
             await axios.put(`http://localhost:5000/administrador`, {
@@ -99,21 +99,21 @@ function SuperadministradorAdministradores() {
                 nombre: nombresAdministradores[adminIndex],
                 email: emailsAdministradores[adminIndex],
                 celular: celularesAdministradores[adminIndex],
-                telefono: validacionTelefono(telefonosAdministradores[adminIndex]) == false ? telefonosAdministradores[adminIndex] : null,
+                telefono: validacionTelefono(telefonosAdministradores[adminIndex]) === false ? telefonosAdministradores[adminIndex] : null,
             });
 
-            setEditarSeleccionAdministrador(prevState => prevState.filter(id => id != id_administrador));
+            setEditarSeleccionAdministrador(prevState => prevState.filter(id => id !== id_administrador));
         } catch (error) {
             console.error('Error al actualizar el administrador:', error);
         }
     };
     const actualizardatos = (id_administrador) => {
-        const adminIndex = administradores.findIndex(admin => admin.id_administrador == id_administrador);
+        const adminIndex = administradores.findIndex(admin => admin.id_administrador === id_administrador);
 
-        setNombresAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
-        setEmailsAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
-        setCelularesAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
-        setTelefonosAdministradores(prevState => prevState.filter((_, index) => index != adminIndex));
+        setNombresAdministradores(prevState => prevState.filter((_, index) => index !== adminIndex));
+        setEmailsAdministradores(prevState => prevState.filter((_, index) => index !== adminIndex));
+        setCelularesAdministradores(prevState => prevState.filter((_, index) => index !== adminIndex));
+        setTelefonosAdministradores(prevState => prevState.filter((_, index) => index !== adminIndex));
     };
     const eliminarAdministrador = async (id_administrador) => {
         try {
@@ -121,7 +121,7 @@ function SuperadministradorAdministradores() {
                 data: { id_administrador: id_administrador }
             });
 
-            setAdministradores(prevState => prevState.filter(admin => admin.id_administrador != id_administrador));
+            setAdministradores(prevState => prevState.filter(admin => admin.id_administrador !== id_administrador));
             actualizardatos(id_administrador);
         } catch (error) {
             console.error('Error al eliminar el administrador:', error);
@@ -133,16 +133,16 @@ function SuperadministradorAdministradores() {
             {administradores.map((administrador, index) => (
                 <div
                     key={administrador.id_administrador}
-                    className={seleccionAdministrador == administrador.id_administrador ? "superadministradorSeleccioadoAdministradores" : "superadministradorAdministradores"}
+                    className={seleccionAdministrador === administrador.id_administrador ? "superadministradorSeleccioadoAdministradores" : "superadministradorAdministradores"}
                     onClick={() => seleccionarAdministrador(administrador.id_administrador)}
-                    ref={seleccionAdministrador == administrador.id_administrador ? seleccionadoAdministrador : null}
+                    ref={seleccionAdministrador === administrador.id_administrador ? seleccionadoAdministrador : null}
                 >
                     <form className={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "articuloSuperadministradorAdministradores  articuloAlternativoSuperadministradorAdministradores" : "articuloSuperadministradorAdministradores"}>
                         <input
                             type="text"
                             name="nombreArticuloSuperadministradorAdministradores"
                             id={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"}
-                            disabled={seleccionAdministrador != administrador.id_administrador}
+                            disabled={seleccionAdministrador !== administrador.id_administrador}
                             value={nombresAdministradores[index] || ''}
                             onChange={e => {
                                 const nuevosNombres = [...nombresAdministradores];
@@ -156,7 +156,7 @@ function SuperadministradorAdministradores() {
                                 type="text"
                                 name="emailArticuloSuperadministradorAdministradores"
                                 id="emailArticuloSuperadministradorAdministradores"
-                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                disabled={seleccionAdministrador !== administrador.id_administrador}
                                 value={emailsAdministradores[index] || ''}
                                 onChange={e => {
                                     const nuevosEmails = [...emailsAdministradores];
@@ -171,7 +171,7 @@ function SuperadministradorAdministradores() {
                                 type="text"
                                 name="celularArticuloSuperadministradorAdministradores"
                                 id="celularArticuloSuperadministradorAdministradores"
-                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                disabled={seleccionAdministrador !== administrador.id_administrador}
                                 value={celularesAdministradores[index] || ''}
                                 onChange={e => {
                                     const nuevosCelulares = [...celularesAdministradores];
@@ -186,7 +186,7 @@ function SuperadministradorAdministradores() {
                                 type="text"
                                 name="telefonoArticuloSuperadministradorAdministradores"
                                 id="telefonoArticuloSuperadministradorAdministradores"
-                                disabled={seleccionAdministrador != administrador.id_administrador}
+                                disabled={seleccionAdministrador !== administrador.id_administrador}
                                 value={telefonosAdministradores[index] || ''}
                                 onChange={e => {
                                     const nuevosTelefonos = [...telefonosAdministradores];
@@ -206,7 +206,7 @@ function SuperadministradorAdministradores() {
                             />
                         </fieldset>
                     </form>
-                    {seleccionAdministrador == administrador.id_administrador && (
+                    {seleccionAdministrador === administrador.id_administrador && (
                         !editarSeleccionAdministrador.includes(administrador.id_administrador) ? (
                             <div className="pieSuperadministradorSeleccioadoAdministradores">
                                 <button type="button" onClick={() => editarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">Editar</button>

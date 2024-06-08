@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
 
-function Anuncio() {
+function AdministradorAnuncio() {
     const [anuncio, setAnuncio] = useState([]);
-    const [slider, setSlider] = useState(0);
-    const itemReferenciado = useRef([]);
+    const administracion = useContext(AdministracionContexto);
+    const subSeccion = administracion.subSeccion;
 
     useEffect(() => {
         const leerAnuncio = async () => {
@@ -19,19 +20,15 @@ function Anuncio() {
         leerAnuncio();
     }, []);
 
-    const activarSlider = (indice) => {
-        setSlider(indice);
-        itemReferenciado.current[indice].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    };
+    let contenido;
 
-    return (
-        <>
-            <div id="contenidoSliderAnuncio">
-                {anuncio.map((anuncio, indice) => (
+    switch (subSeccion) {
+        case 5: contenido = (
+            <>
+                {anuncio.map((anuncio) => (
                     <article
                         key={anuncio.id}
                         className="articuloContenidoSliderAnuncio"
-                        ref={(articulo) => itemReferenciado.current[indice] = articulo}
                     >
                         <div className="informacionArticuloContenidoSliderAnuncio">
                             <div className="principalInformacionArticuloContenidoSliderAnuncio">
@@ -47,19 +44,30 @@ function Anuncio() {
                         </div>
                     </article>
                 ))}
-            </div>
-            <div className="controlSlider">
-                {anuncio.map((_, indice) => (
-                    <button
-                        key={indice}
-                        className={`actualControlSlider ${indice === slider ? 'Activo' : ''}`}
-                        onClick={() => activarSlider(indice)}
-                        type="button"
-                    ></button>
-                ))}
-            </div>
+            </>
+        );
+            break;
+        case 6: contenido = (
+            <h1>Formulario</h1>
+        );
+            break;
+        default: contenido = (
+            <>
+                <h1 className="tituloAdministracionPrincipal">Anuncios</h1>
+                <p className="parrafoAdministracionPrincipal">
+                    Bienvenido a la sección de anuncios. <br/>
+                    Aquí podrás ver, modificar, eliminar y crear los anuncios, estos se asociarán a tu nombre y se eliminaran al pasar la fecha de expiración. <br />
+                    A continuación, en la parte superior de la página encontraras el acceso a el control de anuncios y al formulario de creación.
+                </p>
+            </>
+        );
+    }
+
+    return (
+        <>
+            {contenido}
         </>
     );
 }
 
-export default Anuncio;
+export default AdministradorAnuncio;

@@ -7,6 +7,11 @@ function FormularioSuperadministrador() {
     const formulario = useContext(FormularioContexto);
     const setFormulario = formulario.setFormulario;
     const setValorEmail = formulario.setValorEmail;
+    const setValorContraseña = formulario.setValorContraseña;
+
+    const enviarFormularioSuperadministrador = e => {
+        e.preventDefault();
+    }
 
     return (
         <article className="tarjetaFormulario">
@@ -24,7 +29,7 @@ function FormularioSuperadministrador() {
                     <fieldset className="tarjetaFormularioCuerpoFormularioGrupo">
                         <label htmlFor="contraseña">Contraseña:</label>
 
-                        <input className="tarjetaFormularioCuerpoFormularioGrupoInput" type="password" name="contraseña" id="contraseña" />
+                        <input className="tarjetaFormularioCuerpoFormularioGrupoInput" type="password" name="contraseña" id="contraseña" value={formulario.contraseña} onChange={(e) => setValorContraseña(e.target.value)} />
                     </fieldset>
                 </form>
             </main>

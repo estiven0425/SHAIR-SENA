@@ -17,7 +17,7 @@ function Herramienta() {
             <motion.div
                 id="herramienta"
                 initial={{ display: "none", opacity: 0 }}
-                animate={{ display: herramienta == true ? "flex" : "none", opacity: herramienta == true ? 1 : 0 }}
+                animate={{ display: herramienta === true ? "flex" : "none", opacity: herramienta === true ? 1 : 0 }}
                 transition={{ duration: 0.25 }}>
                 <h2>Herramientas</h2>
                 <div className="cajaHerramienta">

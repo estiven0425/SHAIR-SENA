@@ -36,7 +36,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 35%;
+    width: 30%;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader {
@@ -46,7 +46,29 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 35%;
+    width: 30%;
+}
+
+.navegacionSeccionAlternativa4AdministracionHeader {
+    align-content: center;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 30%;
+    width: 30%;
+}
+
+.navegacionSeccionAlternativa5AdministracionHeader {
+    align-content: center;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 60%;
+    width: 30%;
 }
 
 .navegacionSeccionAdministracionHeader button {
@@ -67,6 +89,26 @@
     font-size: 1rem;
     padding: 10px;
     width: 50%;
+}
+
+.navegacionSeccionAlternativa4AdministracionHeader button {
+    background-color: transparent;
+    border-radius: 0px 0px 10px 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 10px;
+    width: 50%;
+}
+
+.navegacionSeccionAlternativa5AdministracionHeader button {
+    background-color: transparent;
+    border-radius: 0px 0px 10px 10px;
+    border: none;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 10px;
+    width: 100%;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader a {
@@ -361,7 +403,32 @@
 
     .navegacionSeccionAdministracionHeader,
     .navegacionSeccionAlternativaAdministracionHeader {
+        border-radius: 0px;
         width: 100%;
+    }
+
+    .navegacionSeccionAlternativaAdministracionHeader {
+        border: none;
+    }
+
+    .navegacionSeccionAlternativa4AdministracionHeader {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .navegacionSeccionAlternativa5AdministracionHeader {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    .navegacionSeccionAdministracionHeader button:hover,
+    .navegacionSeccionAdministracionHeader button:focus {
+        border-radius: 0px;
+    }
+
+    .navegacionSeccionAlternativaAdministracionHeader button:hover,
+    .navegacionSeccionAlternativaAdministracionHeader button:focus {
+        border-radius: 0px 0px 10px 10px;
     }
 
     #administracionPrincipal {

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import SuperadministradorAdministradores from "./SuperadministradorAdministradores";
 import SuperadministradorCrearAdministrador from "./SuperadministradorCrearAdministrador";
@@ -6,7 +6,12 @@ import SuperadministradorCrearAdministrador from "./SuperadministradorCrearAdmin
 function Superadministrador() {
     const administracion = useContext(AdministracionContexto);
     const seccion = administracion.seccion;
+    const setSeccion = administracion.setSeccion;
     const subSeccion = administracion.subSeccion;
+
+    useEffect(() => {
+        setSeccion(0)
+    }, [])
 
     let explicacion;
 
@@ -30,7 +35,7 @@ function Superadministrador() {
 
     return (
         <>
-            {seccion == 0 ? (
+            {seccion === 0 ? (
                 <>
                     <h1 className="tituloAdministracionPrincipal">¡Hola Estiven Montoya Torres!</h1>
                     <p className="parrafoAdministracionPrincipal">
