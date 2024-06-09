@@ -1,446 +1,444 @@
 #administracionHeader {
-    align-content: flex-start;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-height: 2.5vh;
-    position: absolute;
-    top: 0px;
-    width: 100%;
+  align-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 2.5vh;
+  position: absolute;
+  top: 0px;
+  width: 100%;
 }
 
 .seccionAdministracionHeader {
-    align-content: center;
-    border-bottom: 2px solid rgb(4, 50, 77);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
+  align-content: center;
+  border-bottom: 2px solid rgb(4, 50, 77);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .seccionAlternativaAdministracionHeader {
-    align-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    width: 100%;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 .navegacionSeccionAdministracionHeader {
-    align-content: center;
-    border-radius: 10px 10px 0px 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 30%;
+  align-content: center;
+  border-radius: 10px 10px 0px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 30%;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader {
-    align-content: center;
-    border-radius: 0px 0px 10px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 30%;
+  align-content: center;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 30%;
 }
 
 .navegacionSeccionAlternativa4AdministracionHeader {
-    align-content: center;
-    border-radius: 0px 0px 10px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 30%;
-    width: 30%;
+  align-content: center;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 30%;
+  width: 30%;
 }
 
 .navegacionSeccionAlternativa5AdministracionHeader {
-    align-content: center;
-    border-radius: 0px 0px 10px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: 60%;
-    width: 30%;
+  align-content: center;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 60%;
+  width: 30%;
 }
 
 .navegacionSeccionAdministracionHeader button {
-    background-color: transparent;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  padding: 10px;
+  width: 100%;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader button,
 .navegacionSeccionAlternativaAdministracionHeader a {
-    background-color: transparent;
-    border-radius: 0px 0px 10px 10px;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    padding: 10px;
-    width: 50%;
+  background-color: transparent;
+  border-radius: 0px 0px 10px 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  padding: 10px;
+  width: 50%;
 }
 
 .navegacionSeccionAlternativa4AdministracionHeader button {
-    background-color: transparent;
-    border-radius: 0px 0px 10px 10px;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    padding: 10px;
-    width: 50%;
+  background-color: transparent;
+  border-radius: 0px 0px 10px 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  padding: 10px;
+  width: 50%;
 }
 
 .navegacionSeccionAlternativa5AdministracionHeader button {
-    background-color: transparent;
-    border-radius: 0px 0px 10px 10px;
-    border: none;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    padding: 10px;
-    width: 100%;
+  background-color: transparent;
+  border-radius: 0px 0px 10px 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  padding: 10px;
+  width: 100%;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader a {
-    background-color: rgb(4, 50, 77);
-    text-align: center;
-    text-decoration: none;
-    width: 100%;
+  background-color: rgb(4, 50, 77);
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
 }
 
 .navegacionSeccionAdministracionHeader button:hover,
 .navegacionSeccionAdministracionHeader button:focus {
-    background-color: rgb(57, 169, 0);
-    border-radius: 10px 10px 0px 0px;
-    cursor: pointer;
-    outline: none;
+  background-color: rgb(57, 169, 0);
+  border-radius: 10px 10px 0px 0px;
+  cursor: pointer;
+  outline: none;
 }
 
 .navegacionSeccionAlternativaAdministracionHeader button:hover,
 .navegacionSeccionAlternativaAdministracionHeader button:focus,
 .navegacionSeccionAlternativaAdministracionHeader a:hover,
 .navegacionSeccionAlternativaAdministracionHeader a:focus {
-    background-color: rgb(57, 169, 0) !important;
-    border-radius: 0px 0px 10px 10px;
-    cursor: pointer;
-    outline: none;
+  background-color: rgb(57, 169, 0) !important;
+  border-radius: 0px 0px 10px 10px;
+  cursor: pointer;
+  outline: none;
 }
 
 #administracionPrincipal {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 10px;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
 }
 
 #administracionAlternativaPrincipal {
-    align-content: flex-start;
-    align-items: flex-start;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-top: 100px;
-    min-height: 96.5vh;
-    padding: 10px;
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 100px;
+  min-height: 96.5vh;
+  padding: 10px;
 }
 
 .administracionAlternativaFormularioPrincipal {
-    align-content: stretch !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    margin-top: 41px !important;
-    padding: 0px !important;
+  align-content: stretch !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  margin-top: 41px !important;
+  padding: 0px !important;
 }
 
 .tituloAdministracionPrincipal {
-    color: rgb(57, 169, 0);
-    font-size: 2rem;
-    margin: 0px;
-    text-align: left;
+  color: rgb(57, 169, 0);
+  font-size: 2rem;
+  margin: 0px;
+  text-align: left;
 }
 
 .parrafoAdministracionPrincipal {
-    font-size: 1rem;
-    margin: 0px;
-    text-align: left;
+  font-size: 1rem;
+  margin: 0px;
+  text-align: left;
 }
 
 .superadministradorAdministradores {
-    align-content: center;
-    background-color: rgb(230, 230, 230);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin: 10px;
-    padding: 10px;
+  align-content: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 10px;
 }
 
 .superadministradorAdministradores:hover {
-    outline: 2px solid rgb(57, 169, 0);
+  outline: 2px solid rgb(57, 169, 0);
 }
 
 .superadministradorSeleccioadoAdministradores {
-    align-content: center;
-    background-color: rgb(230, 230, 230);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px;
-    outline: 2px solid rgb(57, 169, 0);
-    padding: 10px;
+  align-content: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  outline: 2px solid rgb(57, 169, 0);
+  padding: 10px;
 }
 
 .articuloSuperadministradorAdministradores {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 #nombreArticuloSuperadministradorAdministradores {
-    background-color: transparent;
-    border: none;
-    color: rgb(57, 169, 0);
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin: 0px 0px 10px;
-    padding: 5px 5px 5px 0px;
-    pointer-events: none;
-    text-align: center;
-    width: 100%;
+  background-color: transparent;
+  border: none;
+  color: rgb(57, 169, 0);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0px 0px 10px;
+  padding: 5px 5px 5px 0px;
+  pointer-events: none;
+  text-align: center;
+  width: 100%;
 }
 
 #nombreArticuloAlternativoSuperadministradorAdministradores {
-    border: none;
-    color: rgb(0, 0, 0);
-    font-size: 1.25rem;
-    margin: 0px 0px 10px;
-    padding: 5px 5px 5px 0px;
-    width: 100%;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.25rem;
+  margin: 0px 0px 10px;
+  padding: 5px 5px 5px 0px;
+  width: 100%;
 }
 
 .articuloSuperadministradorAdministradores fieldset {
-    align-content: flex-start;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 10px 0px;
-    padding: 0px;
+  align-content: flex-start;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px 0px;
+  padding: 0px;
 }
 
 .articuloSuperadministradorAdministradores fieldset h2 {
-    color: rgb(57, 169, 0);
-    font-size: 1.25rem;
-    margin: 0px;
-    text-align: left;
+  color: rgb(57, 169, 0);
+  font-size: 1.25rem;
+  margin: 0px;
+  text-align: left;
 }
 
 .articuloSuperadministradorAdministradores fieldset input {
-    background-color: transparent;
-    border: none;
-    color: rgb(0, 0, 0);
-    font-size: 1rem;
-    padding: 5px 5px 5px 0px;
-    pointer-events: none;
-    width: 100%;
+  background-color: transparent;
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  padding: 5px 5px 5px 0px;
+  pointer-events: none;
+  width: 100%;
 }
 
 .articuloAlternativoSuperadministradorAdministradores fieldset input,
 #nombreArticuloAlternativoSuperadministradorAdministradores {
-    background-color: rgb(255, 255, 255);
-    border-bottom: 2px solid rgb(4, 50, 77);
-    border-radius: 2.5px 2.5px 0px 0px;
-    pointer-events: all;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 2px solid rgb(4, 50, 77);
+  border-radius: 2.5px 2.5px 0px 0px;
+  pointer-events: all;
 }
 
 #fechaCreacionArticuloSuperadministradorAdministradores {
-    background-color: transparent;
-    border: none;
-    pointer-events: none;
+  background-color: transparent;
+  border: none;
+  pointer-events: none;
 }
 
 .pieSuperadministradorSeleccioadoAdministradores {
-    align-content: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .botonPieSuperadministradorSeleccioadoAdministradores {
-    background-color: rgb(4, 50, 77);
-    border: none;
-    border-radius: 10px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 10px;
-    min-width: 30%;
+  background-color: rgb(4, 50, 77);
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  min-width: 30%;
 }
 
 .botonPieSuperadministradorSeleccioadoAdministradores:focus,
 .botonPieSuperadministradorSeleccioadoAdministradores:hover {
-    background-color: rgb(57, 169, 0);
-    outline: none;
+  background-color: rgb(57, 169, 0);
+  outline: none;
 }
 
 #formularioSuperadministradorCrearAdministrador,
 #alertaSuperadministradorCrearAdministrador {
-    align-content: center;
-    align-items: flex-start;
-    background-color: rgb(230, 230, 230);
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 55%;
-    padding: 79px 10px 10px 10px;
+  align-content: center;
+  align-items: flex-start;
+  background-color: rgb(230, 230, 230);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 55%;
+  padding: 79px 10px 10px 10px;
 }
 
 #alertaSuperadministradorCrearAdministrador {
-    align-items: center;
+  align-items: center;
 }
 
 #alertaSuperadministradorCrearAdministrador h1 {
-    color: rgb(57, 169, 0);
-    font-size: 1.5rem;
-    text-align: center;
+  color: rgb(57, 169, 0);
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 #alertaSuperadministradorCrearAdministrador p {
-    font-size: 1rem;
-    text-align: center;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .seccionFormularioSuperadministradorCrearAdministrador {
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .subSeccionFormularioSuperadministradorCrearAdministrador {
-    align-content: stretch;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0px;
-    padding: 10px 0px;
-    width: 100%;
+  align-content: stretch;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0px;
+  padding: 10px 0px;
+  width: 100%;
 }
 
 .subSeccionFormularioSuperadministradorCrearAdministrador label {
-    color: rgb(57, 169, 0);
-    font-size: 1rem;
+  color: rgb(57, 169, 0);
+  font-size: 1rem;
 }
 
 .subSeccionFormularioSuperadministradorCrearAdministrador input {
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
-    width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  width: 100%;
 }
 
 .subSeccionFormularioSuperadministradorCrearAdministrador input:focus {
-    outline-color: rgb(57, 169, 0);
+  outline-color: rgb(57, 169, 0);
 }
 
 .seccionAlternativaFormularioSuperadministradorCrearAdministrador p {
-    font-size: 1rem;
-    margin: 0px;
+  font-size: 1rem;
+  margin: 0px;
 }
 
 .seccionAlternativaFormularioSuperadministradorCrearAdministrador span {
-    color: rgb(57, 169, 0);
+  color: rgb(57, 169, 0);
 }
 
 .botonSeccionAlternativaFormularioSuperadministradorCrearAdministrador,
 #alertaSuperadministradorCrearAdministrador button {
-    border: none;
-    border-radius: 10px;
-    background-color: rgb(4, 50, 77);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(4, 50, 77);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
 }
 
 .botonSeccionAlternativaFormularioSuperadministradorCrearAdministrador:focus,
 #alertaSuperadministradorCrearAdministrador button:focus,
 .botonSeccionAlternativaFormularioSuperadministradorCrearAdministrador:hover,
 #alertaSuperadministradorCrearAdministrador button:hover {
-    background-color: rgb(57, 169, 0);
-    outline: none;
+  background-color: rgb(57, 169, 0);
+  outline: none;
 }
 
-
 @media (max-width: 630px) {
+  .navegacionSeccionAdministracionHeader,
+  .navegacionSeccionAlternativaAdministracionHeader {
+    border-radius: 0px;
+    width: 100%;
+  }
 
-    .navegacionSeccionAdministracionHeader,
-    .navegacionSeccionAlternativaAdministracionHeader {
-        border-radius: 0px;
-        width: 100%;
-    }
+  .navegacionSeccionAlternativaAdministracionHeader {
+    border: none;
+  }
 
-    .navegacionSeccionAlternativaAdministracionHeader {
-        border: none;
-    }
+  .navegacionSeccionAlternativa4AdministracionHeader {
+    margin-left: 0px;
+    width: 100%;
+  }
 
-    .navegacionSeccionAlternativa4AdministracionHeader {
-        margin-left: 0px;
-        width: 100%;
-    }
+  .navegacionSeccionAlternativa5AdministracionHeader {
+    margin-left: 0px;
+    width: 100%;
+  }
 
-    .navegacionSeccionAlternativa5AdministracionHeader {
-        margin-left: 0px;
-        width: 100%;
-    }
+  .navegacionSeccionAdministracionHeader button:hover,
+  .navegacionSeccionAdministracionHeader button:focus {
+    border-radius: 0px;
+  }
 
-    .navegacionSeccionAdministracionHeader button:hover,
-    .navegacionSeccionAdministracionHeader button:focus {
-        border-radius: 0px;
-    }
+  .navegacionSeccionAlternativaAdministracionHeader button:hover,
+  .navegacionSeccionAlternativaAdministracionHeader button:focus {
+    border-radius: 0px 0px 10px 10px;
+  }
 
-    .navegacionSeccionAlternativaAdministracionHeader button:hover,
-    .navegacionSeccionAlternativaAdministracionHeader button:focus {
-        border-radius: 0px 0px 10px 10px;
-    }
+  #administracionPrincipal {
+    margin-top: 40px;
+  }
 
-    #administracionPrincipal {
-        margin-top: 40px;
-    }
+  #administracionAlternativaPrincipal {
+    justify-content: center;
+  }
 
-    #administracionAlternativaPrincipal {
-        justify-content: center;
-    }
-
-    #formularioSuperadministradorCrearAdministrador,
-    #alertaSuperadministradorCrearAdministrador {
-        width: 100%;
-    }
+  #formularioSuperadministradorCrearAdministrador,
+  #alertaSuperadministradorCrearAdministrador {
+    width: 100%;
+  }
 }

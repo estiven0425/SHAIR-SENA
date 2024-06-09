@@ -1,13 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const anuncioController = require('../controllers/AnuncioController');
+const anuncioController = require("../controllers/AnuncioController");
 
-router.get('/', anuncioController.leerAnuncio);
+router.get("/", anuncioController.leerAnuncio);
 
-router.post('/', anuncioController.crearAnuncio);
+router.post("/", anuncioController.crearAnuncio);
 
-router.put('/', anuncioController.actualizarAnuncio);
+router.put("/", anuncioController.actualizarAnuncio);
 
-router.delete('/', anuncioController.eliminarAnuncio);
+router.delete("/", anuncioController.eliminarAnuncio);
 
 module.exports = router;

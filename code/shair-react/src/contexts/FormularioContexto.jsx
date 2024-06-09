@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const FormularioContexto = createContext()
+const FormularioContexto = createContext();
 
 export default FormularioContexto;
