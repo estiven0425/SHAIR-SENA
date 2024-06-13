@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from "date-fns";
-
-// import jwt_decode from "jsonwebtoken";
+import { jwtDecode } from "jwt-decode";
 
 function AdministradorCrearNoticia() {
   const fechaActual = new Date();
@@ -13,9 +12,16 @@ function AdministradorCrearNoticia() {
   const [fechaInicio, setFechaInicio] = useState(fechaFormateada);
   const [fechaFin, setFechaFin] = useState(fechaFormateada);
   const [masInformacion, setMasInformacion] = useState("");
-  const [id_administrador, setId_administrador] = useState("");
+  const [idAdministrador, setIdAdministrador] = useState("");
   const [imagen, setImagen] = useState(null);
   const [enviado, setEnviado] = useState(false);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    const tokenDecodificacion = jwtDecode(token);
+    const tokenIdAdministrador = tokenDecodificacion.id;
+    setIdAdministrador(tokenIdAdministrador);
+  }, []);
 
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
@@ -26,9 +32,6 @@ function AdministradorCrearNoticia() {
     e.preventDefault();
 
     const datosFormulario = new FormData();
-    const token = sessionStorage.getItem("token");
-    // const decodificarToken = jwt_decode(token);
-    // setId_administrador(decodificarToken.id);
 
     datosFormulario.append("nombre", nombre);
     datosFormulario.append("enunciado", enunciado);
@@ -36,7 +39,7 @@ function AdministradorCrearNoticia() {
     datosFormulario.append("fecha_inicio", fechaInicio);
     datosFormulario.append("fecha_fin", fechaFin);
     datosFormulario.append("mas_informacion", masInformacion);
-    // datosFormulario.append("id_administrador", id_administrador);
+    datosFormulario.append("id_administrador", idAdministrador);
 
     try {
       let rutaCargaNoticia = null;
@@ -61,7 +64,7 @@ function AdministradorCrearNoticia() {
         fecha_inicio: fechaInicio,
         fecha_fin: fechaFin,
         mas_informacion: masInformacion,
-        id_administrador : 26,
+        id_administrador: idAdministrador,
       });
 
       setEnviado(true);
