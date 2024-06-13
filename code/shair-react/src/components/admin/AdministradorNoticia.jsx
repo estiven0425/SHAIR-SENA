@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
+import AdministradorCrearNoticia from "./AdministradorCrearNoticia";
 import axios from "axios";
 
 function AdministradorNoticia() {
@@ -68,7 +69,7 @@ function AdministradorNoticia() {
       );
       break;
     case 4:
-      contenido = <h1>Formulario</h1>;
+      contenido = <AdministradorCrearNoticia/>;
       break;
     default:
       contenido = (
