@@ -58,6 +58,22 @@ app.post("/cargaNoticia", (req, res) => {
   });
 });
 
+app.post("/cargaAnuncio", (req, res) => {
+  if (!req.files || Object.keys(req.files).length == 0) {
+    return res.status(400).send("No se han subido archivos.");
+  }
+
+  let archivo = req.files.file;
+  let rutaArchivo = path.join(__dirname, "public", "uploads", archivo.name);
+
+  archivo.mv(rutaArchivo, (err) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.send({ filePath: `uploads/${archivo.name}` });
+  });
+});
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Servidor iniciado en el puerto: ${PORT}`));

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
+import AdministradorCrearAnuncio from "./AdministradorCrearAnuncio";
 import axios from "axios";
 
 function AdministradorAnuncio() {
@@ -11,6 +12,7 @@ function AdministradorAnuncio() {
     const leerAnuncio = async () => {
       try {
         const respuesta = await axios.get("http://localhost:5000/anuncio");
+
         setAnuncio(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
@@ -18,7 +20,7 @@ function AdministradorAnuncio() {
     };
 
     leerAnuncio();
-  }, []);
+  }, [subSeccion]);
 
   let contenido;
 
@@ -49,7 +51,7 @@ function AdministradorAnuncio() {
       );
       break;
     case 6:
-      contenido = <h1>Formulario</h1>;
+      contenido = <AdministradorCrearAnuncio />;
       break;
     default:
       contenido = (

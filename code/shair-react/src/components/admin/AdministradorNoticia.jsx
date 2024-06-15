@@ -20,7 +20,7 @@ function AdministradorNoticia() {
     };
 
     leerNoticia();
-  }, []);
+  }, [subSeccion]);
 
   let contenido;
 
@@ -69,7 +69,7 @@ function AdministradorNoticia() {
       );
       break;
     case 4:
-      contenido = <AdministradorCrearNoticia/>;
+      contenido = <AdministradorCrearNoticia />;
       break;
     default:
       contenido = (

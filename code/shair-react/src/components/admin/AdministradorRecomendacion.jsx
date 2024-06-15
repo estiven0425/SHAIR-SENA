@@ -27,17 +27,19 @@ function AdministradorRecomendacion() {
       contenido = (
         <>
           {recomendacion.map((recomendacion) => (
-            <article key={recomendacion.id} className="articuloContenidoSliderRecomendacion">
-              <div className="informacionArticuloContenidoSliderRecomendacion">
-                <div className="principalInformacionArticuloContenidoSliderRecomendacion">
-                  <h2>{recomendacion.nombre}</h2>
-                  <p>{recomendacion.enunciado}</p>
+            <div key={recomendacion.id} className="subContenedorNoticia">
+              <h2>{recomendacion.nombre}</h2>
+              <article className="articuloSubContenedorNoticia">
+                <div className="informacionArticuloSubContenedorNoticia">
+                  <div className="principalInformacionArticuloSubContenedorNoticia">
+                    <p>{recomendacion.enunciado}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="imagenArticuloContenidoSliderRecomendacion">
-                <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
-              </div>
-            </article>
+                <div className="imagenArticuloSubContenedorNoticia">
+                  <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
+                </div>
+              </article>
+            </div>
           ))}
         </>
       );
