@@ -43,7 +43,6 @@ exports.actualizarNoticia = async (req, res) => {
   const { id, nombre, enunciado, archivo_adjunto, lugar, fecha_inicio, fecha_fin, mas_informacion, id_administrador } = req.body;
 
   try {
-    noticia;
     const noticia = await Noticia.findByPk(id);
 
     if (noticia) {

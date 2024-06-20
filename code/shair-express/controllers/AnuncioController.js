@@ -1,8 +1,16 @@
 const Anuncio = require("../models/Anuncio");
+const Administrador = require("../models/Administrador");
 
 exports.leerAnuncio = async (req, res) => {
   try {
-    const anuncio = await Anuncio.findAll();
+    const anuncio = await Anuncio.findAll({
+      include: [
+        {
+          model: Administrador,
+          attributes: ["nombre"],
+        },
+      ],
+    });
 
     res.json(anuncio);
   } catch (error) {

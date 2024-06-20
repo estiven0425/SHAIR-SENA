@@ -7,6 +7,7 @@ import Administracion from "./pages/admin/Administracion";
 import Recomendacion from "./pages/home/Recomendacion";
 import Superadministrador from "./components/admin/Superadministrador";
 import Administrador from "./components/admin/Administrador";
+import Error from "./pages/error/Error";
 import "./assets/styles/style.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="administrador" element={<Administrador />} />
           </Route>
         </Route>
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   );
