@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
 
 function AdministradorRecomendacion() {
-  const [recomendacion, setRecomendacion] = useState([]);
+  const [recomendaciones, setRecomendaciones] = useState([]);
+  const [editarSeleccionRecomendacion, setEditarSeleccionRecomendacion] = useState([]);
+  const [seleccionRecomendacion, setSeleccionRecomendacion] = useState(null);
+  const seleccionadoRecomendacion = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
 
@@ -11,7 +14,7 @@ function AdministradorRecomendacion() {
     const leerRecomendacion = async () => {
       try {
         const respuesta = await axios.get("http://localhost:5000/recomendacion");
-        setRecomendacion(respuesta.data);
+        setRecomendaciones(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
       }
@@ -19,6 +22,35 @@ function AdministradorRecomendacion() {
 
     leerRecomendacion();
   }, []);
+  useEffect(() => {
+    const deseleccionarRecomendacion = (event) => {
+      if (seleccionadoRecomendacion.current && !seleccionadoRecomendacion.current.contains(event.target)) {
+        setSeleccionRecomendacion(null);
+        setEditarSeleccionRecomendacion([]);
+      }
+    };
+
+    document.addEventListener("mousedown", deseleccionarRecomendacion);
+
+    return () => {
+      document.removeEventListener("mousedown", deseleccionarRecomendacion);
+    };
+  }, [seleccionadoRecomendacion]);
+
+  const seleccionarRecomendacion = (id) => {
+    setSeleccionRecomendacion(id);
+  };
+  const eliminarRecomendacion = async (id) => {
+    try {
+      await axios.delete(`http://localhost:5000/recomendacion`, {
+        data: { id: id },
+      });
+
+      setRecomendaciones((prevState) => prevState.filter((anuncio) => anuncio.id !== id));
+    } catch (error) {
+      console.error("Error al eliminar la recomendación:", error);
+    }
+  };
 
   let contenido;
 
@@ -26,19 +58,29 @@ function AdministradorRecomendacion() {
     case 7:
       contenido = (
         <>
-          {recomendacion.map((recomendacion) => (
-            <div key={recomendacion.id} className="subContenedorNoticia">
+          {recomendaciones.map((recomendacion) => (
+            <div key={recomendacion.id} className={seleccionRecomendacion === recomendacion.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarRecomendacion(recomendacion.id)} ref={seleccionRecomendacion === recomendacion.id ? seleccionadoRecomendacion : null}>
               <h2>{recomendacion.nombre}</h2>
-              <article className="articuloSubContenedorNoticia">
-                <div className="informacionArticuloSubContenedorNoticia">
-                  <div className="principalInformacionArticuloSubContenedorNoticia">
-                    <p>{recomendacion.enunciado}</p>
+              <article className="articuloAdministracionAlternativaContenido">
+                <div className="articuloAdministracionAlternativaContenido0">
+                  <p>{recomendacion.enunciado}</p>
+                </div>
+                <div className="articuloAdministracionAlternativaContenido1">
+                  <div className="imagenArticuloAdministracionAlternativaContenido">
+                    <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
                   </div>
                 </div>
-                <div className="imagenArticuloSubContenedorNoticia">
-                  <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
-                </div>
               </article>
+              {seleccionRecomendacion === recomendacion.id &&
+                (!editarSeleccionRecomendacion.includes(recomendacion.id) ? (
+                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                    <button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
+                      Eliminar
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                ))}
             </div>
           ))}
         </>
@@ -47,10 +89,11 @@ function AdministradorRecomendacion() {
     default:
       contenido = (
         <>
-          <h1 className="tituloAdministracionPrincipal">Anuncios</h1>
+          <h1 className="tituloAdministracionPrincipal">Recomenadaciones</h1>
           <p className="parrafoAdministracionPrincipal">
-            Bienvenido a la sección de anuncios. <br />
-            Aquí podrás ver, modificar, eliminar y crear los anuncios, estos se asociarán a tu nombre y se eliminaran al pasar la fecha de expiración. <br />A continuación, en la parte superior de la página encontraras el acceso a el control de anuncios y al formulario de creación.
+            Bienvenido a la sección de recomendaciones. <br />
+            Aquí podrás ver las recomendaciones que hacen los aprendices.
+            <br />A continuación, en la parte superior de la página encontraras el acceso a las recomendaciones.
           </p>
         </>
       );

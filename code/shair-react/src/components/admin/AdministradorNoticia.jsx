@@ -183,134 +183,139 @@ function AdministradorNoticia() {
       contenido = (
         <>
           {noticias.map((noticia, index) => (
-            <div key={noticia.id} className={seleccionNoticia === noticia.id ? "superadministradorSeleccioadoAdministradores" : "superadministradorAdministradores"} onClick={() => seleccionarNoticia(noticia.id)} ref={seleccionNoticia === noticia.id ? seleccionadaNoticia : null}>
-              <form className={editarSeleccionNoticia.includes(noticia.id) ? "articuloSuperadministradorAdministradores  articuloAlternativoSuperadministradorAdministradores" : "articuloSuperadministradorAdministradores"}>
-                <input
-                  type="text"
-                  name="nombreArticuloSuperadministradorAdministradores"
-                  id={editarSeleccionNoticia.includes(noticia.id) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"}
-                  disabled={seleccionNoticia !== noticia.id}
-                  value={nombresNoticias[index] || ""}
-                  onChange={(e) => {
-                    const nuevosNombres = [...nombresNoticias];
-                    nuevosNombres[index] = e.target.value;
-                    setNombresNoticias(nuevosNombres);
-                  }}
-                />
-                <fieldset>
-                  <h2>Enunciados:</h2>
+            <div key={noticia.id} className={seleccionNoticia === noticia.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarNoticia(noticia.id)} ref={seleccionNoticia === noticia.id ? seleccionadaNoticia : null}>
+              <form className={editarSeleccionNoticia.includes(noticia.id) ? "articuloAdministracionAlternativaContenido  articuloAlternativoAdministracionAlternativaContenido" : "articuloAdministracionAlternativaContenido"}>
+                <div className="articuloAdministracionAlternativaContenido0">
                   <input
                     type="text"
-                    name="emailArticuloSuperadministradorAdministradores"
-                    // id="emailArticuloSuperadministradorAdministradores"
+                    name="nombreArticuloAdministracionAlternativaContenido"
+                    id={editarSeleccionNoticia.includes(noticia.id) ? "nombreArticuloAlternativoAdministracionAlternativaContenido" : "nombreArticuloAdministracionAlternativaContenido"}
                     disabled={seleccionNoticia !== noticia.id}
-                    value={enunciadosNoticias[index] || ""}
+                    value={nombresNoticias[index] || ""}
                     onChange={(e) => {
-                      const nuevosEnunciados = [...enunciadosNoticias];
-                      nuevosEnunciados[index] = e.target.value;
-                      setEnunciadosNoticias(nuevosEnunciados);
+                      const nuevosNombres = [...nombresNoticias];
+                      nuevosNombres[index] = e.target.value;
+                      setNombresNoticias(nuevosNombres);
                     }}
                   />
-                </fieldset>
-                <fieldset>
-                  <h2>Lugar:</h2>
-                  <input
-                    type="text"
-                    name="celularArticuloSuperadministradorAdministradores"
-                    // id="celularArticuloSuperadministradorAdministradores"
-                    disabled={seleccionNoticia !== noticia.id}
-                    value={lugaresNoticias[index] || ""}
-                    onChange={(e) => {
-                      const nuevosLugares = [...lugaresNoticias];
-                      nuevosLugares[index] = e.target.value;
-                      setLugaresNoticias(nuevosLugares);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Desde:</h2>
-                  <input
-                    type="date"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled={seleccionNoticia !== noticia.id}
-                    value={fechasInicioNoticias[index] || ""}
-                    onChange={(e) => {
-                      const nuevasFechasInicio = [...fechasInicioNoticias];
-                      nuevasFechasInicio[index] = e.target.value;
-                      setFechasInicioNoticias(nuevasFechasInicio);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Hasta:</h2>
-                  <input
-                    type="date"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled={seleccionNoticia !== noticia.id}
-                    value={fechasFinNoticias[index] || ""}
-                    onChange={(e) => {
-                      const nuevasFechasFin = [...fechasFinNoticias];
-                      nuevasFechasFin[index] = e.target.value;
-                      setFechasFinNoticias(nuevasFechasFin);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Organiza:</h2>
-                  <input
-                    type="text"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled
-                    value={administradoresNoticias[index] || ""}
-                    onChange={(e) => {
-                      const nuevosAdministradores = [...administradoresNoticias];
-                      nuevosAdministradores[index] = e.target.value;
-                      setAdministradoresNoticias(nuevosAdministradores);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Más información:</h2>
-                  <input
-                    type="text"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled={seleccionNoticia !== noticia.id}
-                    value={masInformacionesNoticias[index] || ""}
-                    onChange={(e) => {
-                      const nuevasMasInformacion = [...masInformacionesNoticias];
-                      nuevasMasInformacion[index] = e.target.value;
-                      setMasInformacionNoticias(nuevasMasInformacion);
-                    }}
-                  />
-                </fieldset>
-                <fieldset className="subSeccionFormularioRecomendacionPrincipal">
-                  <div className="imagenArticuloSubContenedorNoticia">
-                    <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
-                  </div>
-                </fieldset>
+                  <fieldset>
+                    <h2>Enunciados:</h2>
+                    <textarea
+                      rows="5"
+                      type="text"
+                      name="enunciadoArticuloAdministracionAlternativaContenido"
+                      id="enunciadoArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionNoticia !== noticia.id}
+                      value={enunciadosNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevosEnunciados = [...enunciadosNoticias];
+                        nuevosEnunciados[index] = e.target.value;
+                        setEnunciadosNoticias(nuevosEnunciados);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Lugar:</h2>
+                    <input
+                      type="text"
+                      name="lugarArticuloAdministracionAlternativaContenido"
+                      id="lugarArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionNoticia !== noticia.id}
+                      value={lugaresNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevosLugares = [...lugaresNoticias];
+                        nuevosLugares[index] = e.target.value;
+                        setLugaresNoticias(nuevosLugares);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Desde:</h2>
+                    <input
+                      type="date"
+                      name="fechaInicioArticuloAdministracionAlternativaContenido"
+                      id="fechaInicioArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionNoticia !== noticia.id}
+                      value={fechasInicioNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevasFechasInicio = [...fechasInicioNoticias];
+                        nuevasFechasInicio[index] = e.target.value;
+                        setFechasInicioNoticias(nuevasFechasInicio);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Hasta:</h2>
+                    <input
+                      type="date"
+                      name="fechaFinArticuloAdministracionAlternativaContenido"
+                      id="fechaFinArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionNoticia !== noticia.id}
+                      value={fechasFinNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevasFechasFin = [...fechasFinNoticias];
+                        nuevasFechasFin[index] = e.target.value;
+                        setFechasFinNoticias(nuevasFechasFin);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Organiza:</h2>
+                    <input
+                      type="text"
+                      name="administradorArticuloAdministracionAlternativaContenido"
+                      id="administradorArticuloAdministracionAlternativaContenido"
+                      disabled
+                      value={administradoresNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevosAdministradores = [...administradoresNoticias];
+                        nuevosAdministradores[index] = e.target.value;
+                        setAdministradoresNoticias(nuevosAdministradores);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Más información:</h2>
+                    <input
+                      type="text"
+                      name="masInformacionArticuloAdministracionAlternativaContenido"
+                      id="masInformacionArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionNoticia !== noticia.id}
+                      value={masInformacionesNoticias[index] || ""}
+                      onChange={(e) => {
+                        const nuevasMasInformacion = [...masInformacionesNoticias];
+                        nuevasMasInformacion[index] = e.target.value;
+                        setMasInformacionNoticias(nuevasMasInformacion);
+                      }}
+                    />
+                  </fieldset>
+                </div>
+                <div className="articuloAdministracionAlternativaContenido1">
+                  <fieldset className="subSeccionArticuloAdministracionAlternativaContenido">
+                    <div className="imagenArticuloAdministracionAlternativaContenido">
+                      <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
+                    </div>
+                  </fieldset>
+                </div>
               </form>
               {seleccionNoticia === noticia.id &&
                 (!editarSeleccionNoticia.includes(noticia.id) ? (
-                  <div className="pieSuperadministradorSeleccioadoAdministradores">
-                    <button type="button" onClick={() => editarNoticia(noticia.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                    <button type="button" onClick={() => editarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Editar
                     </button>
-                    <button type="button" onClick={() => eliminarNoticia(noticia.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                    <button type="button" onClick={() => eliminarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Eliminar
                     </button>
                   </div>
                 ) : (
-                  <div className="pieSuperadministradorSeleccioadoAdministradores">
-                    <button type="button" onClick={() => cancelarEditarNoticia(noticia.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                    <button type="button" onClick={() => cancelarEditarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Cancelar
                     </button>
                     <button
                       type="submit"
-                      className="botonPieSuperadministradorSeleccioadoAdministradores"
+                      className="botonPieAdministracionAlternativaContenidoSeleccionado"
                       onClick={() => {
                         actualizarNoticia(noticia.id);
                       }}

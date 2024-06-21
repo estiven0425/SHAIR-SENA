@@ -81,7 +81,7 @@ function AdministradorCrearNoticia() {
     <>
       {enviado === true ? (
         <>
-          <div id="alertaSuperadministradorCrearAdministrador">
+          <div id="alertaAdministracionCrear">
             <h1>Noticia creada con éxtio</h1>
             <p>Ve a la subsección de noticias para ver, editar y eliminar las noticias.</p>
             <button type="button" onClick={reiniciarFormulario}>
@@ -90,29 +90,29 @@ function AdministradorCrearNoticia() {
           </div>
         </>
       ) : (
-        <form id="formularioSuperadministradorCrearAdministrador" onSubmit={crearNoticia}>
-          <section className="seccionFormularioSuperadministradorCrearAdministrador">
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+        <form id="formularioAdministracionCrear" onSubmit={crearNoticia}>
+          <section className="seccionFormularioAdministracionCrear">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Título*:</label>
               <input type="text" name="nombre" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="enunciado">Enunciado*:</label>
               <input type="text" name="enunciado" id="enunciado" value={enunciado} onChange={(e) => setEnunciado(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="lugar">Lugar*:</label>
               <input type="text" name="lugar" id="lugar" value={lugar} onChange={(e) => setLugar(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="fechaInicio">Fecha de inicio*:</label>
               <input type="date" name="fechaInicio" id="fechaInicio" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="fechaFin">Fecha de finalización*:</label>
               <input type="date" name="fechaFin" id="fechaFin" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="masInformacion">Más información:</label>
               <input type="text" name="masInformacion" id="masInformacion" value={masInformacion} onChange={(e) => setMasInformacion(e.target.value)} />
             </fieldset>
@@ -124,8 +124,8 @@ function AdministradorCrearNoticia() {
               <input type="file" name="imagenAdjunta" id="imagenAdjunta" onChange={subirImagen} />
             </fieldset>
           </section>
-          <section className="seccionFormularioSuperadministradorCrearAdministrador seccionAlternativaFormularioSuperadministradorCrearAdministrador">
-            <button type="submit" className="botonSeccionAlternativaFormularioSuperadministradorCrearAdministrador">
+          <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
+            <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear noticia
             </button>
             <p>

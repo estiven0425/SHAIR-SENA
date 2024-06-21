@@ -28,19 +28,19 @@ function AdministracionHeader() {
     setSubSeccion(subSeccion !== 2 ? 2 : 0);
   };
   const accesoSubSeccion3 = () => {
-    setSubSeccion(subSeccion !== 3 ? 3 : 2);
+    setSubSeccion(subSeccion !== 3 ? 3 : 0);
   };
   const accesoSubSeccion4 = () => {
-    setSubSeccion(subSeccion !== 4 ? 4 : 2);
+    setSubSeccion(subSeccion !== 4 ? 4 : 0);
   };
   const accesoSubSeccion5 = () => {
-    setSubSeccion(subSeccion !== 5 ? 5 : 2);
+    setSubSeccion(subSeccion !== 5 ? 5 : 0);
   };
   const accesoSubSeccion6 = () => {
-    setSubSeccion(subSeccion !== 6 ? 6 : 2);
+    setSubSeccion(subSeccion !== 6 ? 6 : 0);
   };
   const accesoSubSeccion7 = () => {
-    setSubSeccion(subSeccion !== 7 ? 7 : 2);
+    setSubSeccion(subSeccion !== 7 ? 7 : 0);
   };
   const seleccionHeader = () => {
     if (seccion === 0) {

@@ -63,7 +63,7 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
   overflow: hidden;
-  width: 70%;
+  width: 90%;
 }
 
 .articuloContenidoSliderAnuncio {
@@ -172,7 +172,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 10px;
-  width: 70%;
+  width: 90%;
 }
 
 .informacionArticuloSubContenedorNoticia {

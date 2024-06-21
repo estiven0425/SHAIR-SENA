@@ -163,104 +163,109 @@ function AdministradorAnuncio() {
       contenido = (
         <>
           {anuncios.map((anuncio, index) => (
-            <div key={anuncio.id} className={seleccionAnuncio === anuncio.id ? "superadministradorSeleccioadoAdministradores" : "superadministradorAdministradores"} onClick={() => seleccionarAnuncio(anuncio.id)} ref={seleccionAnuncio === anuncio.id ? seleccionadoAnuncio : null}>
-              <form className={editarSeleccionAnuncio.includes(anuncio.id) ? "articuloSuperadministradorAdministradores  articuloAlternativoSuperadministradorAdministradores" : "articuloSuperadministradorAdministradores"}>
-                <input
-                  type="text"
-                  name="nombreArticuloSuperadministradorAdministradores"
-                  id={editarSeleccionAnuncio.includes(anuncio.id) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"}
-                  disabled={seleccionAnuncio !== anuncio.id}
-                  value={nombresAnuncios[index] || ""}
-                  onChange={(e) => {
-                    const nuevosNombres = [...nombresAnuncios];
-                    nuevosNombres[index] = e.target.value;
-                    setNombresAnuncios(nuevosNombres);
-                  }}
-                />
-                <fieldset>
-                  <h2>Enunciados:</h2>
+            <div key={anuncio.id} className={seleccionAnuncio === anuncio.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarAnuncio(anuncio.id)} ref={seleccionAnuncio === anuncio.id ? seleccionadoAnuncio : null}>
+              <form className={editarSeleccionAnuncio.includes(anuncio.id) ? "articuloAdministracionAlternativaContenido  articuloAlternativoAdministracionAlternativaContenido" : "articuloAdministracionAlternativaContenido"}>
+                <div className="articuloAdministracionAlternativaContenido0">
                   <input
                     type="text"
-                    name="emailArticuloSuperadministradorAdministradores"
-                    // id="emailArticuloSuperadministradorAdministradores"
+                    name="nombreArticuloAdministracionAlternativaContenido"
+                    id={editarSeleccionAnuncio.includes(anuncio.id) ? "nombreArticuloAlternativoAdministracionAlternativaContenido" : "nombreArticuloAdministracionAlternativaContenido"}
                     disabled={seleccionAnuncio !== anuncio.id}
-                    value={enunciadosAnuncios[index] || ""}
+                    value={nombresAnuncios[index] || ""}
                     onChange={(e) => {
-                      const nuevosEnunciados = [...enunciadosAnuncios];
-                      nuevosEnunciados[index] = e.target.value;
-                      setEnunciadosAnuncios(nuevosEnunciados);
+                      const nuevosNombres = [...nombresAnuncios];
+                      nuevosNombres[index] = e.target.value;
+                      setNombresAnuncios(nuevosNombres);
                     }}
                   />
-                </fieldset>
-                <fieldset>
-                  <h2>Fecha de expiración:</h2>
-                  <input
-                    type="date"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled={seleccionAnuncio !== anuncio.id}
-                    value={fechasExpiracionAnuncios[index] || ""}
-                    onChange={(e) => {
-                      const nuevasFechasExpiracion = [...fechasExpiracionAnuncios];
-                      nuevasFechasExpiracion[index] = e.target.value;
-                      setFechasExpiracionAnuncios(nuevasFechasExpiracion);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Organiza:</h2>
-                  <input
-                    type="text"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled
-                    value={administradoresAnuncios[index] || ""}
-                    onChange={(e) => {
-                      const nuevosAdministradores = [...administradoresAnuncios];
-                      nuevosAdministradores[index] = e.target.value;
-                      setAdministradoresAnuncios(nuevosAdministradores);
-                    }}
-                  />
-                </fieldset>
-                <fieldset>
-                  <h2>Más información:</h2>
-                  <input
-                    type="text"
-                    name="telefonoArticuloSuperadministradorAdministradores"
-                    // id="telefonoArticuloSuperadministradorAdministradores"
-                    disabled={seleccionAnuncio !== anuncio.id}
-                    value={masInformacionesAnuncios[index] || ""}
-                    onChange={(e) => {
-                      const nuevasMasInformacion = [...masInformacionesAnuncios];
-                      nuevasMasInformacion[index] = e.target.value;
-                      setMasInformacionAnuncios(nuevasMasInformacion);
-                    }}
-                  />
-                </fieldset>
-                <fieldset className="subSeccionFormularioRecomendacionPrincipal">
-                  <div className="imagenArticuloSubContenedorNoticia">
-                    <img src={`http://localhost:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
-                  </div>
-                </fieldset>
+                  <fieldset>
+                    <h2>Enunciados:</h2>
+                    <textarea
+                      rows="5"
+                      type="text"
+                      name="enunciadoArticuloAdministracionAlternativaContenido"
+                      id="enunciadoArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionAnuncio !== anuncio.id}
+                      value={enunciadosAnuncios[index] || ""}
+                      onChange={(e) => {
+                        const nuevosEnunciados = [...enunciadosAnuncios];
+                        nuevosEnunciados[index] = e.target.value;
+                        setEnunciadosAnuncios(nuevosEnunciados);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Fecha de expiración:</h2>
+                    <input
+                      type="date"
+                      name="fechaExpiracionArticuloAdministracionAlternativaContenido"
+                      id="fechaExpiracionArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionAnuncio !== anuncio.id}
+                      value={fechasExpiracionAnuncios[index] || ""}
+                      onChange={(e) => {
+                        const nuevasFechasExpiracion = [...fechasExpiracionAnuncios];
+                        nuevasFechasExpiracion[index] = e.target.value;
+                        setFechasExpiracionAnuncios(nuevasFechasExpiracion);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Organiza:</h2>
+                    <input
+                      type="text"
+                      name="administradorArticuloAdministracionAlternativaContenido"
+                      id="administradorArticuloAdministracionAlternativaContenido"
+                      disabled
+                      value={administradoresAnuncios[index] || ""}
+                      onChange={(e) => {
+                        const nuevosAdministradores = [...administradoresAnuncios];
+                        nuevosAdministradores[index] = e.target.value;
+                        setAdministradoresAnuncios(nuevosAdministradores);
+                      }}
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <h2>Más información:</h2>
+                    <input
+                      type="text"
+                      name="masInformacionArticuloAdministracionAlternativaContenido"
+                      id="masInformacionArticuloAdministracionAlternativaContenido"
+                      disabled={seleccionAnuncio !== anuncio.id}
+                      value={masInformacionesAnuncios[index] || ""}
+                      onChange={(e) => {
+                        const nuevasMasInformacion = [...masInformacionesAnuncios];
+                        nuevasMasInformacion[index] = e.target.value;
+                        setMasInformacionAnuncios(nuevasMasInformacion);
+                      }}
+                    />
+                  </fieldset>
+                </div>
+                <div className="articuloAdministracionAlternativaContenido1">
+                  <fieldset className="ArticuloAdministracionAlternativaContenido">
+                    <div className="imagenArticuloAdministracionAlternativaContenido">
+                      <img src={`http://localhost:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+                    </div>
+                  </fieldset>
+                </div>
               </form>
               {seleccionAnuncio === anuncio.id &&
                 (!editarSeleccionAnuncio.includes(anuncio.id) ? (
-                  <div className="pieSuperadministradorSeleccioadoAdministradores">
-                    <button type="button" onClick={() => editarAnuncio(anuncio.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                    <button type="button" onClick={() => editarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Editar
                     </button>
-                    <button type="button" onClick={() => eliminarAnuncio(anuncio.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                    <button type="button" onClick={() => eliminarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Eliminar
                     </button>
                   </div>
                 ) : (
-                  <div className="pieSuperadministradorSeleccioadoAdministradores">
-                    <button type="button" onClick={() => cancelarEditarAnuncio(anuncio.id)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                    <button type="button" onClick={() => cancelarEditarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Cancelar
                     </button>
                     <button
                       type="submit"
-                      className="botonPieSuperadministradorSeleccioadoAdministradores"
+                      className="botonPieAdministracionAlternativaContenidoSeleccionado"
                       onClick={() => {
                         actualizarAnuncio(anuncio.id);
                       }}

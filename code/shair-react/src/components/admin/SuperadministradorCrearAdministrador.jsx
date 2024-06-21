@@ -40,7 +40,7 @@ function SuperadministradorCrearAdministrador() {
     <>
       {enviado === true ? (
         <>
-          <div id="alertaSuperadministradorCrearAdministrador">
+          <div id="alertaAdministracionCrear">
             <h1>Administrador creado con éxtio</h1>
             <p>Ve a la sección de administradores para ver, editar y eliminar los administradores.</p>
             <button type="button" onClick={reiniciarFormulario}>
@@ -49,31 +49,31 @@ function SuperadministradorCrearAdministrador() {
           </div>
         </>
       ) : (
-        <form id="formularioSuperadministradorCrearAdministrador" onSubmit={crearAdministrador}>
-          <section className="seccionFormularioSuperadministradorCrearAdministrador">
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+        <form id="formularioAdministracionCrear" onSubmit={crearAdministrador}>
+          <section className="seccionFormularioAdministracionCrear">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Nombre*:</label>
               <input type="text" name="nombre" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="email">Email*:</label>
               <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="celular">Celular*:</label>
               <input type="number" name="celular" id="celular" value={celular} onChange={(e) => setCelular(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="telefono">Teléfono:</label>
               <input type="number" name="telefono" id="telefono" value={telefono} onChange={(e) => setTelefono(e.target.value)} />
             </fieldset>
-            <fieldset className="subSeccionFormularioSuperadministradorCrearAdministrador">
+            <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="contraseña">Contraseña*:</label>
               <input type="password" name="contraseña" id="contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
             </fieldset>
           </section>
-          <section className="seccionFormularioSuperadministradorCrearAdministrador seccionAlternativaFormularioSuperadministradorCrearAdministrador">
-            <button type="submit" className="botonSeccionAlternativaFormularioSuperadministradorCrearAdministrador">
+          <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
+            <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear administrador
             </button>
             <p>

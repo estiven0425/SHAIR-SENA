@@ -131,12 +131,12 @@ function SuperadministradorAdministradores() {
   return (
     <>
       {administradores.map((administrador, index) => (
-        <div key={administrador.id_administrador} className={seleccionAdministrador === administrador.id_administrador ? "superadministradorSeleccioadoAdministradores" : "superadministradorAdministradores"} onClick={() => seleccionarAdministrador(administrador.id_administrador)} ref={seleccionAdministrador === administrador.id_administrador ? seleccionadoAdministrador : null}>
-          <form className={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "articuloSuperadministradorAdministradores  articuloAlternativoSuperadministradorAdministradores" : "articuloSuperadministradorAdministradores"}>
+        <div key={administrador.id_administrador} className={seleccionAdministrador === administrador.id_administrador ? "AdministracionContenidoSeleccionado" : "AdministracionContenido"} onClick={() => seleccionarAdministrador(administrador.id_administrador)} ref={seleccionAdministrador === administrador.id_administrador ? seleccionadoAdministrador : null}>
+          <form className={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "articuloAdministracionContenido  articuloAlternativoAdministracionContenido" : "articuloAdministracionContenido"}>
             <input
               type="text"
-              name="nombreArticuloSuperadministradorAdministradores"
-              id={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "nombreArticuloAlternativoSuperadministradorAdministradores" : "nombreArticuloSuperadministradorAdministradores"}
+              name="nombreArticuloAdministracionContenido"
+              id={editarSeleccionAdministrador.includes(administrador.id_administrador) ? "nombreArticuloAlternativoAdministracionContenido" : "nombreArticuloAdministracionContenido"}
               disabled={seleccionAdministrador !== administrador.id_administrador}
               value={nombresAdministradores[index] || ""}
               onChange={(e) => {
@@ -149,8 +149,8 @@ function SuperadministradorAdministradores() {
               <h2>E-mail:</h2>
               <input
                 type="text"
-                name="emailArticuloSuperadministradorAdministradores"
-                id="emailArticuloSuperadministradorAdministradores"
+                name="emailArticuloAdministracionContenido"
+                id="emailArticuloAdministracionContenido"
                 disabled={seleccionAdministrador !== administrador.id_administrador}
                 value={emailsAdministradores[index] || ""}
                 onChange={(e) => {
@@ -164,8 +164,8 @@ function SuperadministradorAdministradores() {
               <h2>Celular:</h2>
               <input
                 type="text"
-                name="celularArticuloSuperadministradorAdministradores"
-                id="celularArticuloSuperadministradorAdministradores"
+                name="celularArticuloAdministracionContenido"
+                id="celularArticuloAdministracionContenido"
                 disabled={seleccionAdministrador !== administrador.id_administrador}
                 value={celularesAdministradores[index] || ""}
                 onChange={(e) => {
@@ -179,8 +179,8 @@ function SuperadministradorAdministradores() {
               <h2>Teléfono:</h2>
               <input
                 type="text"
-                name="telefonoArticuloSuperadministradorAdministradores"
-                id="telefonoArticuloSuperadministradorAdministradores"
+                name="telefonoArticuloAdministracionContenido"
+                id="telefonoArticuloAdministracionContenido"
                 disabled={seleccionAdministrador !== administrador.id_administrador}
                 value={telefonosAdministradores[index] || ""}
                 onChange={(e) => {
@@ -192,30 +192,30 @@ function SuperadministradorAdministradores() {
             </fieldset>
             <fieldset>
               <h2>Fecha de modificación:</h2>
-              <input type="text" name="fechaCreacionArticuloSuperadministradorAdministradores" id="fechaCreacionArticuloSuperadministradorAdministradores" disabled defaultValue={new Date(administrador.fecha_creacion).toLocaleDateString()} />
+              <input type="text" name="fechaCreacionArticuloAdministracionContenido" id="fechaCreacionArticuloAdministracionContenido" disabled defaultValue={new Date(administrador.fecha_creacion).toLocaleDateString()} />
             </fieldset>
           </form>
           {seleccionAdministrador === administrador.id_administrador &&
             (!editarSeleccionAdministrador.includes(administrador.id_administrador) ? (
-              <div className="pieSuperadministradorSeleccioadoAdministradores">
-                <button type="button" onClick={() => editarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+              <div className="pieAdministracionContenidoSeleccionado">
+                <button type="button" onClick={() => editarAdministrador(administrador.id_administrador)} className="botonPieAdministracionContenidoSeleccionado">
                   Editar
                 </button>
-                <button type="button" onClick={() => eliminarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+                <button type="button" onClick={() => eliminarAdministrador(administrador.id_administrador)} className="botonPieAdministracionContenidoSeleccionado">
                   Eliminar
                 </button>
-                <button type="button" className="botonPieSuperadministradorSeleccioadoAdministradores">
+                <button type="button" className="botonPieAdministracionContenidoSeleccionado">
                   Noticias
                 </button>
               </div>
             ) : (
-              <div className="pieSuperadministradorSeleccioadoAdministradores">
-                <button type="button" onClick={() => cancelarEditarAdministrador(administrador.id_administrador)} className="botonPieSuperadministradorSeleccioadoAdministradores">
+              <div className="pieAdministracionContenidoSeleccionado">
+                <button type="button" onClick={() => cancelarEditarAdministrador(administrador.id_administrador)} className="botonPieAdministracionContenidoSeleccionado">
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="botonPieSuperadministradorSeleccioadoAdministradores"
+                  className="botonPieAdministracionContenidoSeleccionado"
                   onClick={() => {
                     actualizarAdministrador(administrador.id_administrador);
                   }}
