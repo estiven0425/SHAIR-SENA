@@ -8,9 +8,44 @@ function SuperadministradorCrearAdministrador() {
   const [telefono, setTelefono] = useState("");
   const [contraseña, setContraseña] = useState("");
   const [enviado, setEnviado] = useState(false);
+  const [validacionError, setValidacionError] = useState({});
+  const [servidorError, setServidorError] = useState(null);
+
+  const validacion = () => {
+    const errors = {};
+
+    if (!nombre) {
+      errors.nombre = "El campo de nombre es obligatorio es obligatorio.";
+    } else if (nombre.length > 250) {
+      errors.nombre = "El campo de nombre no puede ser mayor a 250 caracteres.";
+    }
+
+    if (!email) {
+      errors.email = "El campo de email es obligatorio.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "El correo electrónico ingresado no tiene un formato válido.";
+    }
+
+    if (!celular) {
+      errors.celular = "El campo de celular es obligatorio es obligatorio.";
+    } else if (isNaN(celular)) {
+      errors.celular = "El campo de celular debe ser solo numeros.";
+    }
+    if (!contraseña) {
+      errors.contraseña = "El campo de contraseña es obligatorio.";
+    }
+
+    setValidacionError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   const crearAdministrador = async (e) => {
     e.preventDefault();
+
+    if (!validacion()) {
+      return;
+    }
 
     try {
       await axios.post("http://localhost:5000/administrador", {
@@ -23,7 +58,11 @@ function SuperadministradorCrearAdministrador() {
 
       setEnviado(true);
     } catch (error) {
-      console.error("Error al crear el administrador: ", error);
+      if (error.response && error.response.data && error.response.data.error) {
+        setServidorError(error.response.data.error);
+      } else {
+        setServidorError("Error al crear el administrador. Por favor, inténtelo de nuevo.");
+      }
     }
   };
 
@@ -43,7 +82,7 @@ function SuperadministradorCrearAdministrador() {
           <div id="alertaAdministracionCrear">
             <h1>Administrador creado con éxtio</h1>
             <p>Ve a la sección de administradores para ver, editar y eliminar los administradores.</p>
-            <button type="button" onClick={reiniciarFormulario}>
+            <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
               Crear otro administrador
             </button>
           </div>
@@ -53,14 +92,17 @@ function SuperadministradorCrearAdministrador() {
           <section className="seccionFormularioAdministracionCrear">
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Nombre*:</label>
+              {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
               <input type="text" name="nombre" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="email">Email*:</label>
-              <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              {validacionError.email && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.email}</span>}
+              <input type="text" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="celular">Celular*:</label>
+              {validacionError.celular && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.celular}</span>}
               <input type="number" name="celular" id="celular" value={celular} onChange={(e) => setCelular(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
@@ -69,9 +111,13 @@ function SuperadministradorCrearAdministrador() {
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="contraseña">Contraseña*:</label>
+              {validacionError.contraseña && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.contraseña}</span>}
               <input type="password" name="contraseña" id="contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
             </fieldset>
           </section>
+
+          {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
+
           <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear administrador

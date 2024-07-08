@@ -55,7 +55,7 @@ function Administracion() {
     case 2:
       if (seccion === 1) {
         estiloSeccion = "administracionAlternativaPrincipal";
-        estiloFormularioSeccion = "administracionAlternativaFormularioPrincipalAlternativa";
+        estiloFormularioSeccion = "administracionAlternativaFormularioPrincipalAlternativa administracionAlternativaFormularioPrincipalAlternativa2";
       } else {
         estiloFormularioSeccion = "";
       }

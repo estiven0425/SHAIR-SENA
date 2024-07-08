@@ -191,6 +191,17 @@
   outline: none;
 }
 
+.subSeccionFormularioRecomendacionPrincipalError {
+  color: rgb(0, 0, 0) !important;
+  bottom: 15px;
+  position: relative;
+  text-align: right;
+}
+
+.subSeccionFormularioRecomendacionPrincipalErrorAlternativa {
+  bottom: 45px;
+}
+
 @media (max-width: 630px) {
   .navegacionSeccionRecomendacionHeader {
     width: 100%;
@@ -203,5 +214,9 @@
   #formularioRecomendacionPrincipal,
   #alertaRecomendacionPrincipal {
     width: 100%;
+  }
+  .subSeccionFormularioRecomendacionPrincipalError {
+    bottom: 0px;
+    text-align: center;
   }
 }

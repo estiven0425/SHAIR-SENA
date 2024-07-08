@@ -593,6 +593,23 @@
   outline: none;
 }
 
+.subSeccionFormularioAdministracionCrearError {
+  color: rgb(0, 0, 0) !important;
+  bottom: 15px;
+  position: relative;
+  text-align: right;
+}
+
+.subSeccionFormularioAdministracionCrearErrorAlternativa {
+  bottom: 45px;
+}
+
+.subSeccionFormularioAdministracionCrearErrorAlternativa2 {
+  bottom: 25px;
+  display: block;
+  text-align: right;
+}
+
 @media (max-width: 630px) {
   .navegacionSeccionAdministracionHeader,
   .navegacionSeccionAlternativaAdministracionHeader {
@@ -631,7 +648,7 @@
   .articuloAdministracionAlternativaContenido0 {
     width: 100%;
   }
-  
+
   .articuloAdministracionAlternativaContenido1 {
     width: 100%;
   }
@@ -644,6 +661,10 @@
     margin-top: 160px !important;
   }
 
+  .administracionAlternativaFormularioPrincipalAlternativa2 {
+    margin-top: 50px !important;
+  }
+
   #administracionAlternativaPrincipal {
     justify-content: center;
   }
@@ -651,5 +672,9 @@
   #formularioAdministracionCrear,
   #alertaSuperadministradorCrearAdministrador {
     width: 100%;
+  }
+
+  .subSeccionFormularioAdministracionCrearError {
+    bottom: 0px;
   }
 }

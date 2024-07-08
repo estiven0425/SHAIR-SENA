@@ -153,6 +153,11 @@
   text-decoration: underline;
 }
 
+.tarjetaFormularioCuerpoFormularioError {
+  color: rgb(4, 50, 77);
+  text-align: center;
+}
+
 @media (max-width: 630px) {
   .tarjetaFormulario {
     width: 90%;

@@ -7,14 +7,54 @@ function FormularioRecomendacion() {
   const [titulo, setTitulo] = useState("");
   const [recomendacion, setRecomendacion] = useState("");
   const [enviado, setEnviado] = useState(false);
+  const [validacionError, setValidacionError] = useState({});
+  const [servidorError, setServidorError] = useState(null);
+
+  const validacion = () => {
+    const errors = {};
+
+    if (!titulo) {
+      errors.titulo = "El campo de título es obligatorio es obligatorio.";
+    } else if (titulo.length > 250) {
+      errors.titulo = "El campo de título no puede ser mayor a 250 caracteres.";
+    }
+
+    if (!recomendacion) {
+      errors.recomendacion = "El campo de recomendación es obligatorio.";
+    } else if (recomendacion.length > 1000) {
+      errors.titulo = "El campo de recomendacion no puede ser mayor a 1000 caracteres.";
+    }
+
+    setValidacionError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
-    setImagen(archivo);
+
+    if (archivo && !archivo.type.startsWith("image/")) {
+      setValidacionError((prevErrors) => ({
+        ...prevErrors,
+        imagen: "Solo se permiten archivos de imagen.",
+      }));
+      setImagen(null);
+    } else {
+      setValidacionError((prevErrors) => {
+        const { imagen, ...rest } = prevErrors;
+
+        return rest;
+      });
+      setImagen(archivo);
+    }
   };
 
   const enviarRecomendacion = async (event) => {
     event.preventDefault();
+
+    if (!validacion()) {
+      return;
+    }
 
     const datosFormulario = new FormData();
 
@@ -44,7 +84,11 @@ function FormularioRecomendacion() {
 
       setEnviado(true);
     } catch (error) {
-      console.error("Error al enviar la recomendación: ", error);
+      if (error.response && error.response.data && error.response.data.error) {
+        setServidorError(error.response.data.error);
+      } else {
+        setServidorError("Error al enviar recomendación. Por favor, inténtelo de nuevo.");
+      }
     }
   };
 
@@ -70,20 +114,26 @@ function FormularioRecomendacion() {
           <section className="seccionFormularioRecomendacionPrincipal">
             <fieldset className="subSeccionFormularioRecomendacionPrincipal">
               <label htmlFor="titulo">Título*:</label>
-              <input type="text" name="titulo" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} required />
+              {validacionError.titulo && <span className="subSeccionFormularioRecomendacionPrincipalError">{validacionError.titulo}</span>}
+              <input type="text" name="titulo" id="titulo" value={titulo} onChange={(e) => setTitulo(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioRecomendacionPrincipal">
               <label htmlFor="recomendacion">Recomendación*:</label>
-              <input type="text" name="recomendacion" id="recomendacion" value={recomendacion} onChange={(e) => setRecomendacion(e.target.value)} required />
+              {validacionError.recomendacion && <span className="subSeccionFormularioRecomendacionPrincipalError">{validacionError.recomendacion}</span>}
+              <input type="text" name="recomendacion" id="recomendacion" value={recomendacion} onChange={(e) => setRecomendacion(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioRecomendacionPrincipal">
               <h2>Imagen adjunta:</h2>
               <label htmlFor="imagenAdjunta" className="subArchivoSeccionFormularioRecomendacionPrincipal">
                 {imagen ? <img src={URL.createObjectURL(imagen)} alt="Previsualización" className="imagenSubArchivoSeccionFormularioRecomendacionPrincipal" /> : "+"}
               </label>
-              <input type="file" name="imagenAdjunta" id="imagenAdjunta" onChange={subirImagen} />
+              <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
+              {validacionError.imagen && <span className="subSeccionFormularioRecomendacionPrincipalError subSeccionFormularioRecomendacionPrincipalErrorAlternativa">{validacionError.imagen}</span>}
             </fieldset>
           </section>
+
+          {servidorError && <span className="subSeccionFormularioRecomendacionPrincipalError">{servidorError}</span>}
+
           <section className="seccionFormularioRecomendacionPrincipal">
             <button type="submit" id="botonSeccionFormularioRecomendacionPrincipal">
               Enviar recomendación

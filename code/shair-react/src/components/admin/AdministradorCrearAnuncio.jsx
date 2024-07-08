@@ -13,6 +13,32 @@ function AdministradorCrearAnuncio() {
   const [idAdministrador, setIdAdministrador] = useState("");
   const [imagen, setImagen] = useState(null);
   const [enviado, setEnviado] = useState(false);
+  const [validacionError, setValidacionError] = useState({});
+  const [servidorError, setServidorError] = useState(null);
+
+  const validacion = () => {
+    const errors = {};
+
+    if (!nombre) {
+      errors.nombre = "El campo de nombre es obligatorio.";
+    } else if (nombre.length > 250) {
+      errors.nombre = "El campo de nombre no puede ser mayor a 250 caracteres.";
+    }
+
+    if (!enunciado) {
+      errors.enunciado = "El campo de enunciado es obligatorio.";
+    } else if (enunciado.length > 1000) {
+      errors.enunciado = "El campo de enunciado no puede ser mayor a 1000 caracteres.";
+    }
+
+    if (!fechaExpiracion) {
+      errors.fechaExpiracion = "El campo de fecha de expiración.";
+    }
+
+    setValidacionError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -23,11 +49,29 @@ function AdministradorCrearAnuncio() {
 
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
-    setImagen(archivo);
+
+    if (archivo && !archivo.type.startsWith("image/")) {
+      setValidacionError((prevErrors) => ({
+        ...prevErrors,
+        imagen: "Solo se permiten archivos de imagen.",
+      }));
+      setImagen(null);
+    } else {
+      setValidacionError((prevErrors) => {
+        const { imagen, ...rest } = prevErrors;
+
+        return rest;
+      });
+      setImagen(archivo);
+    }
   };
 
   const crearAnuncio = async (e) => {
     e.preventDefault();
+
+    if (!validacion()) {
+      return;
+    }
 
     const datosFormulario = new FormData();
 
@@ -57,13 +101,17 @@ function AdministradorCrearAnuncio() {
         enunciado,
         archivo_adjunto: rutaCargaAnuncio,
         fecha_expiracion: fechaExpiracion,
-        mas_informacion: masInformacion,
+        mas_informacion: masInformacion === "" ? null : masInformacion,
         id_administrador: idAdministrador,
       });
 
       setEnviado(true);
     } catch (error) {
-      console.error("Error al crear el anuncio: ", error);
+      if (error.response && error.response.data && error.response.data.error) {
+        setServidorError(error.response.data.error);
+      } else {
+        setServidorError("Error al crear el anuncio. Por favor, inténtelo de nuevo.");
+      }
     }
   };
 
@@ -78,7 +126,7 @@ function AdministradorCrearAnuncio() {
           <div id="alertaAdministracionCrear">
             <h1>Anuncio creado con éxtio</h1>
             <p>Ve a la subsección de anuncios para ver, editar y eliminar los anuncios.</p>
-            <button type="button" onClick={reiniciarFormulario}>
+            <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
               Crear otro anuncio
             </button>
           </div>
@@ -88,14 +136,17 @@ function AdministradorCrearAnuncio() {
           <section className="seccionFormularioAdministracionCrear">
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Título*:</label>
+              {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
               <input type="text" name="nombre" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="enunciado">Enunciado*:</label>
+              {validacionError.enunciado && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.enunciado}</span>}
               <input type="text" name="enunciado" id="enunciado" value={enunciado} onChange={(e) => setEnunciado(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="fechaExpiracion">Fecha de expiración*:</label>
+              {validacionError.fechaExpiracion && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.fechaExpiracion}</span>}
               <input type="date" name="fechaExpiracion" id="fechaExpiracion" value={fechaExpiracion} onChange={(e) => setFechaExpiracion(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
@@ -107,9 +158,13 @@ function AdministradorCrearAnuncio() {
               <label htmlFor="imagenAdjunta" className="subArchivoSeccionFormularioRecomendacionPrincipal">
                 {imagen ? <img src={URL.createObjectURL(imagen)} alt="Previsualización" className="imagenSubArchivoSeccionFormularioRecomendacionPrincipal" /> : "+"}
               </label>
-              <input type="file" name="imagenAdjunta" id="imagenAdjunta" onChange={subirImagen} />
+              {validacionError.imagen && <span className="subSeccionFormularioAdministracionCrearError subSeccionFormularioAdministracionCrearErrorAlternativa">{validacionError.imagen}</span>}
+              <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
             </fieldset>
           </section>
+
+          {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
+
           <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear anuncio

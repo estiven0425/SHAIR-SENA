@@ -15,6 +15,38 @@ function AdministradorCrearNoticia() {
   const [idAdministrador, setIdAdministrador] = useState("");
   const [imagen, setImagen] = useState(null);
   const [enviado, setEnviado] = useState(false);
+  const [validacionError, setValidacionError] = useState({});
+  const [servidorError, setServidorError] = useState(null);
+
+  const validacion = () => {
+    const errors = {};
+
+    if (!nombre) {
+      errors.nombre = "El campo de nombre es obligatorio.";
+    } else if (nombre.length > 250) {
+      errors.nombre = "El campo de nombre no puede ser mayor a 250 caracteres.";
+    }
+    if (!enunciado) {
+      errors.enunciado = "El campo de enunciado es obligatorio.";
+    } else if (enunciado.length > 1000) {
+      errors.enunciado = "El campo de nombre no puede ser mayor a 1000 caracteres.";
+    }
+    if (!lugar) {
+      errors.lugar = "El campo de lugar es obligatorio.";
+    } else if (lugar.length > 250) {
+      errors.lugar = "El campo de lugar no puede ser mayor a 250 caracteres.";
+    }
+    if (!fechaInicio) {
+      errors.fechaInicio = "El campo de fecha de inicio es obligatorio.";
+    }
+    if (!fechaFin) {
+      errors.fechaFin = "El campo de fecha de fin es obligatorio.";
+    }
+
+    setValidacionError(errors);
+
+    return Object.keys(errors).length === 0;
+  };
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -25,11 +57,29 @@ function AdministradorCrearNoticia() {
 
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
-    setImagen(archivo);
+
+    if (archivo && !archivo.type.startsWith("image/")) {
+      setValidacionError((prevErrors) => ({
+        ...prevErrors,
+        imagen: "Solo se permiten archivos de imagen.",
+      }));
+      setImagen(null);
+    } else {
+      setValidacionError((prevErrors) => {
+        const { imagen, ...rest } = prevErrors;
+
+        return rest;
+      });
+      setImagen(archivo);
+    }
   };
 
   const crearNoticia = async (e) => {
     e.preventDefault();
+
+    if (!validacion()) {
+      return;
+    }
 
     const datosFormulario = new FormData();
 
@@ -63,13 +113,17 @@ function AdministradorCrearNoticia() {
         lugar,
         fecha_inicio: fechaInicio,
         fecha_fin: fechaFin,
-        mas_informacion: masInformacion,
+        mas_informacion: masInformacion === "" ? null : masInformacion,
         id_administrador: idAdministrador,
       });
 
       setEnviado(true);
     } catch (error) {
-      console.error("Error al crear la noticia: ", error);
+      if (error.response && error.response.data && error.response.data.error) {
+        setServidorError(error.response.data.error);
+      } else {
+        setServidorError("Error al crear la noticia. Por favor, inténtelo de nuevo.");
+      }
     }
   };
 
@@ -84,7 +138,7 @@ function AdministradorCrearNoticia() {
           <div id="alertaAdministracionCrear">
             <h1>Noticia creada con éxtio</h1>
             <p>Ve a la subsección de noticias para ver, editar y eliminar las noticias.</p>
-            <button type="button" onClick={reiniciarFormulario}>
+            <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
               Crear otra noticia
             </button>
           </div>
@@ -94,22 +148,27 @@ function AdministradorCrearNoticia() {
           <section className="seccionFormularioAdministracionCrear">
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Título*:</label>
+              {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
               <input type="text" name="nombre" id="nombre" value={nombre} onChange={(e) => setNombre(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="enunciado">Enunciado*:</label>
+              {validacionError.enunciado && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.enunciado}</span>}
               <input type="text" name="enunciado" id="enunciado" value={enunciado} onChange={(e) => setEnunciado(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="lugar">Lugar*:</label>
+              {validacionError.lugar && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.lugar}</span>}
               <input type="text" name="lugar" id="lugar" value={lugar} onChange={(e) => setLugar(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="fechaInicio">Fecha de inicio*:</label>
+              {validacionError.fechaInicio && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.fechaInicio}</span>}
               <input type="date" name="fechaInicio" id="fechaInicio" value={fechaInicio} onChange={(e) => setFechaInicio(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="fechaFin">Fecha de finalización*:</label>
+              {validacionError.fechaFin && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.fechaFin}</span>}
               <input type="date" name="fechaFin" id="fechaFin" value={fechaFin} onChange={(e) => setFechaFin(e.target.value)} />
             </fieldset>
             <fieldset className="subSeccionFormularioAdministracionCrear">
@@ -119,11 +178,15 @@ function AdministradorCrearNoticia() {
             <fieldset className="subSeccionFormularioRecomendacionPrincipal">
               <h2>Imagen adjunta:</h2>
               <label htmlFor="imagenAdjunta" className="subArchivoSeccionFormularioRecomendacionPrincipal">
+                {validacionError.imagen && <span className="subSeccionFormularioAdministracionCrearError subSeccionFormularioAdministracionCrearErrorAlternativa2 ">{validacionError.imagen}</span>}
                 {imagen ? <img src={URL.createObjectURL(imagen)} alt="Previsualización" className="imagenSubArchivoSeccionFormularioRecomendacionPrincipal" /> : "+"}
               </label>
-              <input type="file" name="imagenAdjunta" id="imagenAdjunta" onChange={subirImagen} />
+              <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
             </fieldset>
           </section>
+
+          {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
+
           <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear noticia

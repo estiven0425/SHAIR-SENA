@@ -8,6 +8,7 @@ import Recomendacion from "./pages/home/Recomendacion";
 import Superadministrador from "./components/admin/Superadministrador";
 import Administrador from "./components/admin/Administrador";
 import Error from "./pages/error/Error";
+import RutaProtegida from "./utils/admin/secure/RutaProtegida";
 import "./assets/styles/style.css";
 
 function App() {
@@ -18,7 +19,14 @@ function App() {
           <Route index element={<Shair />} />
           <Route path="recomendacion" element={<Recomendacion />} />
           <Route path="ingreso" element={<Formulario />} />
-          <Route path="administracion" element={<Administracion />}>
+          <Route
+            path="administracion"
+            element={
+              <RutaProtegida>
+                <Administracion />
+              </RutaProtegida>
+            }
+          >
             <Route path="superadministrador" element={<Superadministrador />} />
             <Route path="administrador" element={<Administrador />} />
           </Route>
