@@ -162,7 +162,7 @@ function AdministracionHeader() {
             </nav>
           </section>
           <section className="seccionAlternativaAdministracionHeader">
-            <nav className="navegacionSeccionAlternativa4AdministracionHeader">
+            <nav className="navegacionSeccionAlternativa4AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion5} style={{ backgroundColor: subSeccion === 5 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Anuncios
               </button>
@@ -194,7 +194,7 @@ function AdministracionHeader() {
             </nav>
           </section>
           <section className="seccionAlternativaAdministracionHeader">
-            <nav className="navegacionSeccionAlternativa5AdministracionHeader">
+            <nav className="navegacionSeccionAlternativa5AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion7} style={{ backgroundColor: subSeccion === 7 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Recomendaciones
               </button>

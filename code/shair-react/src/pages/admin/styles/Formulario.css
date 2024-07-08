@@ -24,7 +24,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   min-height: 70%;
-  min-width: 30%;
+  width: 30%;
   padding: 10px;
 }
 
@@ -151,4 +151,10 @@
 
 #enlaceTarjetaFormularioPieBoton:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 630px) {
+  .tarjetaFormulario {
+    width: 90%;
+  }
 }
