@@ -23,8 +23,6 @@ router.post("/", async (req, res) => {
       res.status(401).json({ error: "Credenciales inválidas" });
     }
   } catch (error) {
-    /* console.error("Error al iniciar sesión:", error); */
-
     res.status(500).json({ error: "Error de servidor" });
   }
 });
@@ -45,7 +43,6 @@ router.post("/inicio", async (req, res) => {
       res.status(404).json({ error: "Superadministrador no encontrado" });
     }
   } catch (error) {
-    /* console.error("Error al obtener el superadministrador:", error); */
     res.status(500).json({ error: "Error de servidor" });
   }
 });
