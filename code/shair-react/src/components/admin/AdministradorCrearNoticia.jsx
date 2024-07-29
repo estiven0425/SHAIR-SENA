@@ -109,7 +109,7 @@ function AdministradorCrearNoticia() {
       await axios.post("http://localhost:5000/noticia", {
         nombre,
         enunciado,
-        archivo_adjunto: rutaCargaNoticia,
+        archivo_adjunto: rutaCargaNoticia === null ? "uploads/logo.png" : rutaCargaNoticia,
         lugar,
         fecha_inicio: fechaInicio,
         fecha_fin: fechaFin,

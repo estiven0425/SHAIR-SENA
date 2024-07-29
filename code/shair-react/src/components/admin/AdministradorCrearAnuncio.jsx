@@ -99,7 +99,7 @@ function AdministradorCrearAnuncio() {
       await axios.post("http://localhost:5000/anuncio", {
         nombre,
         enunciado,
-        archivo_adjunto: rutaCargaAnuncio,
+        archivo_adjunto: rutaCargaAnuncio === null ? "uploads/logo.png" : rutaCargaAnuncio,
         fecha_expiracion: fechaExpiracion,
         mas_informacion: masInformacion === "" ? null : masInformacion,
         id_administrador: idAdministrador,

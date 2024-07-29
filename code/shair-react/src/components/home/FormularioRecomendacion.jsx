@@ -79,7 +79,7 @@ function FormularioRecomendacion() {
       await axios.post("http://localhost:5000/recomendacion", {
         titulo,
         recomendacion,
-        archivo_adjunto: rutaCargaRecomendacion,
+        archivo_adjunto: rutaCargaRecomendacion === null ? "review/logo.png" : rutaCargaRecomendacion,
       });
 
       setEnviado(true);
