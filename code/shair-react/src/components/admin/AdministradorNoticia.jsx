@@ -31,17 +31,19 @@ function AdministradorNoticia() {
     const leerNoticia = async () => {
       try {
         const respuesta = await axios.get("http://localhost:5000/noticia");
+        const noticiasTotales = respuesta.data;
+        const noticiasFiltradas = noticiasTotales.filter((noticia) => noticia.id_administrador === idAdministradoresNoticias);
 
-        setNoticias(respuesta.data);
+        setNoticias(noticiasFiltradas);
 
-        const nombres = respuesta.data.map((noticia) => noticia.nombre);
-        const enunciados = respuesta.data.map((noticia) => noticia.enunciado);
-        const imagenes = respuesta.data.map((noticia) => noticia.archivo_adjunto);
-        const lugares = respuesta.data.map((noticia) => noticia.lugar);
-        const fechasInicio = respuesta.data.map((noticia) => noticia.fecha_inicio);
-        const fechasFin = respuesta.data.map((noticia) => noticia.fecha_fin);
-        const administradores = respuesta.data.map((noticia) => noticia.Administrador.nombre);
-        const masInformaciones = respuesta.data.map((noticia) => noticia.mas_informacion);
+        const nombres = noticiasFiltradas.map((noticia) => noticia.nombre);
+        const enunciados = noticiasFiltradas.map((noticia) => noticia.enunciado);
+        const imagenes = noticiasFiltradas.map((noticia) => noticia.archivo_adjunto);
+        const lugares = noticiasFiltradas.map((noticia) => noticia.lugar);
+        const fechasInicio = noticiasFiltradas.map((noticia) => noticia.fecha_inicio);
+        const fechasFin = noticiasFiltradas.map((noticia) => noticia.fecha_fin);
+        const administradores = noticiasFiltradas.map((noticia) => noticia.Administrador.nombre);
+        const masInformaciones = noticiasFiltradas.map((noticia) => noticia.mas_informacion);
 
         setNombresNoticias(nombres);
         setEnunciadosNoticias(enunciados);

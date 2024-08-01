@@ -18,9 +18,15 @@ function Noticia() {
     leerNoticia();
   }, []);
 
+  const noticiasFiltradas = noticia.filter((noticia) => {
+    const fechaFin = new Date(noticia.fecha_fin);
+    const fechaActual = new Date();
+    return fechaFin >= fechaActual;
+  });
+
   return (
     <>
-      {noticia.map((noticia) => (
+      {noticiasFiltradas.map((noticia) => (
         <div key={noticia.id} className="subContenedorNoticia">
           <h2>{noticia.nombre}</h2>
           <article className="articuloSubContenedorNoticia">

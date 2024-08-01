@@ -24,10 +24,16 @@ function Anuncio() {
     itemReferenciado.current[indice].scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
+  const anunciosFiltrados = anuncio.filter((anuncio) => {
+    const fechaFin = new Date(anuncio.fecha_expiracion);
+    const fechaActual = new Date();
+    return fechaFin >= fechaActual;
+  });
+
   return (
     <>
       <div id="contenidoSliderAnuncio">
-        {anuncio.map((anuncio, indice) => (
+        {anunciosFiltrados.map((anuncio, indice) => (
           <article key={anuncio.id} className="articuloContenidoSliderAnuncio" ref={(articulo) => (itemReferenciado.current[indice] = articulo)}>
             <div className="informacionArticuloContenidoSliderAnuncio">
               <div className="principalInformacionArticuloContenidoSliderAnuncio">
@@ -47,11 +53,13 @@ function Anuncio() {
           </article>
         ))}
       </div>
-      <div className="controlSlider">
-        {anuncio.map((_, indice) => (
-          <button key={indice} className={`actualControlSlider ${indice === slider ? "Activo" : ""}`} onClick={() => activarSlider(indice)} type="button"></button>
-        ))}
-      </div>
+      {anunciosFiltrados.length > 0 && (
+        <div className="controlSlider">
+          {anunciosFiltrados.map((_, indice) => (
+            <button key={indice} className={`actualControlSlider ${indice === slider ? "Activo" : ""}`} onClick={() => activarSlider(indice)} type="button"></button>
+          ))}
+        </div>
+      )}
     </>
   );
 }

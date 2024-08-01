@@ -29,15 +29,17 @@ function AdministradorAnuncio() {
     const leerAnuncio = async () => {
       try {
         const respuesta = await axios.get("http://localhost:5000/anuncio");
+        const anunciosTotales = respuesta.data;
+        const anunciosFiltrados = anunciosTotales.filter((anuncio) => anuncio.id_administrador === idAdministradoresAnuncios);
 
-        setAnuncios(respuesta.data);
+        setAnuncios(anunciosFiltrados);
 
-        const nombres = respuesta.data.map((anuncio) => anuncio.nombre);
-        const enunciados = respuesta.data.map((anuncio) => anuncio.enunciado);
-        const imagenes = respuesta.data.map((anuncio) => anuncio.archivo_adjunto);
-        const fechasExpiracion = respuesta.data.map((anuncio) => anuncio.fecha_expiracion);
-        const administradores = respuesta.data.map((anuncio) => anuncio.Administrador.nombre);
-        const masInformaciones = respuesta.data.map((anuncio) => anuncio.mas_informacion);
+        const nombres = anunciosFiltrados.map((anuncio) => anuncio.nombre);
+        const enunciados = anunciosFiltrados.map((anuncio) => anuncio.enunciado);
+        const imagenes = anunciosFiltrados.map((anuncio) => anuncio.archivo_adjunto);
+        const fechasExpiracion = anunciosFiltrados.map((anuncio) => anuncio.fecha_expiracion);
+        const administradores = anunciosFiltrados.map((anuncio) => anuncio.Administrador.nombre);
+        const masInformaciones = anunciosFiltrados.map((anuncio) => anuncio.mas_informacion);
 
         setNombresAnuncios(nombres);
         setEnunciadosAnuncios(enunciados);
