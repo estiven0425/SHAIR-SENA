@@ -11,13 +11,14 @@ exports.leerRecomendacion = async (req, res) => {
 };
 
 exports.crearRecomendacion = async (req, res) => {
-  const { titulo, recomendacion, archivo_adjunto } = req.body;
+  const { titulo, recomendacion, archivo_adjunto, aprobacion } = req.body;
 
   try {
     const nuevaRecomendacion = await Recomendacion.create({
       nombre: titulo,
       enunciado: recomendacion,
       archivo_adjunto,
+      aprobacion: aprobacion,
     });
 
     res.status(201).json(nuevaRecomendacion);
@@ -27,15 +28,16 @@ exports.crearRecomendacion = async (req, res) => {
 };
 
 exports.actualizarRecomendacion = async (req, res) => {
-  const { id, titulo, recomendacion, archivo_adjunto } = req.body;
+  const { id, titulo, recomendacion, archivo_adjunto, aprobacion } = req.body;
 
   try {
     const actualizarRecomendacion = await Recomendacion.findByPk(id);
-    if (recomendacion) {
-      await recomendacion.update({
+    if (actualizarRecomendacion) {
+      await actualizarRecomendacion.update({
         nombre: titulo,
         enunciado: recomendacion,
         archivo_adjunto,
+        aprobacion: aprobacion,
       });
 
       res.json(actualizarRecomendacion);

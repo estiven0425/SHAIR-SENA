@@ -20,6 +20,10 @@ const Recomendacion = sequelize.define(
       type: DataTypes.STRING(1000),
       allowNull: true,
     },
+    aprobacion: {
+      type: DataTypes.TINYINT(1),
+      allowNull: false,
+    },
   },
   {
     tableName: "recomendacion",

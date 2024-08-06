@@ -47,6 +47,13 @@ function Administracion() {
         estiloSeccion = "administracionPrincipal";
       }
       break;
+    case 8:
+      if (seccion === 6) {
+        estiloSeccion = "administracionAlternativaPrincipalAlternativa";
+      } else {
+        estiloSeccion = "administracionPrincipal";
+      }
+      break;
     default:
       estiloSeccion = "administracionPrincipal";
       break;

@@ -49,7 +49,8 @@
   width: 30%;
 }
 
-.navegacionSeccionAlternativa4AdministracionHeader {
+.navegacionSeccionAlternativa4AdministracionHeader,
+.navegacionSeccionAlternativa6AdministracionHeader {
   align-content: center;
   border-radius: 0px 0px 10px 10px;
   display: flex;
@@ -101,7 +102,8 @@
   width: 50%;
 }
 
-.navegacionSeccionAlternativa5AdministracionHeader button {
+.navegacionSeccionAlternativa5AdministracionHeader button,
+.navegacionSeccionAlternativa6AdministracionHeader button {
   background-color: transparent;
   border-radius: 0px 0px 10px 10px;
   border: none;
@@ -183,6 +185,7 @@
   align-content: center;
   background-color: rgb(230, 230, 230);
   border-radius: 10px;
+  box-sizing: content-box;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -190,6 +193,7 @@
   justify-content: flex-start;
   margin: 10px;
   padding: 10px;
+  max-width: 500px;
 }
 
 .AdministracionContenido:hover {
@@ -200,6 +204,7 @@
   align-content: center;
   background-color: rgb(230, 230, 230);
   border-radius: 10px;
+  box-sizing: content-box;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -208,6 +213,7 @@
   margin: 10px;
   outline: 2px solid rgb(57, 169, 0);
   padding: 10px;
+  max-width: 500px;
 }
 
 .articuloAdministracionContenido {
@@ -610,6 +616,137 @@
   text-align: right;
 }
 
+.ventanaPieAdministracionContenidoSeleccionado {
+  align-content: center;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(57, 169, 0);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+  overflow: auto;
+  padding: 10px;
+  position: relative;
+  width: 500px;
+}
+
+.AdministracionAlternativa2Contenido {
+  align-content: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+.AdministracionAlternativa2Contenido h2,
+h3 {
+  color: rgb(57, 169, 0);
+  margin: 0px;
+  text-align: left;
+}
+
+.AdministracionAlternativaContenido2Seleccionado {
+  align-content: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+  outline: 2px solid rgb(57, 169, 0);
+  padding: 10px;
+  width: auto;
+}
+
+.AdministracionAlternativaContenido2Seleccionado h2 {
+  color: rgb(57, 169, 0);
+  margin: 0px;
+  text-align: left;
+}
+
+.articuloAdministracionAlternativa2Contenido {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.articuloAdministracionAlternativa2Contenido0 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60%;
+}
+
+.contenidoArticuloAdministracionAlternativa2Contenido {
+  color: rgb(0, 0, 0);
+  font-size: 1rem;
+  margin: 0px;
+}
+
+.articuloAdministracionAlternativa2Contenido1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 40%;
+}
+
+.imagenArticuloAdministracionAlternativa2Contenido {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+.imagenArticuloAdministracionAlternativa2Contenido img {
+  border-radius: 10px;
+  max-width: 250px;
+  width: 100%;
+}
+
+.pieAdministracionAlternativa2ContenidoSeleccionado {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.botonPieAdministracionAlternativa2ContenidoSeleccionado {
+  background-color: rgb(4, 50, 77);
+  border: none;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 10px;
+  min-width: 30%;
+}
+
+.botonPieAdministracionAlternativa2ContenidoSeleccionado:focus,
+.botonPieAdministracionAlternativa2ContenidoSeleccionado:hover {
+  background-color: rgb(57, 169, 0);
+  outline: none;
+}
+
 @media (max-width: 630px) {
   .navegacionSeccionAdministracionHeader,
   .navegacionSeccionAlternativaAdministracionHeader {
@@ -627,6 +764,11 @@
   }
 
   .navegacionSeccionAlternativa5AdministracionHeader {
+    margin-left: 0px;
+    width: 100%;
+  }
+
+  .navegacionSeccionAlternativa6AdministracionHeader {
     margin-left: 0px;
     width: 100%;
   }
@@ -671,6 +813,11 @@
 
   #formularioAdministracionCrear,
   #alertaSuperadministradorCrearAdministrador {
+    width: 100%;
+  }
+  .pieAdministracionAlternativaContenidoSeleccionado {
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
   }
 

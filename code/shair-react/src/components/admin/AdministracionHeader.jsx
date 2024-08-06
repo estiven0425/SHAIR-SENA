@@ -10,7 +10,7 @@ function AdministracionHeader() {
   const setSubSeccion = administracion.setSubSeccion;
 
   const accesoSeccion = () => {
-    setSeccion(seccion === 0 ? 1 : 0);
+    setSeccion(seccion !== 1 ? 1 : 0);
   };
   const accesoSeccion3 = () => {
     setSeccion(seccion !== 3 ? 3 : 2);
@@ -20,6 +20,9 @@ function AdministracionHeader() {
   };
   const accesoSeccion5 = () => {
     setSeccion(seccion !== 5 ? 5 : 2);
+  };
+  const accesoSeccion6 = () => {
+    setSeccion(seccion !== 6 ? 6 : 0);
   };
   const accesoSubSeccion1 = () => {
     setSubSeccion(subSeccion !== 1 ? 1 : 0);
@@ -42,6 +45,9 @@ function AdministracionHeader() {
   const accesoSubSeccion7 = () => {
     setSubSeccion(subSeccion !== 7 ? 7 : 0);
   };
+  const accesoSubSeccion8 = () => {
+    setSubSeccion(subSeccion !== 8 ? 8 : 0);
+  };
   const seleccionHeader = () => {
     if (seccion === 0) {
       return (
@@ -50,6 +56,11 @@ function AdministracionHeader() {
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion}>
                 Administradores
+              </button>
+            </nav>
+            <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
+              <button type="button" onClick={accesoSeccion6}>
+                Recomendaciones
               </button>
             </nav>
           </section>
@@ -69,6 +80,11 @@ function AdministracionHeader() {
                 Administradores
               </button>
             </nav>
+            <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
+              <button type="button" onClick={accesoSeccion6}>
+                Recomendaciones
+              </button>
+            </nav>
           </section>
           <section className="seccionAlternativaAdministracionHeader">
             <nav className="navegacionSeccionAlternativaAdministracionHeader">
@@ -77,6 +93,30 @@ function AdministracionHeader() {
               </button>
               <button type="button" onClick={accesoSubSeccion2} style={{ backgroundColor: subSeccion === 2 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Crear administrador
+              </button>
+            </nav>
+          </section>
+        </>
+      );
+    } else if (seccion === 6) {
+      return (
+        <>
+          <section className="seccionAdministracionHeader">
+            <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
+              <button type="button" onClick={accesoSeccion}>
+                Administradores
+              </button>
+            </nav>
+            <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(57, 169, 0)" }}>
+              <button type="button" onClick={accesoSeccion6}>
+                Recomendaciones
+              </button>
+            </nav>
+          </section>
+          <section className="seccionAlternativaAdministracionHeader">
+            <nav className="navegacionSeccionAlternativa6AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
+              <button type="button" onClick={accesoSubSeccion8} style={{ backgroundColor: subSeccion === 8 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
+                Recomendaciones
               </button>
             </nav>
           </section>

@@ -6,6 +6,7 @@ function FormularioRecomendacion() {
   const [imagen, setImagen] = useState(null);
   const [titulo, setTitulo] = useState("");
   const [recomendacion, setRecomendacion] = useState("");
+  const [aprobacion, setAprobacion] = useState(false);
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
@@ -60,6 +61,7 @@ function FormularioRecomendacion() {
 
     datosFormulario.append("titulo", titulo);
     datosFormulario.append("recomendacion", recomendacion);
+    datosFormulario.append("aprbacion", aprobacion);
 
     try {
       let rutaCargaRecomendacion = null;
@@ -80,6 +82,7 @@ function FormularioRecomendacion() {
         titulo,
         recomendacion,
         archivo_adjunto: rutaCargaRecomendacion === null ? "review/logo.png" : rutaCargaRecomendacion,
+        aprobacion,
       });
 
       setEnviado(true);

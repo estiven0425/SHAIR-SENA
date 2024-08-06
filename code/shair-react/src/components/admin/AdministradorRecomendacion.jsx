@@ -14,7 +14,9 @@ function AdministradorRecomendacion() {
     const leerRecomendacion = async () => {
       try {
         const respuesta = await axios.get("http://localhost:5000/recomendacion");
-        setRecomendaciones(respuesta.data);
+        const recomendacionesTotales = respuesta.data;
+        const recomendacionesFiltradas = recomendacionesTotales.filter((recomendacion) => recomendacion.aprobacion === 1);
+        setRecomendaciones(recomendacionesFiltradas);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
       }

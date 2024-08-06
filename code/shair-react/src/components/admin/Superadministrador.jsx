@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import SuperadministradorAdministradores from "./SuperadministradorAdministradores";
-import SuperadministradorCrearAdministrador from "./SuperadministradorCrearAdministrador";
+import SuperadministradorRecomendacion from "./SuperadministradorRecomendacion";
 
 function Superadministrador() {
   const administracion = useContext(AdministracionContexto);
@@ -33,30 +33,17 @@ function Superadministrador() {
     };
   }, []);
 
-  let explicacion;
+  let contenidoSeccion;
 
-  switch (subSeccion) {
+  switch (seccion) {
     case 1:
-      explicacion = <SuperadministradorAdministradores />;
+      contenidoSeccion = <SuperadministradorAdministradores />;
       break;
-    case 2:
-      explicacion = <SuperadministradorCrearAdministrador />;
+    case 6:
+      contenidoSeccion = <SuperadministradorRecomendacion />;
       break;
     default:
-      explicacion = (
-        <>
-          <h1 className="tituloAdministracionPrincipal">Administradores</h1>
-          <p className="parrafoAdministracionPrincipal">
-            Bienvenido a la sección de administradores, aquí puedes gestionar a los administadores de la plataforma. <br />A continuación, en la parte superior de la página encontraras el acceso a el control de administradores y al formulario de creación.
-          </p>
-        </>
-      );
-      break;
-  }
-
-  return (
-    <>
-      {seccion === 0 ? (
+      contenidoSeccion = (
         <>
           <h1 className="tituloAdministracionPrincipal">¡Hola {superadministrador}!</h1>
           <p className="parrafoAdministracionPrincipal">
@@ -64,11 +51,11 @@ function Superadministrador() {
             Aquí puedes gestionar a los demás administradores de la plataforma, ya sea crear nuevos administadores, modificarlos o eliminarlos.
           </p>
         </>
-      ) : (
-        <>{explicacion}</>
-      )}
-    </>
-  );
+      );
+      break;
+  }
+
+  return <>{contenidoSeccion}</>;
 }
 
 export default Superadministrador;
