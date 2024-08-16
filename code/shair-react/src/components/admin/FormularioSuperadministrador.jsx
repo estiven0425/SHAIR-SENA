@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import axios from "axios";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import "../../pages/admin/styles/formulario.css";
@@ -58,7 +59,7 @@ function FormularioSuperadministrador() {
   };
 
   return (
-    <article className="tarjetaFormulario">
+    <motion.article className="tarjetaFormulario" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
       <header className="tarjetaFormularioCabecera">
         <h1>Superadministrador</h1>
       </header>
@@ -73,7 +74,7 @@ function FormularioSuperadministrador() {
           <fieldset className="tarjetaFormularioCuerpoFormularioGrupo">
             <label htmlFor="contraseña">Contraseña:</label>
             <input className="tarjetaFormularioCuerpoFormularioGrupoInput" type="password" name="contraseña" id="contraseña" value={valorContraseña} onChange={(e) => setValorContraseña(e.target.value)} />
-            {validacionError.contraseña && <span className="tarjetaFormularioCuerpoFormularioError">{validacionError.contraseña}</span>}
+            {validacionError.contraseña && <motion.span className="tarjetaFormularioCuerpoFormularioError">{validacionError.contraseña}</motion.span>}
           </fieldset>
         </form>
       </main>
@@ -88,7 +89,7 @@ function FormularioSuperadministrador() {
           Acceder
         </button>
       </footer>
-    </article>
+    </motion.article>
   );
 }
 

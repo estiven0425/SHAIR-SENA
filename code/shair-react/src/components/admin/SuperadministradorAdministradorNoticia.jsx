@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 function SuperadministradorAdministradorNoticia(props) {
@@ -81,7 +82,7 @@ function SuperadministradorAdministradorNoticia(props) {
       {noticias.length !== 0 ? (
         noticias.map((noticia, index) => (
           <div key={noticia.id} className={seleccionNoticia === noticia.id ? "AdministracionAlternativaContenido2Seleccionado" : "AdministracionAlternativa2Contenido"} onClick={() => seleccionarNoticia(noticia.id)} ref={seleccionNoticia === noticia.id ? seleccionadaNoticia : null}>
-            <article className="articuloAdministracionAlternativa2Contenido">
+            <motion.article className="articuloAdministracionAlternativa2Contenido" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
               <div className="articuloAdministracionAlternativa2Contenido0">
                 <h2 id="contenidoArticuloAdministracionAlternativa2Contenido">{nombresNoticias[index] || ""}</h2>
                 <br />
@@ -102,16 +103,16 @@ function SuperadministradorAdministradorNoticia(props) {
                   <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
                 </div>
               </div>
-            </article>
+            </motion.article>
             {seleccionNoticia === noticia.id &&
               (!editarSeleccionNoticia.includes(noticia.id) ? (
-                <div className="pieAdministracionAlternativa2ContenidoSeleccionado">
+                <motion.div className="pieAdministracionAlternativa2ContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                   <button type="button" onClick={() => eliminarNoticia(noticia.id)} className="botonPieAdministracionAlternativa2ContenidoSeleccionado">
                     Eliminar
                   </button>
-                </div>
+                </motion.div>
               ) : (
-                <div className="pieAdministracionAlternativa2ContenidoSeleccionado"></div>
+                <motion.div className="pieAdministracionAlternativa2ContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}></motion.div>
               ))}
           </div>
         ))

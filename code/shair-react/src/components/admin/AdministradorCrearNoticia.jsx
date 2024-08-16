@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 import { format } from "date-fns";
 import { jwtDecode } from "jwt-decode";
 
@@ -135,17 +136,17 @@ function AdministradorCrearNoticia() {
     <>
       {enviado === true ? (
         <>
-          <div id="alertaAdministracionCrear">
+          <motion.div id="alertaAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <h1>Noticia creada con éxtio</h1>
             <p>Ve a la subsección de noticias para ver, editar y eliminar las noticias.</p>
             <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
               Crear otra noticia
             </button>
-          </div>
+          </motion.div>
         </>
       ) : (
         <form id="formularioAdministracionCrear" onSubmit={crearNoticia}>
-          <section className="seccionFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Título*:</label>
               {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
@@ -183,18 +184,18 @@ function AdministradorCrearNoticia() {
               </label>
               <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
             </fieldset>
-          </section>
+          </motion.section>
 
           {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
 
-          <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear noticia
             </button>
             <p>
               Los campos con <span>*</span> son obligatorios.
             </p>
-          </section>
+          </motion.section>
         </form>
       )}
     </>

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import AdministradorCrearNoticia from "./AdministradorCrearNoticia";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 function AdministradorNoticia() {
@@ -302,16 +303,16 @@ function AdministradorNoticia() {
               </form>
               {seleccionNoticia === noticia.id &&
                 (!editarSeleccionNoticia.includes(noticia.id) ? (
-                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <button type="button" onClick={() => editarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Editar
                     </button>
                     <button type="button" onClick={() => eliminarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Eliminar
                     </button>
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <button type="button" onClick={() => cancelarEditarNoticia(noticia.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Cancelar
                     </button>
@@ -324,7 +325,7 @@ function AdministradorNoticia() {
                     >
                       Guardar
                     </button>
-                  </div>
+                  </motion.div>
                 ))}
             </div>
           ))}
@@ -337,10 +338,12 @@ function AdministradorNoticia() {
     default:
       contenido = (
         <>
-          <h1 className="tituloAdministracionPrincipal">Noticias</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Noticias
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la sección de noticias, aquí podrás ver, modificar, eliminar y crear las noticias, estas se asociarán a tu nombre. <br />A continuación en la parte superior de la página, encontrarás el acceso al control de noticias y al formulario de creación.
-          </p>
+          </motion.p>
         </>
       );
   }

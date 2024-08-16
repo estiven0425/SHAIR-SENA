@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import axios from "axios";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import "../../pages/admin/styles/formulario.css";
@@ -58,7 +59,7 @@ function FormularioAdministrador() {
   };
 
   return (
-    <article className="tarjetaFormulario">
+    <motion.article className="tarjetaFormulario" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
       <header className="tarjetaFormularioCabecera">
         <h1>Administrador</h1>
       </header>
@@ -79,7 +80,7 @@ function FormularioAdministrador() {
           </fieldset>
         </form>
       </main>
-      
+
       {servidorError && <span className="tarjetaFormularioCuerpoFormularioError">{servidorError}</span>}
 
       <footer className="tarjetaFormularioPie">
@@ -90,7 +91,7 @@ function FormularioAdministrador() {
           Acceder
         </button>
       </footer>
-    </article>
+    </motion.article>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function Noticia() {
   const [noticia, setNoticia] = useState([]);
@@ -27,7 +28,7 @@ function Noticia() {
   return (
     <>
       {noticiasFiltradas.map((noticia) => (
-        <div key={noticia.id} className="subContenedorNoticia">
+        <motion.div key={noticia.id} className="subContenedorNoticia" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
           <h2>{noticia.nombre}</h2>
           <article className="articuloSubContenedorNoticia">
             <div className="informacionArticuloSubContenedorNoticia">
@@ -61,7 +62,7 @@ function Noticia() {
               <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
             </div>
           </article>
-        </div>
+        </motion.div>
       ))}
     </>
   );

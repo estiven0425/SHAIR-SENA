@@ -113,8 +113,8 @@ function FormularioRecomendacion() {
           </button>
         </motion.div>
       ) : (
-        <motion.form id="formularioRecomendacionPrincipal" onSubmit={enviarRecomendacion} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-          <section className="seccionFormularioRecomendacionPrincipal">
+        <form id="formularioRecomendacionPrincipal" onSubmit={enviarRecomendacion}>
+          <motion.section className="seccionFormularioRecomendacionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <fieldset className="subSeccionFormularioRecomendacionPrincipal">
               <label htmlFor="titulo">Título*:</label>
               {validacionError.titulo && <span className="subSeccionFormularioRecomendacionPrincipalError">{validacionError.titulo}</span>}
@@ -133,19 +133,19 @@ function FormularioRecomendacion() {
               <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
               {validacionError.imagen && <span className="subSeccionFormularioRecomendacionPrincipalError subSeccionFormularioRecomendacionPrincipalErrorAlternativa">{validacionError.imagen}</span>}
             </fieldset>
-          </section>
+          </motion.section>
 
           {servidorError && <span className="subSeccionFormularioRecomendacionPrincipalError">{servidorError}</span>}
 
-          <section className="seccionFormularioRecomendacionPrincipal">
+          <motion.section className="seccionFormularioRecomendacionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <button type="submit" id="botonSeccionFormularioRecomendacionPrincipal">
               Enviar recomendación
             </button>
             <p>
               Los campos con <span>*</span> son obligatorios.
             </p>
-          </section>
-        </motion.form>
+          </motion.section>
+        </form>
       )}
     </>
   );

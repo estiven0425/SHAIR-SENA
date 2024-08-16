@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
 
@@ -75,11 +76,11 @@ function AdministradorRecomendacion() {
               </article>
               {seleccionRecomendacion === recomendacion.id &&
                 (!editarSeleccionRecomendacion.includes(recomendacion.id) ? (
-                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Eliminar
                     </button>
-                  </div>
+                  </motion.div>
                 ) : (
                   <></>
                 ))}
@@ -91,12 +92,14 @@ function AdministradorRecomendacion() {
     default:
       contenido = (
         <>
-          <h1 className="tituloAdministracionPrincipal">Recomenadaciones</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Recomenadaciones
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la sección de recomendaciones. <br />
             Aquí podrás ver las recomendaciones que hacen los aprendices.
             <br />A continuación, en la parte superior de la página encontraras el acceso a las recomendaciones.
-          </p>
+          </motion.p>
         </>
       );
   }

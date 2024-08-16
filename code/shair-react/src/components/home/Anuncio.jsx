@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 function Anuncio() {
@@ -32,7 +33,7 @@ function Anuncio() {
 
   return (
     <>
-      <div id="contenidoSliderAnuncio">
+      <motion.div id="contenidoSliderAnuncio" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
         {anunciosFiltrados.map((anuncio, indice) => (
           <article key={anuncio.id} className="articuloContenidoSliderAnuncio" ref={(articulo) => (itemReferenciado.current[indice] = articulo)}>
             <div className="informacionArticuloContenidoSliderAnuncio">
@@ -52,13 +53,13 @@ function Anuncio() {
             </div>
           </article>
         ))}
-      </div>
+      </motion.div>
       {anunciosFiltrados.length > 0 && (
-        <div className="controlSlider">
+        <motion.div className="controlSlider" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
           {anunciosFiltrados.map((_, indice) => (
             <button key={indice} className={`actualControlSlider ${indice === slider ? "Activo" : ""}`} onClick={() => activarSlider(indice)} type="button"></button>
           ))}
-        </div>
+        </motion.div>
       )}
     </>
   );

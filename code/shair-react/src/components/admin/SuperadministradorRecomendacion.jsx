@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
 
@@ -89,26 +90,30 @@ function SuperadministradorRecomendacion() {
             </article>
             {seleccionRecomendacion === recomendacion.id &&
               (!editarSeleccionRecomendacion.includes(recomendacion.id) ? (
-                <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                   {recomendacion.aprobacion ? (
                     <>
-                      <button type="button" onClick={() => actualizarAnuncio(recomendacion.id, false)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
+                      <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, false)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                         Desaprobar
-                      </button>
-                      <p>Recomendación aprobada</p>
+                      </motion.button>
+                      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                        Recomendación aprobada
+                      </motion.p>
                     </>
                   ) : (
                     <>
-                      <button type="button" onClick={() => actualizarAnuncio(recomendacion.id, true)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
+                      <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, true)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                         Aprobar
-                      </button>
-                      <p>Recomendación desaprobada</p>
+                      </motion.button>
+                      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                        Recomendación desaprobada
+                      </motion.p>
                     </>
                   )}
-                  <button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     Eliminar
-                  </button>
-                </div>
+                  </motion.button>
+                </motion.div>
               ) : (
                 <></>
               ))}
@@ -116,12 +121,14 @@ function SuperadministradorRecomendacion() {
         ))
       ) : (
         <>
-          <h1 className="tituloAdministracionPrincipal">Recomendaciones</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Recomendaciones
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la sección de recomendaciones. <br />
             Aquí podrás ver las recomendaciones que hacen los aprendices y aprobarlas o eliminarlas.
             <br />A continuación, en la parte superior de la página encontraras el acceso a las recomendaciones.
-          </p>
+          </motion.p>
         </>
       )}
     </>

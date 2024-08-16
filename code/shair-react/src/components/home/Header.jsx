@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { motion } from "framer-motion";
 
 function Header() {
   const [fecha, setFecha] = useState("");
@@ -23,15 +24,15 @@ function Header() {
 
   return (
     <>
-      <section className="seccionHeader" id="fechaSeccionHeader">
+      <motion.section className="seccionHeader" id="fechaSeccionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
         <p>{fecha}</p>
-      </section>
-      <section className="seccionHeader" id="nombreSeccionHeader">
+      </motion.section>
+      <motion.section className="seccionHeader" id="nombreSeccionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
         <h1>SHAIR|SENA</h1>
-      </section>
-      <section className="seccionHeader" id="horaSeccionHeader">
+      </motion.section>
+      <motion.section className="seccionHeader" id="horaSeccionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
         <p>{hora}</p>
-      </section>
+      </motion.section>
     </>
   );
 }

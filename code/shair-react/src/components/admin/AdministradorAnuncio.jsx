@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
+import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import AdministradorCrearAnuncio from "./AdministradorCrearAnuncio";
 import axios from "axios";
@@ -252,16 +253,16 @@ function AdministradorAnuncio() {
               </form>
               {seleccionAnuncio === anuncio.id &&
                 (!editarSeleccionAnuncio.includes(anuncio.id) ? (
-                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <button type="button" onClick={() => editarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Editar
                     </button>
                     <button type="button" onClick={() => eliminarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Eliminar
                     </button>
-                  </div>
+                  </motion.div>
                 ) : (
-                  <div className="pieAdministracionAlternativaContenidoSeleccionado">
+                  <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
                     <button type="button" onClick={() => cancelarEditarAnuncio(anuncio.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado">
                       Cancelar
                     </button>
@@ -274,7 +275,7 @@ function AdministradorAnuncio() {
                     >
                       Guardar
                     </button>
-                  </div>
+                  </motion.div>
                 ))}
             </div>
           ))}
@@ -287,11 +288,13 @@ function AdministradorAnuncio() {
     default:
       contenido = (
         <>
-          <h1 className="tituloAdministracionPrincipal">Anuncios</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Anuncios
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la sección de anuncios. <br />
             Aquí podrás ver, modificar, eliminar y crear los anuncios, estos se asociarán a tu nombre y se eliminaran al pasar la fecha de expiración. <br />A continuación, en la parte superior de la página encontraras el acceso a el control de anuncios y al formulario de creación.
-          </p>
+          </motion.p>
         </>
       );
   }

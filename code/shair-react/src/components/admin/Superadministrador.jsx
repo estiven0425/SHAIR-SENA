@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import SuperadministradorAdministradores from "./SuperadministradorAdministradores";
@@ -45,11 +46,13 @@ function Superadministrador() {
     default:
       contenidoSeccion = (
         <>
-          <h1 className="tituloAdministracionPrincipal">¡Hola {superadministrador}!</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            ¡Hola {superadministrador}!
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la vista de superadministrador de SHAIR. <br />
             Aquí puedes gestionar a los demás administradores de la plataforma, ya sea crear nuevos administadores, modificarlos o eliminarlos.
-          </p>
+          </motion.p>
         </>
       );
       break;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 function SuperadministradorCrearAdministrador() {
@@ -79,17 +80,17 @@ function SuperadministradorCrearAdministrador() {
     <>
       {enviado === true ? (
         <>
-          <div id="alertaAdministracionCrear">
+          <motion.div id="alertaAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <h1>Administrador creado con éxtio</h1>
             <p>Ve a la sección de administradores para ver, editar y eliminar los administradores.</p>
             <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
               Crear otro administrador
             </button>
-          </div>
+          </motion.div>
         </>
       ) : (
         <form id="formularioAdministracionCrear" onSubmit={crearAdministrador}>
-          <section className="seccionFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Nombre*:</label>
               {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
@@ -114,18 +115,18 @@ function SuperadministradorCrearAdministrador() {
               {validacionError.contraseña && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.contraseña}</span>}
               <input type="password" name="contraseña" id="contraseña" value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
             </fieldset>
-          </section>
+          </motion.section>
 
           {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
 
-          <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear administrador
             </button>
             <p>
               Los campos con <span>*</span> son obligatorios.
             </p>
-          </section>
+          </motion.section>
         </form>
       )}
     </>

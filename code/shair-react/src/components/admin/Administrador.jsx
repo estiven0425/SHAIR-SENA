@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import AdministradorNoticia from "./AdministradorNoticia";
@@ -48,14 +49,16 @@ function Administrador() {
     default:
       contenidoSeccion = (
         <>
-          <h1 className="tituloAdministracionPrincipal">¡Hola {administrador}!</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            ¡Hola {administrador}!
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a SHAIR, un noticiero del SENA. <br />
             En el podrás promocionar tus eventos de manera sencilla y eficaz. <br />
             Publicar anuncios temporales y ver las recomendaciones realizadas por aprendices. <br />
             A continuación, en la parte superior de la página, podrás ver las secciones disponibles. <br />
             No dudes en acceder a ellas para obtener más información.
-          </p>
+          </motion.p>
         </>
       );
       break;

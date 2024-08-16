@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 
 function AdministracionHeader() {
@@ -52,7 +53,7 @@ function AdministracionHeader() {
     if (seccion === 0) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion}>
                 Administradores
@@ -63,18 +64,18 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativaAdministracionHeader">
               <Link to="/">Volver a la página principal</Link>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 1) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(57, 169, 0)" }}>
               <button type="button" onClick={accesoSeccion}>
                 Administradores
@@ -85,8 +86,8 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion1} style={{ backgroundColor: subSeccion === 1 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Administradores
@@ -95,13 +96,13 @@ function AdministracionHeader() {
                 Crear administrador
               </button>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 6) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion}>
                 Administradores
@@ -112,20 +113,20 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativa6AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion8} style={{ backgroundColor: subSeccion === 8 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Recomendaciones
               </button>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 2) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion3}>
                 Noticias
@@ -141,18 +142,18 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativaAdministracionHeader">
               <Link to="/">Volver a la página principal</Link>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 3) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(57, 169, 0)" }}>
               <button type="button" onClick={accesoSeccion3}>
                 Noticias
@@ -168,8 +169,8 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion3} style={{ backgroundColor: subSeccion === 3 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Noticias
@@ -178,13 +179,13 @@ function AdministracionHeader() {
                 Crear noticias
               </button>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 4) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion3}>
                 Noticias
@@ -200,8 +201,8 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativa4AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion5} style={{ backgroundColor: subSeccion === 5 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Anuncios
@@ -210,13 +211,13 @@ function AdministracionHeader() {
                 Crear anuncios
               </button>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     } else if (seccion === 5) {
       return (
         <>
-          <section className="seccionAdministracionHeader">
+          <motion.section className="seccionAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAdministracionHeader" style={{ backgroundColor: "rgb(4, 50, 77)" }}>
               <button type="button" onClick={accesoSeccion3}>
                 Noticias
@@ -232,14 +233,14 @@ function AdministracionHeader() {
                 Recomendaciones
               </button>
             </nav>
-          </section>
-          <section className="seccionAlternativaAdministracionHeader">
+          </motion.section>
+          <motion.section className="seccionAlternativaAdministracionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <nav className="navegacionSeccionAlternativa5AdministracionHeader navegacionSeccionAlternativaAdministracionHeader">
               <button type="button" onClick={accesoSubSeccion7} style={{ backgroundColor: subSeccion === 7 ? "rgb(57, 169, 0)" : "rgb(4, 50, 77)" }}>
                 Recomendaciones
               </button>
             </nav>
-          </section>
+          </motion.section>
         </>
       );
     }

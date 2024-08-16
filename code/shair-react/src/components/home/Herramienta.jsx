@@ -27,9 +27,9 @@ function Herramienta() {
           </Link>
         </div>
       </motion.div>
-      <button type="button" id="botonHerramienta" onClick={usarHerramienta}>
+      <motion.button type="button" id="botonHerramienta" onClick={usarHerramienta} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
         <img src={Enlaces} alt="Enlaces" />
-      </button>
+      </motion.button>
     </>
   );
 }

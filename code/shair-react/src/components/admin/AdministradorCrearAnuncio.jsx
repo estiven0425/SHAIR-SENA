@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { format } from "date-fns";
 import { jwtDecode } from "jwt-decode";
+import { motion } from "framer-motion";
 
 function AdministradorCrearAnuncio() {
   const fechaActual = new Date();
@@ -124,16 +125,20 @@ function AdministradorCrearAnuncio() {
       {enviado === true ? (
         <>
           <div id="alertaAdministracionCrear">
-            <h1>Anuncio creado con éxtio</h1>
-            <p>Ve a la subsección de anuncios para ver, editar y eliminar los anuncios.</p>
-            <button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario}>
+            <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+              Anuncio creado con éxtio
+            </motion.h1>
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+              Ve a la subsección de anuncios para ver, editar y eliminar los anuncios.
+            </motion.p>
+            <motion.button type="button" className="botonSeccionAlternativaFormularioAdministracionCrear" onClick={reiniciarFormulario} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
               Crear otro anuncio
-            </button>
+            </motion.button>
           </div>
         </>
       ) : (
         <form id="formularioAdministracionCrear" onSubmit={crearAnuncio}>
-          <section className="seccionFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <fieldset className="subSeccionFormularioAdministracionCrear">
               <label htmlFor="nombre">Título*:</label>
               {validacionError.nombre && <span className="subSeccionFormularioAdministracionCrearError">{validacionError.nombre}</span>}
@@ -161,18 +166,18 @@ function AdministradorCrearAnuncio() {
               {validacionError.imagen && <span className="subSeccionFormularioAdministracionCrearError subSeccionFormularioAdministracionCrearErrorAlternativa">{validacionError.imagen}</span>}
               <input type="file" name="imagenAdjunta" id="imagenAdjunta" accept="image/*" onChange={subirImagen} />
             </fieldset>
-          </section>
+          </motion.section>
 
           {servidorError && <span className="subSeccionFormularioAdministracionCrearError">{servidorError}</span>}
 
-          <section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear">
+          <motion.section className="seccionFormularioAdministracionCrear seccionAlternativaFormularioAdministracionCrear" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             <button type="submit" className="botonSeccionAlternativaFormularioAdministracionCrear">
               Crear anuncio
             </button>
             <p>
               Los campos con <span>*</span> son obligatorios.
             </p>
-          </section>
+          </motion.section>
         </form>
       )}
     </>

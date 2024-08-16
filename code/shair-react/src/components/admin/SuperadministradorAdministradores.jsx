@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
 import SuperadministradorCrearAdministrador from "./SuperadministradorCrearAdministrador";
@@ -254,10 +254,12 @@ function SuperadministradorAdministradores() {
     default:
       contenido = (
         <>
-          <h1 className="tituloAdministracionPrincipal">Administradores</h1>
-          <p className="parrafoAdministracionPrincipal">
+          <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Administradores
+          </motion.h1>
+          <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
             Bienvenido a la sección de administradores, aquí puedes gestionar a los administadores de la plataforma. <br />A continuación, en la parte superior de la página encontraras el acceso a el control de administradores y al formulario de creación.
-          </p>
+          </motion.p>
         </>
       );
   }

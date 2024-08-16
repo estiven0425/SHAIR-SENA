@@ -18,6 +18,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
+  z-index: 1;
 }
 
 .seccionAlternativaAdministracionHeader {
@@ -27,6 +28,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
+  z-index: 1;
 }
 
 .navegacionSeccionAdministracionHeader {
@@ -622,14 +624,16 @@
   border: 2px solid rgb(57, 169, 0);
   border-radius: 10px;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
   justify-content: flex-start;
   margin-top: 20px;
+  max-height: 500px;
   overflow: auto;
-  padding: 10px;
+  padding: 10px 10px 0px;
   position: relative;
-  width: 500px;
+  width: 100%;
 }
 
 .AdministracionAlternativa2Contenido {
@@ -641,7 +645,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px;
+  margin: 0px 0px 10px;
   padding: 10px;
   width: 100%;
 }
@@ -662,10 +666,10 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px;
+  margin: 0px 0px 10px;
   outline: 2px solid rgb(57, 169, 0);
   padding: 10px;
-  width: auto;
+  width: 100%;
 }
 
 .AdministracionAlternativaContenido2Seleccionado h2 {
@@ -677,10 +681,10 @@ h3 {
 .articuloAdministracionAlternativa2Contenido {
   align-content: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
 }
 
 .articuloAdministracionAlternativa2Contenido0 {
@@ -689,7 +693,7 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  width: 60%;
+  width: 100%;
 }
 
 .contenidoArticuloAdministracionAlternativa2Contenido {
@@ -704,7 +708,7 @@ h3 {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  width: 40%;
+  width: 100%;
 }
 
 .imagenArticuloAdministracionAlternativa2Contenido {
@@ -719,7 +723,7 @@ h3 {
 
 .imagenArticuloAdministracionAlternativa2Contenido img {
   border-radius: 10px;
-  max-width: 250px;
+  max-width: 200px;
   width: 100%;
 }
 
@@ -816,8 +820,6 @@ h3 {
     width: 100%;
   }
   .pieAdministracionAlternativaContenidoSeleccionado {
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
   }
 
