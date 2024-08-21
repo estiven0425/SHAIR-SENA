@@ -17,7 +17,7 @@ const coneccionBD = async () => {
   try {
     // Intentamos autenticar la conexión con la base de datos usando Sequelize.
     await sequelize.authenticate();
-    
+
     // Si la autenticación es exitosa, imprimimos un mensaje en la consola indicando que la conexión ha sido establecida.
     console.log("MySQL conectado");
   } catch (error) {
