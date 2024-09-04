@@ -1,10 +1,13 @@
+// FORMULARIO DE ANUNCIOS DEL ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { format } from "date-fns";
 import { jwtDecode } from "jwt-decode";
 import { motion } from "framer-motion";
-
+import axios from "axios";
+// ---------- Componente ----------
 function AdministradorCrearAnuncio() {
+  // ---------- Estados ----------
   const fechaActual = new Date();
   const fechaFormateada = format(fechaActual, "yyyy-MM-dd");
   const [nombre, setNombre] = useState("");
@@ -16,7 +19,7 @@ function AdministradorCrearAnuncio() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
-
+  // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
 
@@ -40,14 +43,14 @@ function AdministradorCrearAnuncio() {
 
     return Object.keys(errors).length === 0;
   };
-
+  // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     const tokenDecodificacion = jwtDecode(token);
     const tokenIdAdministrador = tokenDecodificacion.id;
     setIdAdministrador(tokenIdAdministrador);
   }, []);
-
+  // ---------- Carga de imagen ----------
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
 
@@ -66,7 +69,7 @@ function AdministradorCrearAnuncio() {
       setImagen(archivo);
     }
   };
-
+  // ---------- Envio de formulario ----------
   const crearAnuncio = async (e) => {
     e.preventDefault();
 
@@ -115,11 +118,11 @@ function AdministradorCrearAnuncio() {
       }
     }
   };
-
+  // ---------- Reinicio de formulario ----------
   const reiniciarFormulario = () => {
     setEnviado(false);
   };
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       {enviado === true ? (
@@ -183,5 +186,5 @@ function AdministradorCrearAnuncio() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default AdministradorCrearAnuncio;

@@ -1,12 +1,15 @@
+// ANUNCIO
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-
+// ---------- Componente ----------
 function Anuncio() {
+  // ---------- Estados y referencias ----------
   const [anuncio, setAnuncio] = useState([]);
   const [slider, setSlider] = useState(0);
   const itemReferenciado = useRef([]);
-
+  // ---------- Obtención de anuncios ----------
   useEffect(() => {
     const leerAnuncio = async () => {
       try {
@@ -19,18 +22,18 @@ function Anuncio() {
 
     leerAnuncio();
   }, []);
-
+  // ---------- Control deslizante ----------
   const activarSlider = (indice) => {
     setSlider(indice);
     itemReferenciado.current[indice].scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
-
+  // ---------- Validación de anuncios ----------
   const anunciosFiltrados = anuncio.filter((anuncio) => {
     const fechaFin = new Date(anuncio.fecha_expiracion);
     const fechaActual = new Date();
     return fechaFin >= fechaActual;
   });
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <motion.div id="contenidoSliderAnuncio" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
@@ -64,5 +67,5 @@ function Anuncio() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Anuncio;

@@ -1,11 +1,14 @@
+// FORMULARIO DE ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import "../../pages/admin/styles/formulario.css";
-
+// ---------- Componente ----------
 function FormularioAdministrador() {
+  // ---------- Estados y contextos ----------
   const formulario = useContext(FormularioContexto);
   const setFormulario = formulario.setFormulario;
   const valorEmail = formulario.valorEmail;
@@ -15,7 +18,7 @@ function FormularioAdministrador() {
   const redireccion = useNavigate();
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
-
+  // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
 
@@ -32,6 +35,7 @@ function FormularioAdministrador() {
 
     return Object.keys(errors).length === 0;
   };
+  // ---------- Envío de formulario ----------
   const enviarFormularioAdministrador = async (e) => {
     e.preventDefault();
 
@@ -57,7 +61,7 @@ function FormularioAdministrador() {
 
     setValorContraseña("");
   };
-
+  // ---------- Formulario de inicio de sesión ----------
   return (
     <motion.article className="tarjetaFormulario" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
       <header className="tarjetaFormularioCabecera">
@@ -94,5 +98,5 @@ function FormularioAdministrador() {
     </motion.article>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default FormularioAdministrador;

@@ -1,12 +1,15 @@
+// CABEZERA
+// ---------- Importaciones ----------
 import React, { useState, useEffect } from "react";
-import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { format } from "date-fns";
 import { motion } from "framer-motion";
-
+// ---------- Componente ----------
 function Header() {
+  // ---------- Estados ----------
   const [fecha, setFecha] = useState("");
   const [hora, setHora] = useState("");
-
+  // ---------- Formateo de fecha y hora ----------
   useEffect(() => {
     const actualizarFechaHora = () => {
       const actual = new Date();
@@ -21,7 +24,7 @@ function Header() {
 
     return () => clearInterval(intervalo);
   }, []);
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <motion.section className="seccionHeader" id="fechaSeccionHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
@@ -36,5 +39,5 @@ function Header() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Header;

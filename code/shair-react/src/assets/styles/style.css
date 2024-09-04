@@ -1,5 +1,7 @@
+/* ESTILOS GENERALES DE LA APLICACIÓN */
+/* ---------- Importaciones ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Work+Sans:ital@0;1&display=swap");
-
+/* ---------- Estilos ---------- */
 * {
   font-family: Work Sans;
   box-sizing: border-box;

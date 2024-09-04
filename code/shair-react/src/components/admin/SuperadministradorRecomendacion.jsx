@@ -1,16 +1,19 @@
+// RECOMENDACIONES DEL SUPERADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { motion } from "framer-motion";
-import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
-
+import AdministracionContexto from "../../contexts/AdministracionContexto";
+// ---------- Componente ----------
 function SuperadministradorRecomendacion() {
+  // ---------- Estados, contextos y referencias ----------
   const [recomendaciones, setRecomendaciones] = useState([]);
   const [editarSeleccionRecomendacion, setEditarSeleccionRecomendacion] = useState([]);
   const [seleccionRecomendacion, setSeleccionRecomendacion] = useState(null);
   const seleccionadoRecomendacion = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
-
+  // ---------- Obtención de recomendaciones ----------
   useEffect(() => {
     const leerRecomendacion = async () => {
       try {
@@ -22,7 +25,8 @@ function SuperadministradorRecomendacion() {
     };
 
     leerRecomendacion();
-  });
+  }, []);
+  // ---------- Deselección de recomendaciones ----------
   useEffect(() => {
     const deseleccionarRecomendacion = (event) => {
       if (seleccionadoRecomendacion.current && !seleccionadoRecomendacion.current.contains(event.target)) {
@@ -37,10 +41,11 @@ function SuperadministradorRecomendacion() {
       document.removeEventListener("mousedown", deseleccionarRecomendacion);
     };
   }, [seleccionadoRecomendacion]);
-
+  // ---------- Selección de recomendaciones ----------
   const seleccionarRecomendacion = (id) => {
     setSeleccionRecomendacion(id);
   };
+  // ---------- Actualizar recomendaciones ----------
   const actualizarAnuncio = async (id, estado) => {
     const recomendacionIndex = recomendaciones.findIndex((recomendacion) => recomendacion.id === id);
     const recomendacion = recomendaciones[recomendacionIndex];
@@ -59,7 +64,7 @@ function SuperadministradorRecomendacion() {
       console.error("Error al actualizar la recomendación:", error);
     }
   };
-
+  // ---------- Eliminar recomendaciones ----------
   const eliminarRecomendacion = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/recomendacion`, {
@@ -71,7 +76,7 @@ function SuperadministradorRecomendacion() {
       console.error("Error al eliminar la recomendación:", error);
     }
   };
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       {subSeccion === 8 ? (
@@ -134,5 +139,5 @@ function SuperadministradorRecomendacion() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default SuperadministradorRecomendacion;

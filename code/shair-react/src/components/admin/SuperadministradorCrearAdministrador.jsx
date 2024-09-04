@@ -1,8 +1,11 @@
+// FORMULARIO DE ADMINISTRADORES DEL SUPERADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-
+// ---------- Componente ----------
 function SuperadministradorCrearAdministrador() {
+  // ---------- Estados ----------
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [celular, setCelular] = useState("");
@@ -11,7 +14,7 @@ function SuperadministradorCrearAdministrador() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
-
+  // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
 
@@ -40,7 +43,7 @@ function SuperadministradorCrearAdministrador() {
 
     return Object.keys(errors).length === 0;
   };
-
+  // ---------- Envío de formulario ----------
   const crearAdministrador = async (e) => {
     e.preventDefault();
 
@@ -66,7 +69,7 @@ function SuperadministradorCrearAdministrador() {
       }
     }
   };
-
+  // ---------- Reinicio de formulario ----------
   const reiniciarFormulario = () => {
     setNombre("");
     setEmail("");
@@ -75,7 +78,7 @@ function SuperadministradorCrearAdministrador() {
     setContraseña("");
     setEnviado(false);
   };
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       {enviado === true ? (
@@ -132,5 +135,5 @@ function SuperadministradorCrearAdministrador() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default SuperadministradorCrearAdministrador;

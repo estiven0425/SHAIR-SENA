@@ -1,3 +1,5 @@
+/* ESTILOS DE LA PÁGINA DE ADMINISTRACIÓN */
+/* Estilos */
 #administracionHeader {
   align-content: flex-start;
   display: flex;
@@ -750,7 +752,7 @@ h3 {
   background-color: rgb(57, 169, 0);
   outline: none;
 }
-
+/* Diseño responsivo */
 @media (max-width: 630px) {
   .navegacionSeccionAdministracionHeader,
   .navegacionSeccionAlternativaAdministracionHeader {

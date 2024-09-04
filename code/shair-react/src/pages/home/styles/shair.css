@@ -1,3 +1,5 @@
+/* ESTILOS DE LA PÁGINA PRINCIPAL */
+/* Estilos */
 #shairHeader {
   align-content: center;
   align-items: center;
@@ -348,7 +350,7 @@
 .actualControlSlider.Activo:focus {
   outline-color: rgb(4, 50, 77);
 }
-
+/* Diseño responsivo */
 @media (max-width: 945px) {
   .informacionArticuloContenidoSliderAnuncio,
   .imagenArticuloContenidoSliderAnuncio,

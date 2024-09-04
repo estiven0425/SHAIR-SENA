@@ -1,3 +1,5 @@
+/* ESTILOS DE FORMUARIO DE RECOMENDACIONES */
+/* Estilos */
 #recomendacionHeader {
   align-content: flex-start;
   display: flex;
@@ -201,7 +203,7 @@
 .subSeccionFormularioRecomendacionPrincipalErrorAlternativa {
   bottom: 45px;
 }
-
+/* Diseño responsivo */
 @media (max-width: 630px) {
   .navegacionSeccionRecomendacionHeader {
     width: 100%;

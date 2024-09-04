@@ -1,15 +1,18 @@
+// BARRA DE NAVEGACIÓN DE LA ADMINISTRACIÓN
+// ---------- Importaciones ----------
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
-
+// ---------- Componente ----------
 function AdministracionHeader() {
+  // ---------- Estados y contextos ----------
   const administracion = useContext(AdministracionContexto);
   const seccion = administracion.seccion;
   const setSeccion = administracion.setSeccion;
   const subSeccion = administracion.subSeccion;
   const setSubSeccion = administracion.setSubSeccion;
-
+  // ---------- Validaciones de estado ----------
   const accesoSeccion = () => {
     setSeccion(seccion !== 1 ? 1 : 0);
   };
@@ -49,6 +52,7 @@ function AdministracionHeader() {
   const accesoSubSeccion8 = () => {
     setSubSeccion(subSeccion !== 8 ? 8 : 0);
   };
+  // ---------- Función de renderizado de estado ----------
   const seleccionHeader = () => {
     if (seccion === 0) {
       return (
@@ -245,8 +249,8 @@ function AdministracionHeader() {
       );
     }
   };
-
+  // ---------- Respuesta del proceso ----------
   return <>{seleccionHeader()}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default AdministracionHeader;

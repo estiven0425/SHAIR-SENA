@@ -1,3 +1,5 @@
+/* ESTILOS DEL FORMULARIO DE INICIO DE SESIÓN */
+/* Estilos */
 #formularioPrincipal {
   align-content: center;
   align-items: center;
@@ -157,7 +159,7 @@
   color: rgb(4, 50, 77);
   text-align: center;
 }
-
+/* Diseño responsivo */
 @media (max-width: 630px) {
   .tarjetaFormulario {
     width: 90%;

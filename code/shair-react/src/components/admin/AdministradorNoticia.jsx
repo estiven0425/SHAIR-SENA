@@ -1,11 +1,14 @@
+// NOTICIAS DEL ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
-import AdministracionContexto from "../../contexts/AdministracionContexto";
-import AdministradorCrearNoticia from "./AdministradorCrearNoticia";
 import { motion } from "framer-motion";
 import axios from "axios";
-
+import AdministracionContexto from "../../contexts/AdministracionContexto";
+import AdministradorCrearNoticia from "./AdministradorCrearNoticia";
+// ---------- Componente ----------
 function AdministradorNoticia() {
+  // ---------- Estados, contextos y referencias ----------
   const [noticias, setNoticias] = useState([]);
   const [seleccionNoticia, setSeleccionNoticia] = useState(null);
   const [editarSeleccionNoticia, setEditarSeleccionNoticia] = useState([]);
@@ -21,13 +24,14 @@ function AdministradorNoticia() {
   const seleccionadaNoticia = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
-
+  // ---------- Obtención de información de inicios de sesión ----------
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     const tokenDecodificacion = jwtDecode(token);
     const tokenIdAdministrador = tokenDecodificacion.id;
     setIdAdministradoresNoticias(tokenIdAdministrador);
   }, []);
+  // ---------- Obtención de noticias ----------
   useEffect(() => {
     const leerNoticia = async () => {
       try {
@@ -60,7 +64,9 @@ function AdministradorNoticia() {
     };
 
     leerNoticia();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subSeccion]);
+  // ---------- Deselección de noticias ----------
   useEffect(() => {
     const deseleccionarNoticia = (event) => {
       if (seleccionadaNoticia.current && !seleccionadaNoticia.current.contains(event.target)) {
@@ -75,9 +81,11 @@ function AdministradorNoticia() {
       document.removeEventListener("mousedown", deseleccionarNoticia);
     };
   }, [seleccionadaNoticia]);
+  // ---------- Selección de noticia ----------
   const seleccionarNoticia = (id) => {
     setSeleccionNoticia(id);
   };
+  // ---------- Editar noticia ----------
   const editarNoticia = (id) => {
     setEditarSeleccionNoticia((prevState) => {
       if (prevState.includes(id)) {
@@ -87,6 +95,7 @@ function AdministradorNoticia() {
       }
     });
   };
+  // ---------- Cancelar edición ----------
   const cancelarEditarNoticia = (id) => {
     const noticiaIndex = noticias.findIndex((noticia) => noticia.id === id);
     const noticia = noticias[noticiaIndex];
@@ -133,6 +142,7 @@ function AdministradorNoticia() {
     });
     setEditarSeleccionNoticia((prevState) => prevState.filter((idNoticia) => idNoticia !== id));
   };
+  // ---------- Actualizar de noticias ----------
   const actualizarNoticia = async (id) => {
     const noticiaIndex = noticias.findIndex((noticia) => noticia.id === id);
 
@@ -154,6 +164,7 @@ function AdministradorNoticia() {
       console.error("Error al actualizar la noticia:", error);
     }
   };
+  // ---------- Recarga de noticias ----------
   const actualizardatos = (id) => {
     const noticiaIndex = noticias.findIndex((noticia) => noticia.id === id);
 
@@ -166,6 +177,7 @@ function AdministradorNoticia() {
     setAdministradoresNoticias((prevState) => prevState.filter((_, index) => index !== noticiaIndex));
     setMasInformacionNoticias((prevState) => prevState.filter((_, index) => index !== noticiaIndex));
   };
+  // ---------- Eliminar noticias ----------
   const eliminarNoticia = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/noticia`, {
@@ -178,7 +190,7 @@ function AdministradorNoticia() {
       console.error("Error al eliminar la noticia:", error);
     }
   };
-
+  // ---------- Validación de estado ----------
   let contenido;
 
   switch (subSeccion) {
@@ -347,8 +359,8 @@ function AdministradorNoticia() {
         </>
       );
   }
-
+  // ---------- Respuesta del proceso ----------
   return <>{contenido}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default AdministradorNoticia;

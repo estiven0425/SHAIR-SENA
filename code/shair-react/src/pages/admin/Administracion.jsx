@@ -1,11 +1,14 @@
+// PÁGINA DE ADMINISTRACIÓN
+// ---------- Importaciones ----------
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Outlet } from "react-router-dom";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import AdministracionHeader from "../../components/admin/AdministracionHeader";
 import "./styles/administracion.css";
-
+// ---------- Componente ----------
 function Administracion() {
+  // ---------- Estados ----------
   const [seccion, setSeccion] = useState(0);
   const [subSeccion, setSubSeccion] = useState(0);
   const seccionEstado = {
@@ -14,7 +17,7 @@ function Administracion() {
     subSeccion,
     setSubSeccion,
   };
-
+  // ---------- Validación de estados ----------
   let estiloSeccion = "";
   let estiloFormularioSeccion = "";
 
@@ -87,7 +90,7 @@ function Administracion() {
       estiloFormularioSeccion = "";
       break;
   }
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <AdministracionContexto.Provider value={seccionEstado}>
@@ -101,5 +104,5 @@ function Administracion() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Administracion;

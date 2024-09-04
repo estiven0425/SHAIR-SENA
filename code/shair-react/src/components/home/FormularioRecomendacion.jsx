@@ -1,16 +1,20 @@
+// FORMULARIO DE RECOMENDACIONES
+// ---------- Importaciones ----------
 import React, { useState } from "react";
-import axios from "axios";
 import { motion } from "framer-motion";
-
+import axios from "axios";
+// ---------- Componente ----------
 function FormularioRecomendacion() {
+  // ---------- Estados ----------
   const [imagen, setImagen] = useState(null);
   const [titulo, setTitulo] = useState("");
   const [recomendacion, setRecomendacion] = useState("");
+  // eslint-disable-next-line no-unused-vars
   const [aprobacion, setAprobacion] = useState(false);
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
-
+  // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
 
@@ -30,7 +34,7 @@ function FormularioRecomendacion() {
 
     return Object.keys(errors).length === 0;
   };
-
+  // ---------- Carga de imagen ----------
   const subirImagen = (event) => {
     const archivo = event.target.files[0];
 
@@ -49,7 +53,7 @@ function FormularioRecomendacion() {
       setImagen(archivo);
     }
   };
-
+  // ---------- Envío de formulario ----------
   const enviarRecomendacion = async (event) => {
     event.preventDefault();
 
@@ -94,14 +98,14 @@ function FormularioRecomendacion() {
       }
     }
   };
-
+  // ---------- Reinicio de formulario ----------
   const reiniciarFormulario = () => {
     setTitulo("");
     setRecomendacion("");
     setImagen(null);
     setEnviado(false);
   };
-
+  // ---------- Respuesta del servidor ----------
   return (
     <>
       {enviado === true ? (
@@ -150,5 +154,5 @@ function FormularioRecomendacion() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default FormularioRecomendacion;

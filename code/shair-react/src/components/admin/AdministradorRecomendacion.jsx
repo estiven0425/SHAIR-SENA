@@ -1,16 +1,19 @@
+// RECOMENDACIONES DEL ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { motion } from "framer-motion";
-import AdministracionContexto from "../../contexts/AdministracionContexto";
 import axios from "axios";
-
+import AdministracionContexto from "../../contexts/AdministracionContexto";
+// ---------- Componente ----------
 function AdministradorRecomendacion() {
+  // ---------- Estados, contextos y referencias ----------
   const [recomendaciones, setRecomendaciones] = useState([]);
   const [editarSeleccionRecomendacion, setEditarSeleccionRecomendacion] = useState([]);
   const [seleccionRecomendacion, setSeleccionRecomendacion] = useState(null);
   const seleccionadoRecomendacion = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
-
+  // ---------- Obtención de recomendaciones ----------
   useEffect(() => {
     const leerRecomendacion = async () => {
       try {
@@ -25,6 +28,7 @@ function AdministradorRecomendacion() {
 
     leerRecomendacion();
   }, []);
+  // ---------- Deselección de recomendaciones ----------
   useEffect(() => {
     const deseleccionarRecomendacion = (event) => {
       if (seleccionadoRecomendacion.current && !seleccionadoRecomendacion.current.contains(event.target)) {
@@ -39,10 +43,11 @@ function AdministradorRecomendacion() {
       document.removeEventListener("mousedown", deseleccionarRecomendacion);
     };
   }, [seleccionadoRecomendacion]);
-
+  // ---------- Selección de recomendaciones ----------
   const seleccionarRecomendacion = (id) => {
     setSeleccionRecomendacion(id);
   };
+  // ---------- Eliminar recomendaciones ----------
   const eliminarRecomendacion = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/recomendacion`, {
@@ -54,7 +59,7 @@ function AdministradorRecomendacion() {
       console.error("Error al eliminar la recomendación:", error);
     }
   };
-
+  // ---------- Validación de estado ----------
   let contenido;
 
   switch (subSeccion) {
@@ -103,8 +108,8 @@ function AdministradorRecomendacion() {
         </>
       );
   }
-
+  // ---------- Respuesta del proceso ----------
   return <>{contenido}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default AdministradorRecomendacion;

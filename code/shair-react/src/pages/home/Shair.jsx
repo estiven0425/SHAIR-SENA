@@ -1,12 +1,15 @@
+// PÁGINA PRINCIPAL
+// ---------- Importaciones ----------
 import React from "react";
 import { motion } from "framer-motion";
-import Header from "../../components/home/Header";
 import Anuncio from "../../components/home/Anuncio";
-import Noticia from "../../components/home/Noticia";
+import Header from "../../components/home/Header";
 import Herramienta from "../../components/home/Herramienta";
+import Noticia from "../../components/home/Noticia";
 import "./styles/shair.css";
-
+// ---------- COmponente ----------
 function Shair() {
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <motion.header id="shairHeader" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
@@ -24,5 +27,5 @@ function Shair() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Shair;

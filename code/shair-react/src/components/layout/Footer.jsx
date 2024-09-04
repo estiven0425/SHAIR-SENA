@@ -1,11 +1,14 @@
+// PIE DE PÁGINA
+// ---------- Importaciones ----------
 import React from "react";
 import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import gobiernoCol from "../../assets/images/gobiernoColombia.svg";
-import normasIso from "../../assets/images/normasIso.svg";
 import gov from "../../assets/images/gov.svg";
-
+import normasIso from "../../assets/images/normasIso.svg";
+// ---------- Componente ----------
 function Footer() {
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <Outlet />
@@ -185,5 +188,5 @@ function Footer() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Footer;

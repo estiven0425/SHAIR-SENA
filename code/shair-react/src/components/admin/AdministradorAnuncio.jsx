@@ -1,11 +1,14 @@
+// ANUNCIOS DEL ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { jwtDecode } from "jwt-decode";
 import { motion } from "framer-motion";
+import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import AdministradorCrearAnuncio from "./AdministradorCrearAnuncio";
-import axios from "axios";
-
+// ---------- Componente ----------
 function AdministradorAnuncio() {
+  // ---------- Estados, contextos y referencias ----------
   const [anuncios, setAnuncios] = useState([]);
   const [seleccionAnuncio, setSeleccionAnuncio] = useState(null);
   const [editarSeleccionAnuncio, setEditarSeleccionAnuncio] = useState([]);
@@ -19,13 +22,14 @@ function AdministradorAnuncio() {
   const seleccionadoAnuncio = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
-
+  // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     const token = sessionStorage.getItem("token");
     const tokenDecodificacion = jwtDecode(token);
     const tokenIdAdministrador = tokenDecodificacion.id;
     setIdAdministradoresAnuncios(tokenIdAdministrador);
   }, []);
+  // ---------- Obtención de anuncios ----------
   useEffect(() => {
     const leerAnuncio = async () => {
       try {
@@ -54,7 +58,9 @@ function AdministradorAnuncio() {
     };
 
     leerAnuncio();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subSeccion]);
+  // ---------- Deselección de anuncios ----------
   useEffect(() => {
     const deseleccionarAnuncio = (event) => {
       if (seleccionadoAnuncio.current && !seleccionadoAnuncio.current.contains(event.target)) {
@@ -69,9 +75,11 @@ function AdministradorAnuncio() {
       document.removeEventListener("mousedown", deseleccionarAnuncio);
     };
   }, [seleccionadoAnuncio]);
+  // ---------- Selección de anuncio ----------
   const seleccionarAnuncio = (id) => {
     setSeleccionAnuncio(id);
   };
+  // ---------- Editar anuncio ----------
   const editarAnuncio = (id) => {
     setEditarSeleccionAnuncio((prevState) => {
       if (prevState.includes(id)) {
@@ -81,6 +89,7 @@ function AdministradorAnuncio() {
       }
     });
   };
+  // ---------- Cancelar edición ----------
   const cancelarEditarAnuncio = (id) => {
     const anuncioIndex = anuncios.findIndex((noticia) => noticia.id === id);
     const anuncio = anuncios[anuncioIndex];
@@ -117,6 +126,7 @@ function AdministradorAnuncio() {
     });
     setEditarSeleccionAnuncio((prevState) => prevState.filter((idNoticia) => idNoticia !== id));
   };
+  // ---------- Actualizar anuncios ----------
   const actualizarAnuncio = async (id) => {
     const anuncioIndex = anuncios.findIndex((anuncio) => anuncio.id === id);
 
@@ -136,6 +146,7 @@ function AdministradorAnuncio() {
       console.error("Error al actualizar el anuncio:", error);
     }
   };
+  // ---------- Recarga de anuncios ----------
   const actualizardatos = (id) => {
     const anuncioIndex = anuncios.findIndex((anuncio) => anuncio.id === id);
 
@@ -146,6 +157,7 @@ function AdministradorAnuncio() {
     setAdministradoresAnuncios((prevState) => prevState.filter((_, index) => index !== anuncioIndex));
     setMasInformacionAnuncios((prevState) => prevState.filter((_, index) => index !== anuncioIndex));
   };
+  // ---------- Eliminar anuncios ----------
   const eliminarAnuncio = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/anuncio`, {
@@ -158,7 +170,7 @@ function AdministradorAnuncio() {
       console.error("Error al eliminar el anuncio:", error);
     }
   };
-
+  // ---------- Validación de estado ----------
   let contenido;
 
   switch (subSeccion) {
@@ -298,8 +310,8 @@ function AdministradorAnuncio() {
         </>
       );
   }
-
+  // ---------- Respuesta del proceso ----------
   return <>{contenido}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default AdministradorAnuncio;

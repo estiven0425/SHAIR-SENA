@@ -1,17 +1,21 @@
+// SUPERADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
 import SuperadministradorAdministradores from "./SuperadministradorAdministradores";
 import SuperadministradorRecomendacion from "./SuperadministradorRecomendacion";
-
+// ---------- Componente ----------
 function Superadministrador() {
+  // ---------- Estados y contextos ----------
   const administracion = useContext(AdministracionContexto);
   const [superadministrador, setSuperadministrador] = useState("");
   const seccion = administracion.seccion;
   const setSeccion = administracion.setSeccion;
+  // eslint-disable-next-line no-unused-vars
   const subSeccion = administracion.subSeccion;
-
+  // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     setSeccion(0);
 
@@ -32,8 +36,9 @@ function Superadministrador() {
     return () => {
       sessionStorage.removeItem("token");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  // ---------- Validación de estado ----------
   let contenidoSeccion;
 
   switch (seccion) {
@@ -57,8 +62,8 @@ function Superadministrador() {
       );
       break;
   }
-
+  // ---------- Respuesta del proceso ----------
   return <>{contenidoSeccion}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default Superadministrador;

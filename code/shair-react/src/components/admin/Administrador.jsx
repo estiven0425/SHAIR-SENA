@@ -1,17 +1,20 @@
+// ADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import AdministracionContexto from "../../contexts/AdministracionContexto";
-import AdministradorNoticia from "./AdministradorNoticia";
 import AdministradorAnuncio from "./AdministradorAnuncio";
+import AdministradorNoticia from "./AdministradorNoticia";
 import AdministradorRecomendacion from "./AdministradorRecomendacion";
-
+// ---------- Componente ----------
 function Administrador() {
+  // ---------- Estados y contexto ----------
   const administracion = useContext(AdministracionContexto);
   const [administrador, setAdministrador] = useState("");
   const seccion = administracion.seccion;
   const setSeccion = administracion.setSeccion;
-
+  // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     setSeccion(2);
 
@@ -32,8 +35,9 @@ function Administrador() {
     return () => {
       sessionStorage.removeItem("token");
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  // ---------- Validación de estado ----------
   let contenidoSeccion;
 
   switch (seccion) {
@@ -63,8 +67,8 @@ function Administrador() {
       );
       break;
   }
-
+  // ---------- Respuesta del proceso ----------
   return <>{contenidoSeccion}</>;
 }
-
+// ---------- Exportación del componente ----------
 export default Administrador;

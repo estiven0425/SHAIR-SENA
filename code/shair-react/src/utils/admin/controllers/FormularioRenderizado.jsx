@@ -1,11 +1,13 @@
+// CONTROLADOR DEL FORMULARIO
+// ---------- Importaciones ----------
 import React, { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import FormularioAdministrador from "../../../components/admin/FormularioAdministrador";
 import FormularioContexto from "../../../contexts/FormularioContexto";
 import FormularioInicio from "../../../components/admin/FormularioInicio";
 import FormularioSuperadministrador from "../../../components/admin/FormularioSuperadministrador";
-import FormularioAdministrador from "../../../components/admin/FormularioAdministrador";
 import "../styles/formularioRenderizado.css";
-
+// ---------- Animación derecha ----------
 const animacionDerecha = {
   initial: {
     opacity: 0,
@@ -20,6 +22,7 @@ const animacionDerecha = {
     rotateY: 90,
   },
 };
+// ---------- Animación izquierda ----------
 const animacionIzquierda = {
   initial: {
     opacity: 0,
@@ -34,14 +37,16 @@ const animacionIzquierda = {
     rotateY: -90,
   },
 };
+// ---------- Transición ----------
 const transicionPagina = {
   type: "tween",
   duration: 0.25,
 };
-
+// ---------- Componente ----------
 function FormularioRenderizado() {
+  // ---------- Contextos ----------
   const formulario = useContext(FormularioContexto);
-
+  // ---------- Validación de contextos ----------
   let formularioRenderizado;
 
   switch (formulario.formulario) {
@@ -59,7 +64,7 @@ function FormularioRenderizado() {
   }
 
   const varianteAnimacion = formulario.formulario === 0 ? animacionIzquierda : animacionDerecha;
-
+  // ---------- Respuesta del proceso ----------
   return (
     <AnimatePresence mode="wait">
       <motion.section key={formulario.formulario} initial="initial" animate="in" exit="out" variants={varianteAnimacion} transition={transicionPagina} id="formularioTransicion">
@@ -68,5 +73,5 @@ function FormularioRenderizado() {
     </AnimatePresence>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default FormularioRenderizado;

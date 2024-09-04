@@ -1,10 +1,13 @@
+// NOTICIAS
+// ---------- Importaciones ----------
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { motion } from "framer-motion";
-
+import axios from "axios";
+// ---------- Componente ----------
 function Noticia() {
+  // ---------- Estados ----------
   const [noticia, setNoticia] = useState([]);
-
+  // ---------- Obtención de noticias ----------
   useEffect(() => {
     const leerNoticia = async () => {
       try {
@@ -18,13 +21,13 @@ function Noticia() {
 
     leerNoticia();
   }, []);
-
+  // ---------- Validación de noticias ----------
   const noticiasFiltradas = noticia.filter((noticia) => {
     const fechaFin = new Date(noticia.fecha_fin);
     const fechaActual = new Date();
     return fechaFin >= fechaActual;
   });
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       {noticiasFiltradas.map((noticia) => (
@@ -67,5 +70,5 @@ function Noticia() {
     </>
   );
 }
-
+// ---------- Exportación del proceso ----------
 export default Noticia;

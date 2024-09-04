@@ -1,17 +1,20 @@
+// BOTÓN DE HERRAMIENTAS
+// ---------- Importaciones ----------
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import Acceder from "../../assets/images/acceder.png";
 import Enlaces from "../../assets/images/enlaces.png";
 import Mensaje from "../../assets/images/mensaje.png";
-import Acceder from "../../assets/images/acceder.png";
-
+// ---------- Componente ----------
 function Herramienta() {
+  // ---------- Estados ----------
   const [herramienta, setHerramienta] = useState(false);
-
+  // ---------- Validación de estado ----------
   const usarHerramienta = () => {
     setHerramienta(!herramienta);
   };
-
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       <motion.div id="herramienta" initial={{ display: "none", opacity: 0 }} animate={{ display: herramienta === true ? "flex" : "none", opacity: herramienta === true ? 1 : 0 }} transition={{ duration: 0.25 }}>
@@ -33,5 +36,5 @@ function Herramienta() {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default Herramienta;

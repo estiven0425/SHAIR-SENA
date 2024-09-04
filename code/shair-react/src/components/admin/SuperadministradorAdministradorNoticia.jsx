@@ -1,13 +1,17 @@
+// NOTICIAS DE ADMINISTRADORES DEL SUPERADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
-
+// ---------- Componente ----------
 function SuperadministradorAdministradorNoticia(props) {
+  // ---------- Estados y referencias ----------
   const [noticias, setNoticias] = useState([]);
   const [seleccionNoticia, setSeleccionNoticia] = useState(null);
   const [editarSeleccionNoticia, setEditarSeleccionNoticia] = useState([]);
   const [nombresNoticias, setNombresNoticias] = useState([]);
   const [enunciadosNoticias, setEnunciadosNoticias] = useState([]);
+  // eslint-disable-next-line no-unused-vars
   const [imagenesNoticias, setImagenesNoticias] = useState([]);
   const [lugaresNoticias, setLugaresNoticias] = useState([]);
   const [fechasInicioNoticias, setFechasInicioNoticias] = useState([]);
@@ -15,7 +19,7 @@ function SuperadministradorAdministradorNoticia(props) {
   const [administradoresNoticias, setAdministradoresNoticias] = useState([]);
   const [masInformacionesNoticias, setMasInformacionNoticias] = useState([]);
   const seleccionadaNoticia = useRef(null);
-
+  // ---------- Obtención de noticias ----------
   useEffect(() => {
     const leerNoticia = async () => {
       try {
@@ -48,7 +52,9 @@ function SuperadministradorAdministradorNoticia(props) {
     };
 
     leerNoticia();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [seleccionadaNoticia]);
+  // ---------- Deselección de noticia ----------
   useEffect(() => {
     const deseleccionarNoticia = (event) => {
       if (seleccionadaNoticia.current && !seleccionadaNoticia.current.contains(event.target)) {
@@ -63,9 +69,11 @@ function SuperadministradorAdministradorNoticia(props) {
       document.removeEventListener("mousedown", deseleccionarNoticia);
     };
   }, [seleccionadaNoticia]);
+  // ---------- Selección de noticia ----------
   const seleccionarNoticia = (id) => {
     setSeleccionNoticia(id);
   };
+  // ---------- Eliminar noticia ----------
   const eliminarNoticia = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/noticia`, {
@@ -77,6 +85,7 @@ function SuperadministradorAdministradorNoticia(props) {
       console.error("Error al eliminar la noticia:", error);
     }
   };
+  // ---------- Respuesta del proceso ----------
   return (
     <>
       {noticias.length !== 0 ? (
@@ -124,5 +133,5 @@ function SuperadministradorAdministradorNoticia(props) {
     </>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default SuperadministradorAdministradorNoticia;

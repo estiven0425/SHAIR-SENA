@@ -1,13 +1,16 @@
+// FORMULARIO DE BIENVENIDA
+// ---------- Importaciones ----------
 import React, { useContext } from "react";
-import FormularioContexto from "../../contexts/FormularioContexto";
-import "../../pages/admin/styles/formulario.css";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import FormularioContexto from "../../contexts/FormularioContexto";
+import "../../pages/admin/styles/formulario.css";
+// ---------- Componente ----------
 function FormularioInicio() {
+  // ---------- Estados y contextos ----------
   const formulario = useContext(FormularioContexto);
   const setFormulario = formulario.setFormulario;
-
+  // ---------- Formulario de bienvenida ----------
   return (
     <motion.article className="tarjetaFormulario" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
       <header className="tarjetaFormularioCabecera">
@@ -36,5 +39,5 @@ function FormularioInicio() {
     </motion.article>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default FormularioInicio;

@@ -1,20 +1,22 @@
+// FORMULARIO DE SUPERADMINISTRADOR
+// ---------- Importaciones ----------
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormularioContexto from "../../contexts/FormularioContexto";
 import "../../pages/admin/styles/formulario.css";
-
+// ---------- Componente ----------
 function FormularioSuperadministrador() {
+  // ---------- Estados y contextos ----------
   const formulario = useContext(FormularioContexto);
   const setFormulario = formulario.setFormulario;
   const [valorEmail, setValorEmail] = useState(formulario.valorEmail);
   const [valorContraseña, setValorContraseña] = useState(formulario.valorContraseña);
   const redireccion = useNavigate();
-
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
-
+  // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
 
@@ -31,7 +33,7 @@ function FormularioSuperadministrador() {
 
     return Object.keys(errors).length === 0;
   };
-
+  // ---------- Envío de formulario ----------
   const enviarFormularioSuperadministrador = async (e) => {
     e.preventDefault();
 
@@ -57,7 +59,7 @@ function FormularioSuperadministrador() {
 
     setValorContraseña("");
   };
-
+  // ---------- Respuesta del proceso ----------
   return (
     <motion.article className="tarjetaFormulario" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
       <header className="tarjetaFormularioCabecera">
@@ -92,5 +94,5 @@ function FormularioSuperadministrador() {
     </motion.article>
   );
 }
-
+// ---------- Exportación del componente ----------
 export default FormularioSuperadministrador;
