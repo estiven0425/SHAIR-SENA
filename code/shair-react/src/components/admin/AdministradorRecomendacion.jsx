@@ -17,7 +17,7 @@ function AdministradorRecomendacion() {
   useEffect(() => {
     const leerRecomendacion = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/recomendacion");
+        const respuesta = await axios.get("http://192.168.1.192:5000/recomendacion");
         const recomendacionesTotales = respuesta.data;
         const recomendacionesFiltradas = recomendacionesTotales.filter((recomendacion) => recomendacion.aprobacion === 1);
         setRecomendaciones(recomendacionesFiltradas);
@@ -50,7 +50,7 @@ function AdministradorRecomendacion() {
   // ---------- Eliminar recomendaciones ----------
   const eliminarRecomendacion = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/recomendacion`, {
+      await axios.delete(`http://192.168.1.192:5000/recomendacion`, {
         data: { id: id },
       });
 
@@ -75,7 +75,7 @@ function AdministradorRecomendacion() {
                 </div>
                 <div className="articuloAdministracionAlternativaContenido1">
                   <div className="imagenArticuloAdministracionAlternativaContenido">
-                    <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
+                    <img src={`http://192.168.1.192:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
                   </div>
                 </div>
               </article>

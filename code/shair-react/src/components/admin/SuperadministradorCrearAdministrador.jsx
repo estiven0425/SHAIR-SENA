@@ -52,7 +52,7 @@ function SuperadministradorCrearAdministrador() {
     }
 
     try {
-      await axios.post("http://localhost:5000/administrador", {
+      await axios.post("http://192.168.1.192:5000/administrador", {
         nombre: nombre,
         email: email,
         celular: celular,

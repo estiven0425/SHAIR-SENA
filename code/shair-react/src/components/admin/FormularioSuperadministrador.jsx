@@ -42,7 +42,7 @@ function FormularioSuperadministrador() {
     }
 
     try {
-      const respuesta = await axios.post("http://localhost:5000/superadministradorlogin", {
+      const respuesta = await axios.post("http://192.168.1.192:5000/superadministradorlogin", {
         email: valorEmail,
         contraseña: valorContraseña,
       });

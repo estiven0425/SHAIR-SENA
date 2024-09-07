@@ -24,7 +24,7 @@ function SuperadministradorAdministradores() {
   useEffect(() => {
     const leerAdministrador = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/administrador");
+        const respuesta = await axios.get("http://192.168.1.192:5000/administrador");
 
         setAdministradores(respuesta.data);
 
@@ -109,7 +109,7 @@ function SuperadministradorAdministradores() {
     const adminIndex = administradores.findIndex((admin) => admin.id_administrador === id_administrador);
 
     try {
-      await axios.put(`http://localhost:5000/administrador`, {
+      await axios.put(`http://192.168.1.192:5000/administrador`, {
         id_administrador: id_administrador,
         nombre: nombresAdministradores[adminIndex],
         email: emailsAdministradores[adminIndex],
@@ -134,7 +134,7 @@ function SuperadministradorAdministradores() {
   // ---------- Eliminar administradores ----------
   const eliminarAdministrador = async (id_administrador) => {
     try {
-      await axios.delete(`http://localhost:5000/administrador`, {
+      await axios.delete(`http://192.168.1.192:5000/administrador`, {
         data: { id_administrador: id_administrador },
       });
 

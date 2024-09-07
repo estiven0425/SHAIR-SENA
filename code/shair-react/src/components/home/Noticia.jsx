@@ -11,7 +11,7 @@ function Noticia() {
   useEffect(() => {
     const leerNoticia = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/noticia");
+        const respuesta = await axios.get("http://192.168.1.192:5000/noticia");
 
         setNoticia(respuesta.data);
       } catch (error) {
@@ -62,7 +62,7 @@ function Noticia() {
               </div>
             </div>
             <div className="imagenArticuloSubContenedorNoticia">
-              <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
+              <img src={`http://192.168.1.192:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
             </div>
           </article>
         </motion.div>

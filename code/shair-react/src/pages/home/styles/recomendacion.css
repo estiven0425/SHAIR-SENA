@@ -221,4 +221,7 @@
     bottom: 0px;
     text-align: center;
   }
+  #alertaRecomendacionPrincipal {
+    width: 100%;
+  }
 }

@@ -22,7 +22,7 @@ function Superadministrador() {
     const token = sessionStorage.getItem("token");
     const obtenerSuperadministrador = async () => {
       try {
-        const respuesta = await axios.post("http://localhost:5000/superadministradorlogin/inicio", {
+        const respuesta = await axios.post("http://192.168.1.192:5000/superadministradorlogin/inicio", {
           token: token,
         });
 

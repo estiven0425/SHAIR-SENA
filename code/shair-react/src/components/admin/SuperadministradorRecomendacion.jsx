@@ -17,7 +17,7 @@ function SuperadministradorRecomendacion() {
   useEffect(() => {
     const leerRecomendacion = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/recomendacion");
+        const respuesta = await axios.get("http://192.168.1.192:5000/recomendacion");
         setRecomendaciones(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
@@ -51,7 +51,7 @@ function SuperadministradorRecomendacion() {
     const recomendacion = recomendaciones[recomendacionIndex];
 
     try {
-      await axios.put(`http://localhost:5000/recomendacion`, {
+      await axios.put(`http://192.168.1.192:5000/recomendacion`, {
         id: id,
         nombre: recomendacion.nombre,
         enunciado: recomendacion.enunciado,
@@ -67,7 +67,7 @@ function SuperadministradorRecomendacion() {
   // ---------- Eliminar recomendaciones ----------
   const eliminarRecomendacion = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/recomendacion`, {
+      await axios.delete(`http://192.168.1.192:5000/recomendacion`, {
         data: { id: id },
       });
 
@@ -89,7 +89,7 @@ function SuperadministradorRecomendacion() {
               </div>
               <div className="articuloAdministracionAlternativaContenido1">
                 <div className="imagenArticuloAdministracionAlternativaContenido">
-                  <img src={`http://localhost:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
+                  <img src={`http://192.168.1.192:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
                 </div>
               </div>
             </article>

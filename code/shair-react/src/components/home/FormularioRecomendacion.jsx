@@ -73,7 +73,7 @@ function FormularioRecomendacion() {
       if (imagen) {
         datosFormulario.append("file", imagen);
 
-        const cargaRecomendacion = await axios.post("http://localhost:5000/cargaRecomendacion", datosFormulario, {
+        const cargaRecomendacion = await axios.post("http://192.168.1.192:5000/cargaRecomendacion", datosFormulario, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -82,7 +82,7 @@ function FormularioRecomendacion() {
         rutaCargaRecomendacion = cargaRecomendacion.data.filePath;
       }
 
-      await axios.post("http://localhost:5000/recomendacion", {
+      await axios.post("http://192.168.1.192:5000/recomendacion", {
         titulo,
         recomendacion,
         archivo_adjunto: rutaCargaRecomendacion === null ? "review/logo.png" : rutaCargaRecomendacion,

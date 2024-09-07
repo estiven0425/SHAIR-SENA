@@ -101,7 +101,7 @@ function AdministradorCrearNoticia() {
       if (imagen) {
         datosFormulario.append("file", imagen);
 
-        const cargaNoticia = await axios.post("http://localhost:5000/cargaNoticia", datosFormulario, {
+        const cargaNoticia = await axios.post("http://:5000/cargaNoticia", datosFormulario, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -110,7 +110,7 @@ function AdministradorCrearNoticia() {
         rutaCargaNoticia = cargaNoticia.data.filePath;
       }
 
-      await axios.post("http://localhost:5000/noticia", {
+      await axios.post("http://:5000/noticia", {
         nombre,
         enunciado,
         archivo_adjunto: rutaCargaNoticia === null ? "uploads/logo.png" : rutaCargaNoticia,

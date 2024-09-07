@@ -23,7 +23,7 @@ function SuperadministradorAdministradorNoticia(props) {
   useEffect(() => {
     const leerNoticia = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/noticia");
+        const respuesta = await axios.get("http://192.168.1.192:5000/noticia");
         const noticiasTotales = respuesta.data;
         const noticiasFiltradas = noticiasTotales.filter((noticia) => noticia.id_administrador === props.id_administrador);
 
@@ -76,7 +76,7 @@ function SuperadministradorAdministradorNoticia(props) {
   // ---------- Eliminar noticia ----------
   const eliminarNoticia = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/noticia`, {
+      await axios.delete(`http://192.168.1.192:5000/noticia`, {
         data: { id: id },
       });
 
@@ -109,7 +109,7 @@ function SuperadministradorAdministradorNoticia(props) {
               </div>
               <div className="articuloAdministracionAlternativa2Contenido1">
                 <div className="imagenArticuloAdministracionAlternativa2Contenido">
-                  <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
+                  <img src={`http://192.168.1.192:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
                 </div>
               </div>
             </motion.article>

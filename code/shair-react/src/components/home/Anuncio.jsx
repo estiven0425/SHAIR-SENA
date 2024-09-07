@@ -13,7 +13,7 @@ function Anuncio() {
   useEffect(() => {
     const leerAnuncio = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/anuncio");
+        const respuesta = await axios.get("http://192.168.1.192:5000/anuncio");
         setAnuncio(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
@@ -52,7 +52,7 @@ function Anuncio() {
               </div>
             </div>
             <div className="imagenArticuloContenidoSliderAnuncio">
-              <img src={`http://localhost:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+              <img src={`http://192.168.1.192:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
             </div>
           </article>
         ))}

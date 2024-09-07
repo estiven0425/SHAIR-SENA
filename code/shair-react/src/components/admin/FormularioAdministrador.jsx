@@ -44,7 +44,7 @@ function FormularioAdministrador() {
     }
 
     try {
-      const respuesta = await axios.post("http://localhost:5000/administradorlogin", {
+      const respuesta = await axios.post("http://192.168.1.192:5000/administradorlogin", {
         email: valorEmail,
         contraseña: valorContraseña,
       });

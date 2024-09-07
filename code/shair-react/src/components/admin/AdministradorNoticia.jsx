@@ -35,7 +35,7 @@ function AdministradorNoticia() {
   useEffect(() => {
     const leerNoticia = async () => {
       try {
-        const respuesta = await axios.get("http://localhost:5000/noticia");
+        const respuesta = await axios.get("http://192.168.1.192:5000/noticia");
         const noticiasTotales = respuesta.data;
         const noticiasFiltradas = noticiasTotales.filter((noticia) => noticia.id_administrador === idAdministradoresNoticias);
 
@@ -147,7 +147,7 @@ function AdministradorNoticia() {
     const noticiaIndex = noticias.findIndex((noticia) => noticia.id === id);
 
     try {
-      await axios.put(`http://localhost:5000/noticia`, {
+      await axios.put(`http://192.168.1.192:5000/noticia`, {
         id: id,
         nombre: nombresNoticias[noticiaIndex],
         enunciado: enunciadosNoticias[noticiaIndex],
@@ -180,7 +180,7 @@ function AdministradorNoticia() {
   // ---------- Eliminar noticias ----------
   const eliminarNoticia = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/noticia`, {
+      await axios.delete(`http://192.168.1.192:5000/noticia`, {
         data: { id: id },
       });
 
@@ -308,7 +308,7 @@ function AdministradorNoticia() {
                 <div className="articuloAdministracionAlternativaContenido1">
                   <fieldset className="subSeccionArticuloAdministracionAlternativaContenido">
                     <div className="imagenArticuloAdministracionAlternativaContenido">
-                      <img src={`http://localhost:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
+                      <img src={`http://192.168.1.192:5000/${noticia.archivo_adjunto}`} alt="Imagen no disponible" />
                     </div>
                   </fieldset>
                 </div>

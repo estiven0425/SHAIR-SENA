@@ -828,4 +828,8 @@ h3 {
   .subSeccionFormularioAdministracionCrearError {
     bottom: 0px;
   }
+
+  #alertaAdministracionCrear {
+    width: 100%;
+  }
 }
