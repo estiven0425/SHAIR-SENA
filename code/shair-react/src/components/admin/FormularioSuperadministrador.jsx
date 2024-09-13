@@ -16,6 +16,7 @@ function FormularioSuperadministrador() {
   const redireccion = useNavigate();
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
@@ -42,7 +43,7 @@ function FormularioSuperadministrador() {
     }
 
     try {
-      const respuesta = await axios.post("http://192.168.1.192:5000/superadministradorlogin", {
+      const respuesta = await axios.post(`http://${localIP}:5000/superadministradorlogin`, {
         email: valorEmail,
         contraseña: valorContraseña,
       });

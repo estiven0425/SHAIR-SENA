@@ -14,6 +14,7 @@ function SuperadministradorCrearAdministrador() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
@@ -52,7 +53,7 @@ function SuperadministradorCrearAdministrador() {
     }
 
     try {
-      await axios.post("http://192.168.1.192:5000/administrador", {
+      await axios.post(`http://${localIP}:5000/administrador`, {
         nombre: nombre,
         email: email,
         celular: celular,

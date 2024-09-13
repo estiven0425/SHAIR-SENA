@@ -22,6 +22,7 @@ function AdministradorAnuncio() {
   const seleccionadoAnuncio = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -33,7 +34,7 @@ function AdministradorAnuncio() {
   useEffect(() => {
     const leerAnuncio = async () => {
       try {
-        const respuesta = await axios.get("http://:5000/anuncio");
+        const respuesta = await axios.get(`http://${localIP}:5000/anuncio`);
         const anunciosTotales = respuesta.data;
         const anunciosFiltrados = anunciosTotales.filter((anuncio) => anuncio.id_administrador === idAdministradoresAnuncios);
 
@@ -131,7 +132,7 @@ function AdministradorAnuncio() {
     const anuncioIndex = anuncios.findIndex((anuncio) => anuncio.id === id);
 
     try {
-      await axios.put(`http://:5000/anuncio`, {
+      await axios.put(`http://${localIP}:5000/anuncio`, {
         id: id,
         nombre: nombresAnuncios[anuncioIndex],
         enunciado: enunciadosAnuncios[anuncioIndex],
@@ -160,7 +161,7 @@ function AdministradorAnuncio() {
   // ---------- Eliminar anuncios ----------
   const eliminarAnuncio = async (id) => {
     try {
-      await axios.delete(`http://:5000/anuncio`, {
+      await axios.delete(`http://${localIP}:5000/anuncio`, {
         data: { id: id },
       });
 
@@ -258,7 +259,7 @@ function AdministradorAnuncio() {
                 <div className="articuloAdministracionAlternativaContenido1">
                   <fieldset className="ArticuloAdministracionAlternativaContenido">
                     <div className="imagenArticuloAdministracionAlternativaContenido">
-                      <img src={`http://:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+                      <img src={`http://${localIP}:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
                     </div>
                   </fieldset>
                 </div>

@@ -19,6 +19,7 @@ function AdministradorCrearAnuncio() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
@@ -91,7 +92,7 @@ function AdministradorCrearAnuncio() {
       if (imagen) {
         datosFormulario.append("file", imagen);
 
-        const cargaAnuncio = await axios.post("http://:5000/cargaAnuncio", datosFormulario, {
+        const cargaAnuncio = await axios.post(`http://${localIP}:5000/cargaAnuncio`, datosFormulario, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -100,7 +101,7 @@ function AdministradorCrearAnuncio() {
         rutaCargaAnuncio = cargaAnuncio.data.filePath;
       }
 
-      await axios.post("http://:5000/anuncio", {
+      await axios.post(`http://${localIP}:5000/anuncio`, {
         nombre,
         enunciado,
         archivo_adjunto: rutaCargaAnuncio === null ? "uploads/logo.png" : rutaCargaAnuncio,

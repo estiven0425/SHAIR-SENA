@@ -9,11 +9,12 @@ function Anuncio() {
   const [anuncio, setAnuncio] = useState([]);
   const [slider, setSlider] = useState(0);
   const itemReferenciado = useRef([]);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Obtención de anuncios ----------
   useEffect(() => {
     const leerAnuncio = async () => {
       try {
-        const respuesta = await axios.get("http://192.168.1.192:5000/anuncio");
+        const respuesta = await axios.get(`http://${localIP}:5000/anuncio`);
         setAnuncio(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
@@ -21,6 +22,7 @@ function Anuncio() {
     };
 
     leerAnuncio();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // ---------- Control deslizante ----------
   const activarSlider = (indice) => {
@@ -52,7 +54,7 @@ function Anuncio() {
               </div>
             </div>
             <div className="imagenArticuloContenidoSliderAnuncio">
-              <img src={`http://192.168.1.192:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
+              <img src={`http://${localIP}:5000/${anuncio.archivo_adjunto}`} alt="Imagen no disponible" />
             </div>
           </article>
         ))}

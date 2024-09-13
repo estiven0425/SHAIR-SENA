@@ -21,6 +21,7 @@ function AdministradorCrearNoticia() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
@@ -101,7 +102,7 @@ function AdministradorCrearNoticia() {
       if (imagen) {
         datosFormulario.append("file", imagen);
 
-        const cargaNoticia = await axios.post("http://:5000/cargaNoticia", datosFormulario, {
+        const cargaNoticia = await axios.post(`http://${localIP}:5000/cargaNoticia`, datosFormulario, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -110,7 +111,7 @@ function AdministradorCrearNoticia() {
         rutaCargaNoticia = cargaNoticia.data.filePath;
       }
 
-      await axios.post("http://:5000/noticia", {
+      await axios.post(`http://${localIP}:5000/noticia`, {
         nombre,
         enunciado,
         archivo_adjunto: rutaCargaNoticia === null ? "uploads/logo.png" : rutaCargaNoticia,

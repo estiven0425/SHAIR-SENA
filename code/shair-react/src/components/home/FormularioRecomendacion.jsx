@@ -14,6 +14,7 @@ function FormularioRecomendacion() {
   const [enviado, setEnviado] = useState(false);
   const [validacionError, setValidacionError] = useState({});
   const [servidorError, setServidorError] = useState(null);
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Validaciones de seguridad ----------
   const validacion = () => {
     const errors = {};
@@ -73,7 +74,7 @@ function FormularioRecomendacion() {
       if (imagen) {
         datosFormulario.append("file", imagen);
 
-        const cargaRecomendacion = await axios.post("http://192.168.1.192:5000/cargaRecomendacion", datosFormulario, {
+        const cargaRecomendacion = await axios.post(`http://${localIP}:5000/cargaRecomendacion`, datosFormulario, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -82,7 +83,7 @@ function FormularioRecomendacion() {
         rutaCargaRecomendacion = cargaRecomendacion.data.filePath;
       }
 
-      await axios.post("http://192.168.1.192:5000/recomendacion", {
+      await axios.post(`http://${localIP}:5000/recomendacion`, {
         titulo,
         recomendacion,
         archivo_adjunto: rutaCargaRecomendacion === null ? "review/logo.png" : rutaCargaRecomendacion,

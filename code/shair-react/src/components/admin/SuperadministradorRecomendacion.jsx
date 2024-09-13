@@ -13,11 +13,12 @@ function SuperadministradorRecomendacion() {
   const seleccionadoRecomendacion = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Obtención de recomendaciones ----------
   useEffect(() => {
     const leerRecomendacion = async () => {
       try {
-        const respuesta = await axios.get("http://192.168.1.192:5000/recomendacion");
+        const respuesta = await axios.get(`http://${localIP}:5000/recomendacion`);
         setRecomendaciones(respuesta.data);
       } catch (error) {
         console.error("Error al obtener anuncios: ", error);
@@ -25,6 +26,7 @@ function SuperadministradorRecomendacion() {
     };
 
     leerRecomendacion();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   // ---------- Deselección de recomendaciones ----------
   useEffect(() => {
@@ -51,7 +53,7 @@ function SuperadministradorRecomendacion() {
     const recomendacion = recomendaciones[recomendacionIndex];
 
     try {
-      await axios.put(`http://192.168.1.192:5000/recomendacion`, {
+      await axios.put(`http://${localIP}:5000/recomendacion`, {
         id: id,
         nombre: recomendacion.nombre,
         enunciado: recomendacion.enunciado,
@@ -67,7 +69,7 @@ function SuperadministradorRecomendacion() {
   // ---------- Eliminar recomendaciones ----------
   const eliminarRecomendacion = async (id) => {
     try {
-      await axios.delete(`http://192.168.1.192:5000/recomendacion`, {
+      await axios.delete(`http://${localIP}:5000/recomendacion`, {
         data: { id: id },
       });
 
@@ -89,7 +91,7 @@ function SuperadministradorRecomendacion() {
               </div>
               <div className="articuloAdministracionAlternativaContenido1">
                 <div className="imagenArticuloAdministracionAlternativaContenido">
-                  <img src={`http://192.168.1.192:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
+                  <img src={`http://${localIP}:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
                 </div>
               </div>
             </article>

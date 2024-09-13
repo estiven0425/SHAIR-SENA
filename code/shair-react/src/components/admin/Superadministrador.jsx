@@ -15,6 +15,7 @@ function Superadministrador() {
   const setSeccion = administracion.setSeccion;
   // eslint-disable-next-line no-unused-vars
   const subSeccion = administracion.subSeccion;
+  const localIP = process.env.REACT_APP_LOCAL_IP;
   // ---------- Obtención de información de inicio de sesión ----------
   useEffect(() => {
     setSeccion(0);
@@ -22,7 +23,7 @@ function Superadministrador() {
     const token = sessionStorage.getItem("token");
     const obtenerSuperadministrador = async () => {
       try {
-        const respuesta = await axios.post("http://192.168.1.192:5000/superadministradorlogin/inicio", {
+        const respuesta = await axios.post(`http://${localIP}:5000/superadministradorlogin/inicio`, {
           token: token,
         });
 
