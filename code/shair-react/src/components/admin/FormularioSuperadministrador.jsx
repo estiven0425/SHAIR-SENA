@@ -88,7 +88,7 @@ function FormularioSuperadministrador() {
         <button className="tarjetaFormularioPieBoton" type="button" onClick={() => setFormulario(0)}>
           Volver
         </button>
-        <button className="tarjetaFormularioPieBoton" type="button" onClick={enviarFormularioSuperadministrador}>
+        <button className="tarjetaFormularioPieBoton" type="submit" onClick={enviarFormularioSuperadministrador}>
           Acceder
         </button>
       </footer>

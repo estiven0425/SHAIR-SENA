@@ -29,6 +29,18 @@ function Anuncio() {
     setSlider(indice);
     itemReferenciado.current[indice].scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
+  // ---------- Automatización del slider ----------
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setSlider((prevSlider) => {
+        const nuevoSlider = (prevSlider + 1) % anuncio.length;
+        activarSlider(nuevoSlider);
+        return nuevoSlider;
+      });
+    }, 10000);
+
+    return () => clearInterval(intervalo);
+  }, [anuncio.length]);
   // ---------- Validación de anuncios ----------
   const anunciosFiltrados = anuncio.filter((anuncio) => {
     const fechaFin = new Date(anuncio.fecha_expiracion);

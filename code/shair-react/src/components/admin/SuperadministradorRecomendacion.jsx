@@ -82,50 +82,60 @@ function SuperadministradorRecomendacion() {
   return (
     <>
       {subSeccion === 8 ? (
-        recomendaciones.map((recomendacion) => (
-          <div key={recomendacion.id} className={seleccionRecomendacion === recomendacion.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarRecomendacion(recomendacion.id)} ref={seleccionRecomendacion === recomendacion.id ? seleccionadoRecomendacion : null}>
-            <h2>{recomendacion.nombre}</h2>
-            <article className="articuloAdministracionAlternativaContenido">
-              <div className="articuloAdministracionAlternativaContenido0">
-                <p>{recomendacion.enunciado}</p>
-              </div>
-              <div className="articuloAdministracionAlternativaContenido1">
-                <div className="imagenArticuloAdministracionAlternativaContenido">
-                  <img src={`http://${localIP}:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
-                </div>
-              </div>
-            </article>
-            {seleccionRecomendacion === recomendacion.id &&
-              (!editarSeleccionRecomendacion.includes(recomendacion.id) ? (
-                <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                  {recomendacion.aprobacion ? (
-                    <>
-                      <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, false)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                        Desaprobar
+        recomendaciones.length > 0 ? (
+            recomendaciones.map((recomendacion) => (
+              <div key={recomendacion.id} className={seleccionRecomendacion === recomendacion.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarRecomendacion(recomendacion.id)} ref={seleccionRecomendacion === recomendacion.id ? seleccionadoRecomendacion : null}>
+                <h2>{recomendacion.nombre}</h2>
+                <article className="articuloAdministracionAlternativaContenido">
+                  <div className="articuloAdministracionAlternativaContenido0">
+                    <p>{recomendacion.enunciado}</p>
+                  </div>
+                  <div className="articuloAdministracionAlternativaContenido1">
+                    <div className="imagenArticuloAdministracionAlternativaContenido">
+                      <img src={`http://${localIP}:5000/${recomendacion.archivo_adjunto}`} alt="Imagen no disponible" />
+                    </div>
+                  </div>
+                </article>
+                {seleccionRecomendacion === recomendacion.id &&
+                  (!editarSeleccionRecomendacion.includes(recomendacion.id) ? (
+                    <motion.div className="pieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                      {recomendacion.aprobacion ? (
+                        <>
+                          <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, false)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                            Desaprobar
+                          </motion.button>
+                          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                            Recomendación aprobada
+                          </motion.p>
+                        </>
+                      ) : (
+                        <>
+                          <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, true)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                            Aprobar
+                          </motion.button>
+                          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                            Recomendación desaprobada
+                          </motion.p>
+                        </>
+                      )}
+                      <motion.button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                        Eliminar
                       </motion.button>
-                      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                        Recomendación aprobada
-                      </motion.p>
-                    </>
+                    </motion.div>
                   ) : (
-                    <>
-                      <motion.button type="button" onClick={() => actualizarAnuncio(recomendacion.id, true)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                        Aprobar
-                      </motion.button>
-                      <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                        Recomendación desaprobada
+                    <></>
+                  ))}
+              </div>
+            ))) : (
+                  <motion.div className="AdministracionAlternativaContenidoSeleccionadoAlternativo">
+                      <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                          Parece que aún no se han enviado recomendaciones o se trata de un error.
+                      </motion.h1>
+                      <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                          Puedes recargar la página si crees que se trata de un error.
                       </motion.p>
-                    </>
-                  )}
-                  <motion.button type="button" onClick={() => eliminarRecomendacion(recomendacion.id)} className="botonPieAdministracionAlternativaContenidoSeleccionado" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
-                    Eliminar
-                  </motion.button>
-                </motion.div>
-              ) : (
-                <></>
-              ))}
-          </div>
-        ))
+                  </motion.div>
+              )
       ) : (
         <>
           <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>

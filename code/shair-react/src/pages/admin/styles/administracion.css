@@ -369,6 +369,15 @@
   width: 90%;
 }
 
+.AdministracionAlternativaContenidoSeleccionadoAlternativo {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
 .articuloAdministracionAlternativaContenido {
   align-content: center;
   display: flex;

@@ -149,6 +149,16 @@
   width: 100%;
 }
 
+.AdministracionAlternativaContenidoSeleccionadoAlternativo {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 0px 10px;
+}
+
 .subContenedorNoticia {
   align-content: center;
   display: flex;

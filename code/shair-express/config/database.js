@@ -7,7 +7,7 @@ const { Sequelize } = require("sequelize");
 // - "": contraseña de la base de datos (vacía en este caso)
 // - host: especifica la dirección del servidor donde se encuentra la base de datos (en este caso, "localhost")
 // - dialect: especifica el tipo de base de datos que estamos usando, en este caso "mysql".
-const sequelize = new Sequelize("shair", "root", "", {
+const sequelize = new Sequelize("shair-sena", "root", "", {
   host: "localhost",
   dialect: "mysql",
 });

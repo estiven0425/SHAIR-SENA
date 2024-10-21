@@ -157,7 +157,7 @@ function SuperadministradorAdministradores() {
 
   switch (subSeccion) {
     case 1:
-      contenido = (
+      contenido = administradores.length > 0 ? (
         <>
           {administradores.map((administrador, index) => (
             <div key={administrador.id_administrador} className={seleccionAdministrador === administrador.id_administrador ? "AdministracionContenidoSeleccionado" : "AdministracionContenido"} onClick={() => seleccionarAdministrador(administrador.id_administrador)} ref={seleccionAdministrador === administrador.id_administrador ? seleccionadoAdministrador : null}>
@@ -259,6 +259,15 @@ function SuperadministradorAdministradores() {
             </div>
           ))}
         </>
+      ) : (
+        <motion.div className="AdministracionAlternativaContenidoSeleccionadoAlternativo">
+            <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                Parece que aún no existen administradores o se trata de un error.
+            </motion.h1>
+            <motion.p  className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                En el panel superior puedes acceder a la sección para crear un administrador.
+            </motion.p>
+        </motion.div>
       );
       break;
     case 2:

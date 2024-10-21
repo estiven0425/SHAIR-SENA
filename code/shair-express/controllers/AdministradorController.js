@@ -1,5 +1,6 @@
 // Importamos el módulo bcrypt para realizar operaciones de hashing (encriptación) de contraseñas.
 const bcrypt = require("bcrypt");
+const { sequelize } = require("../config/database.js");
 
 // Importamos el modelo de Administrador, que representa la tabla de administradores en la base de datos.
 const Administrador = require("../models/Administrador");
@@ -84,7 +85,9 @@ exports.eliminarAdministrador = async (req, res) => {
 
     if (administrador) {
       // Si el administrador existe, lo eliminamos de la base de datos.
-      await administrador.destroy();
+        await sequelize.query(`CALL eliminar_administrador(:id_administrador)`, {
+            replacements: { id_administrador },
+        });
 
       // Respondemos con un mensaje indicando que el administrador ha sido eliminado.
       res.json({ message: "Administrador eliminado" });

@@ -29,7 +29,7 @@ function Noticia() {
     return fechaFin >= fechaActual;
   });
   // ---------- Respuesta del proceso ----------
-  return (
+  return noticiasFiltradas.length > 0 ? (
     <>
       {noticiasFiltradas.map((noticia) => (
         <motion.div key={noticia.id} className="subContenedorNoticia" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
@@ -69,7 +69,16 @@ function Noticia() {
         </motion.div>
       ))}
     </>
-  );
+  ) : (
+      <motion.div className="AdministracionAlternativaContenidoSeleccionadoAlternativo">
+        <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Parece que aún no existen noticias o se trata de un error.
+        </motion.h1>
+        <motion.p  className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Puedes ponerte en contacto con un administrador mediante una recomendación para notificar la novedad.
+        </motion.p>
+      </motion.div>
+      );
 }
 // ---------- Exportación del proceso ----------
 export default Noticia;

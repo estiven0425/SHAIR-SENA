@@ -66,7 +66,7 @@ function AdministradorRecomendacion() {
 
   switch (subSeccion) {
     case 7:
-      contenido = (
+      contenido = recomendaciones.length > 0 ? (
         <>
           {recomendaciones.map((recomendacion) => (
             <div key={recomendacion.id} className={seleccionRecomendacion === recomendacion.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarRecomendacion(recomendacion.id)} ref={seleccionRecomendacion === recomendacion.id ? seleccionadoRecomendacion : null}>
@@ -94,6 +94,15 @@ function AdministradorRecomendacion() {
             </div>
           ))}
         </>
+      ) : (
+          <motion.div className="AdministracionAlternativaContenidoSeleccionadoAlternativo">
+              <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                  Parece que aún no hay recomendaciones o se trata de un error.
+              </motion.h1>
+              <motion.p className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+                  Puedes contactarte con el superadministrador para consultar si se trata de recomendaciones no aprobadas o un error.
+              </motion.p>
+          </motion.div>
       );
       break;
     default:

@@ -176,7 +176,7 @@ function AdministradorAnuncio() {
 
   switch (subSeccion) {
     case 5:
-      contenido = (
+      contenido = anuncios.length > 0 ? (
         <>
           {anuncios.map((anuncio, index) => (
             <div key={anuncio.id} className={seleccionAnuncio === anuncio.id ? "AdministracionAlternativaContenidoSeleccionado" : "AdministracionAlternativaContenido"} onClick={() => seleccionarAnuncio(anuncio.id)} ref={seleccionAnuncio === anuncio.id ? seleccionadoAnuncio : null}>
@@ -293,6 +293,15 @@ function AdministradorAnuncio() {
             </div>
           ))}
         </>
+      ) : (
+      <motion.div className="AdministracionAlternativaContenidoSeleccionadoAlternativo">
+        <motion.h1 className="tituloAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            Parece que aún no tienes anuncios o se trata de un error.
+        </motion.h1>
+        <motion.p  className="parrafoAdministracionPrincipal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+            En el panel superior puedes acceder a la sección para crear un anuncio.
+        </motion.p>
+      </motion.div>
       );
       break;
     case 6:
