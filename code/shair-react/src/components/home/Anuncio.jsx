@@ -31,15 +31,21 @@ function Anuncio() {
   };
   // ---------- Automatización del slider ----------
   useEffect(() => {
-    const intervalo = setInterval(() => {
-      setSlider((prevSlider) => {
-        const nuevoSlider = (prevSlider + 1) % anuncio.length;
-        activarSlider(nuevoSlider);
-        return nuevoSlider;
-      });
-    }, 10000);
+      if (anunciosFiltrados.length > 0) {
+        const delayIntervalo = setTimeout(() => {
+          const intervalo = setInterval(() => {
+              setSlider((prevSlider) => {
+                  const nuevoSlider = (prevSlider + 1) % anuncio.length;
+                  activarSlider(nuevoSlider);
+                  return nuevoSlider;
+              });
+          }, 10000);
+          return () => clearInterval(intervalo);
+      }, 5000);
 
-    return () => clearInterval(intervalo);
+    return () => clearTimeout(delayIntervalo);
+      }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [anuncio.length]);
   // ---------- Validación de anuncios ----------
   const anunciosFiltrados = anuncio.filter((anuncio) => {

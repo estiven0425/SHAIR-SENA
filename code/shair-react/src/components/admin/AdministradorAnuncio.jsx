@@ -19,6 +19,7 @@ function AdministradorAnuncio() {
   const [administradoresAnuncios, setAdministradoresAnuncios] = useState([]);
   const [idAdministradoresAnuncios, setIdAdministradoresAnuncios] = useState([]);
   const [masInformacionesAnuncios, setMasInformacionAnuncios] = useState([]);
+  const [editarSeleccionAnuncioInterruptor, setEditarSeleccionAnuncioInterruptor] = useState(false)
   const seleccionadoAnuncio = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
@@ -76,6 +77,10 @@ function AdministradorAnuncio() {
       document.removeEventListener("mousedown", deseleccionarAnuncio);
     };
   }, [seleccionadoAnuncio]);
+  // ---------- Interruptor en deselección de anuncio ----------
+  useEffect(() => {
+    setEditarSeleccionAnuncioInterruptor(false);
+  }, [seleccionAnuncio]);
   // ---------- Selección de anuncio ----------
   const seleccionarAnuncio = (id) => {
     setSeleccionAnuncio(id);
@@ -89,6 +94,7 @@ function AdministradorAnuncio() {
         return [...prevState, id];
       }
     });
+    setEditarSeleccionAnuncioInterruptor(() => !editarSeleccionAnuncioInterruptor);
   };
   // ---------- Cancelar edición ----------
   const cancelarEditarAnuncio = (id) => {
@@ -126,6 +132,7 @@ function AdministradorAnuncio() {
       return nuevoEstado;
     });
     setEditarSeleccionAnuncio((prevState) => prevState.filter((idNoticia) => idNoticia !== id));
+    setEditarSeleccionAnuncioInterruptor(() => !editarSeleccionAnuncioInterruptor);
   };
   // ---------- Actualizar anuncios ----------
   const actualizarAnuncio = async (id) => {
@@ -186,7 +193,7 @@ function AdministradorAnuncio() {
                     type="text"
                     name="nombreArticuloAdministracionAlternativaContenido"
                     id={editarSeleccionAnuncio.includes(anuncio.id) ? "nombreArticuloAlternativoAdministracionAlternativaContenido" : "nombreArticuloAdministracionAlternativaContenido"}
-                    disabled={seleccionAnuncio !== anuncio.id}
+                    disabled={editarSeleccionAnuncioInterruptor === false}
                     value={nombresAnuncios[index] || ""}
                     onChange={(e) => {
                       const nuevosNombres = [...nombresAnuncios];
@@ -201,7 +208,7 @@ function AdministradorAnuncio() {
                       type="text"
                       name="enunciadoArticuloAdministracionAlternativaContenido"
                       id="enunciadoArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionAnuncio !== anuncio.id}
+                      disabled={editarSeleccionAnuncioInterruptor === false}
                       value={enunciadosAnuncios[index] || ""}
                       onChange={(e) => {
                         const nuevosEnunciados = [...enunciadosAnuncios];
@@ -216,7 +223,7 @@ function AdministradorAnuncio() {
                       type="date"
                       name="fechaExpiracionArticuloAdministracionAlternativaContenido"
                       id="fechaExpiracionArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionAnuncio !== anuncio.id}
+                      disabled={editarSeleccionAnuncioInterruptor === false}
                       value={fechasExpiracionAnuncios[index] || ""}
                       onChange={(e) => {
                         const nuevasFechasExpiracion = [...fechasExpiracionAnuncios];
@@ -246,7 +253,7 @@ function AdministradorAnuncio() {
                       type="text"
                       name="masInformacionArticuloAdministracionAlternativaContenido"
                       id="masInformacionArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionAnuncio !== anuncio.id}
+                      disabled={editarSeleccionAnuncioInterruptor === false}
                       value={masInformacionesAnuncios[index] || ""}
                       onChange={(e) => {
                         const nuevasMasInformacion = [...masInformacionesAnuncios];

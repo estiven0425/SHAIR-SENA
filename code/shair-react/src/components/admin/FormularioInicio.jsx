@@ -30,7 +30,7 @@ function FormularioInicio() {
           Superadministrador
         </button>
         <button className="tarjetaFormularioPieBoton tarjetaFormularioPieBotonAlternativo" type="button" onClick={() => setFormulario(2)}>
-          Administador
+          Administrador
         </button>
         <Link to="/" id="enlaceTarjetaFormularioPieBoton">
           Volver

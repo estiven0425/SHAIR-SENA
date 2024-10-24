@@ -21,6 +21,7 @@ function AdministradorNoticia() {
   const [administradoresNoticias, setAdministradoresNoticias] = useState([]);
   const [idAdministradoresNoticias, setIdAdministradoresNoticias] = useState([]);
   const [masInformacionesNoticias, setMasInformacionNoticias] = useState([]);
+  const [editarSeleccionNoticiaInterruptor, setEditarSeleccionNoticiaInterruptor] = useState(false)
   const seleccionadaNoticia = useRef(null);
   const administracion = useContext(AdministracionContexto);
   const subSeccion = administracion.subSeccion;
@@ -82,6 +83,10 @@ function AdministradorNoticia() {
       document.removeEventListener("mousedown", deseleccionarNoticia);
     };
   }, [seleccionadaNoticia]);
+  // ---------- Interruptor en deselección de noticia ----------
+  useEffect(() => {
+    setEditarSeleccionNoticiaInterruptor(false);
+  }, [seleccionNoticia]);
   // ---------- Selección de noticia ----------
   const seleccionarNoticia = (id) => {
     setSeleccionNoticia(id);
@@ -95,6 +100,7 @@ function AdministradorNoticia() {
         return [...prevState, id];
       }
     });
+    setEditarSeleccionNoticiaInterruptor(() => !editarSeleccionNoticiaInterruptor);
   };
   // ---------- Cancelar edición ----------
   const cancelarEditarNoticia = (id) => {
@@ -142,6 +148,7 @@ function AdministradorNoticia() {
       return nuevoEstado;
     });
     setEditarSeleccionNoticia((prevState) => prevState.filter((idNoticia) => idNoticia !== id));
+    setEditarSeleccionNoticiaInterruptor(() => !editarSeleccionNoticiaInterruptor);
   };
   // ---------- Actualizar de noticias ----------
   const actualizarNoticia = async (id) => {
@@ -206,7 +213,7 @@ function AdministradorNoticia() {
                     type="text"
                     name="nombreArticuloAdministracionAlternativaContenido"
                     id={editarSeleccionNoticia.includes(noticia.id) ? "nombreArticuloAlternativoAdministracionAlternativaContenido" : "nombreArticuloAdministracionAlternativaContenido"}
-                    disabled={seleccionNoticia !== noticia.id}
+                    disabled={editarSeleccionNoticiaInterruptor === false}
                     value={nombresNoticias[index] || ""}
                     onChange={(e) => {
                       const nuevosNombres = [...nombresNoticias];
@@ -221,7 +228,7 @@ function AdministradorNoticia() {
                       type="text"
                       name="enunciadoArticuloAdministracionAlternativaContenido"
                       id="enunciadoArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionNoticia !== noticia.id}
+                      disabled={editarSeleccionNoticiaInterruptor === false}
                       value={enunciadosNoticias[index] || ""}
                       onChange={(e) => {
                         const nuevosEnunciados = [...enunciadosNoticias];
@@ -236,7 +243,7 @@ function AdministradorNoticia() {
                       type="text"
                       name="lugarArticuloAdministracionAlternativaContenido"
                       id="lugarArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionNoticia !== noticia.id}
+                      disabled={editarSeleccionNoticiaInterruptor === false}
                       value={lugaresNoticias[index] || ""}
                       onChange={(e) => {
                         const nuevosLugares = [...lugaresNoticias];
@@ -251,7 +258,7 @@ function AdministradorNoticia() {
                       type="date"
                       name="fechaInicioArticuloAdministracionAlternativaContenido"
                       id="fechaInicioArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionNoticia !== noticia.id}
+                      disabled={editarSeleccionNoticiaInterruptor === false}
                       value={fechasInicioNoticias[index] || ""}
                       onChange={(e) => {
                         const nuevasFechasInicio = [...fechasInicioNoticias];
@@ -266,7 +273,7 @@ function AdministradorNoticia() {
                       type="date"
                       name="fechaFinArticuloAdministracionAlternativaContenido"
                       id="fechaFinArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionNoticia !== noticia.id}
+                      disabled={editarSeleccionNoticiaInterruptor === false}
                       value={fechasFinNoticias[index] || ""}
                       onChange={(e) => {
                         const nuevasFechasFin = [...fechasFinNoticias];
@@ -296,7 +303,7 @@ function AdministradorNoticia() {
                       type="text"
                       name="masInformacionArticuloAdministracionAlternativaContenido"
                       id="masInformacionArticuloAdministracionAlternativaContenido"
-                      disabled={seleccionNoticia !== noticia.id}
+                      disabled={editarSeleccionNoticiaInterruptor === false}
                       value={masInformacionesNoticias[index] || ""}
                       onChange={(e) => {
                         const nuevasMasInformacion = [...masInformacionesNoticias];
