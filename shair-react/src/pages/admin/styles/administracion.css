@@ -831,6 +831,12 @@ h3 {
     width: 100%;
   }
   .pieAdministracionAlternativaContenidoSeleccionado {
+    margin: 10px 0px;
+    width: 100%;
+  }
+
+  .pieAdministracionAlternativaContenidoSeleccionado p {
+    text-align: center;
     width: 100%;
   }
 
