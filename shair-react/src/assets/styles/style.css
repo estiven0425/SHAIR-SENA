@@ -1,0 +1,204 @@
+/* ESTILOS GENERALES DE LA APLICACIÓN */
+/* ---------- Importaciones ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Work+Sans:ital@0;1&display=swap");
+/* ---------- Estilos ---------- */
+* {
+  font-family: Work Sans;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+  word-break: break-all;
+}
+
+html {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body {
+  margin: 0px;
+}
+
+#Footer {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.seccionFooter {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+}
+
+#seccionFooterSuperior {
+  background-color: rgb(4, 50, 77);
+}
+
+#seccionFooter0 img {
+  width: 100%;
+}
+
+#seccionFooter1 {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.contenedorSeccionFooter1Superior {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.subContenedorSeccionFooter1Superior {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.subContenedorSeccionFooter1Superior div {
+  border-radius: 2.5px;
+  height: 10px;
+  margin: 10px;
+  width: 10px;
+}
+
+#cuadroSubContenedorSeccionFooter1Superior0 {
+  background-color: rgb(198, 23, 32);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior1 {
+  background-color: rgb(1, 99, 12);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior2 {
+  background-color: rgb(62, 99, 0);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior3 {
+  background-color: rgb(153, 0, 1);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior4 {
+  background-color: rgb(64, 14, 152);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior5 {
+  background-color: rgb(56, 23, 12);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior6 {
+  background-color: rgb(21, 30, 153);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior7 {
+  background-color: rgb(83, 20, 0);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior8 {
+  background-color: rgb(83, 20, 0);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior9 {
+  background-color: rgb(14, 62, 153);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior10 {
+  background-color: rgb(92, 131, 1);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior11 {
+  background-color: rgb(43, 19, 153);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior12 {
+  background-color: rgb(153, 98, 1);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior13 {
+  background-color: rgb(30, 115, 115);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior14 {
+  background-color: rgb(153, 41, 0);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior15 {
+  background-color: rgb(59, 153, 0);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior16 {
+  background-color: rgb(145, 145, 145);
+}
+
+#cuadroSubContenedorSeccionFooter1Superior17 {
+  background-color: rgb(153, 0, 1);
+}
+
+.enlaceSubContenedorSeccionFooter1Superior {
+  color: rgb(255, 255, 255);
+  font-size: 0.75rem;
+  text-decoration: none;
+  text-align: left;
+}
+
+.enlaceSubContenedorSeccionFooter1Superior:hover {
+  text-decoration: underline;
+}
+
+.enlaceSubContenedorSeccionFooter1Superior:focus {
+  outline: none;
+  text-decoration: underline;
+}
+
+#seccionFooterMedia {
+  background-color: rgb(57, 169, 0);
+}
+
+#contenidoSeccionFooterMedia p,
+#contenidoSeccionFooterMedia a {
+  color: rgb(255, 255, 255);
+  display: block;
+  font-size: 0.75rem;
+  margin: 2.5px;
+  text-align: left;
+}
+
+#contenidoSeccionFooterMedia a:hover {
+  outline: none;
+  font-weight: 800;
+}
+
+#contenidoSeccionFooterMedia a:focus {
+  outline: none;
+  font-weight: 800;
+}
+
+#certificadoSeccionFooterMedia img {
+  width: 100%;
+}
+
+#seccionFooterInferior {
+  background-color: rgb(51, 102, 204);
+  justify-content: flex-start;
+}
+
+#seccionFooterInferior img {
+  width: 25%;
+}
